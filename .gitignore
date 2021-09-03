@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# REMOVE !!!!!!!!!!!!
+# REMOVIOSDFIDASIFDIO!!!!!!!!!!!!!!!!!!!!!!!!!
+/src/assets
+
 # testing
 /coverage
 

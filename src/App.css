@@ -1,3 +1,52 @@
+@font-face {
+  font-family: 'harmond';
+  src: url('./assets/fonts/harmond/Harmond-SemiBoldCondensed.otf');
+}
+
+@font-face {
+  font-family: 'harmond-italic';
+  src: url('./assets//fonts/harmond/Harmond-SemBdItaCond.otf');
+}
+
+@font-face {
+  font-family: 'magilio';
+  src: url('./assets/fonts/magilio/MagilioRegular-Yzv2O.ttf');
+}
+
+html {
+  background-color: black;
+}
+
+* {
+  margin: 0;
+  font-family: 'Helvetica', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+nav {
+  color: white;
+}
+
+.hero-header {
+  font-family: harmond;
+  font-size: 150px;
+}
+
+.image {
+  position: absolute;
+  z-index: -1;
+  width: 500px;
+  height: 700px;
+  filter: brightness(0.5);
+  object-fit: cover;
+}
+
+.header-italic {
+  font-family: harmond-italic;
+  font-size: 150px;
+}
+
 .App {
   text-align: center;
 }
@@ -14,7 +63,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
