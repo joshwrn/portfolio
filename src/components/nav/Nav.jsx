@@ -8,7 +8,11 @@ const Nav = () => {
   };
 
   return (
-    <motion.nav>
+    <motion.nav
+      initial={{ opacity: 0, y: '-54px' }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, type: 'spring', stiffness: 100 }}
+    >
       <p className={Styles.name}>JOSH WARREN</p>
       <p className={Styles.portfolio}>PORTFOLIO {date()}</p>
     </motion.nav>

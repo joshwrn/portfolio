@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+}
+
+.email {
+  font-size: 4rem;
+  background: -webkit-linear-gradient(45deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #dfd877 95%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100% 500%;
+  /* animation: gradientMove 2s ease infinite alternate; */
+}
+
+@media only screen and (max-width: 850px) {
+  .email {
+    font-size: 3rem;
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}

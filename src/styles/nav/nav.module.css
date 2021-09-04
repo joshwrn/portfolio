@@ -2,8 +2,10 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 25px 50px;
-  width: 100%;
+  width: 100vw;
   height: 54px;
   box-sizing: border-box;
   position: fixed;
+  font-weight: bold;
+  color: white;
 }
