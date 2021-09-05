@@ -4,7 +4,7 @@ import Styles from '../../styles/portfolio/portfolio__sections.module.css';
 import { useInView } from 'react-intersection-observer';
 import defaults from '../../framer/inView';
 
-const PortfolioSection = ({ header, sub, desc, src }) => {
+const PortfolioSection = ({ header, sub, desc, src, codeLink, demoLink }) => {
   const [ref, inView] = useInView({
     threshold: 0,
     rootMargin: '50px',
@@ -28,8 +28,12 @@ const PortfolioSection = ({ header, sub, desc, src }) => {
             <motion.p className={Styles.subHeader}>{sub}</motion.p>
             <motion.p className={Styles.description}>{desc}</motion.p>
             <div className={Styles.linksContainer}>
-              <button className={`${Styles.button} ${Styles.live}`}>Live Demo</button>
-              <button className={`${Styles.button} ${Styles.view}`}>View Code</button>
+              <a rel="noreferrer" target="_blank" href={demoLink}>
+                <button className={`${Styles.button} ${Styles.live}`}>Live Demo</button>
+              </a>
+              <a rel="noreferrer" target="_blank" href={codeLink}>
+                <button className={`${Styles.button} ${Styles.view}`}>View Code</button>
+              </a>
             </div>
           </div>
           <motion.img ref={ref} className={Styles.image} src={src} alt="" />

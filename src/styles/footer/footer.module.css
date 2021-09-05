@@ -3,17 +3,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 500px;
   width: 100%;
 }
 
-.bg {
+/* .bg {
   position: absolute;
   height: 70vh;
   width: 100%;
-  /* background: -webkit-linear-gradient(45deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #dfd877 95%);
+   background: -webkit-linear-gradient(45deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #dfd877 95%);
   background-size: 100% 500%;
-  animation: gradientMove 2s ease infinite alternate; */
+  animation: gradientMove 2s ease infinite alternate; 
   z-index: -2;
 }
 
@@ -23,7 +23,7 @@
   background: linear-gradient(180deg, black, rgba(255, 23, 23, 0));
   position: absolute;
   z-index: -1;
-}
+} */
 
 .email {
   font-size: 4rem;
@@ -63,4 +63,8 @@
 .socialIcon {
   font-size: 4rem;
   cursor: pointer;
+}
+
+.socialIcon:hover {
+  color: var(--color-hover);
 }

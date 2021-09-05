@@ -69,3 +69,9 @@
   font-size: 1.7rem;
   line-height: 30px;
 }
+
+.link {
+  font-family: haas-roman;
+  font-size: 1.7rem;
+  text-decoration: underline;
+}

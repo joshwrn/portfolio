@@ -35,7 +35,7 @@
   font-size: 8rem;
 }
 
-.headerContainer p {
+.headerContainer h2 {
   font-size: 8rem;
   transform: translateY(100vh);
 }

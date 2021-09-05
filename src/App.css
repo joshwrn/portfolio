@@ -23,15 +23,42 @@
   src: url('./assets/fonts/haas/NeueHaasDisplayRoman.woff');
 }
 
+/* :root {
+  --bg-color: rgb(255, 255, 255);
+  --font-color-one: rgb(95, 95, 95);
+  --font-color-two: rgb(126, 126, 126);
+  --bg-portfolio: rgb(255, 255, 255);
+  --border-portfolio: 1px solid rgba(221, 221, 221, 0);
+  --btn-bg-portfolio-live: rgb(26, 26, 26);
+  --btn-border-portfolio: 1px solid rgb(233, 233, 233);
+  --btn-color-portfolio-live: rgb(240, 240, 240);
+  --color-hover: rgb(0, 0, 0);
+} */
+
+:root {
+  --bg-color: black;
+  --font-color-one: rgb(212, 212, 212);
+  --font-color-two: rgb(192, 192, 192);
+  --bg-portfolio: rgb(10, 10, 10);
+  --border-portfolio: 1px solid rgb(26, 26, 26);
+  --btn-bg-portfolio-live: rgb(221, 221, 221);
+  --btn-border-portfolio: 1px solid rgb(39, 39, 39);
+  --btn-color-portfolio-live: rgb(77, 77, 77);
+  --color-hover: white;
+}
+
 html {
-  background-color: black;
+  background-color: var(--bg-color);
   width: 100vw;
   overflow-x: hidden;
 }
 
 body {
+  position: relative;
   overflow-x: hidden;
   width: 100vw;
+  background-color: var(--bg-color);
+  z-index: -3;
 }
 
 * {
@@ -48,7 +75,7 @@ p,
 a,
 div {
   font-size: 1.6rem;
-  color: rgb(192, 192, 192);
+  color: var(--font-color-two);
 }
 
 h1,
@@ -57,7 +84,7 @@ h3,
 h4,
 h5 {
   font-size: 2rem;
-  color: rgb(212, 212, 212);
+  color: var(--font-color-one);
   font-family: haas !important;
 }
 

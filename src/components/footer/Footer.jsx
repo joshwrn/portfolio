@@ -25,13 +25,21 @@ const Footer = () => {
   }, [inView]);
   return (
     <motion.div animate={animateText} ref={ref} className={Styles.container}>
-      <h2 className={Styles.email}>joshnwarren@gmail.com</h2>
+      <a href="mailto:joshnwarren@gmail.com">
+        <h2 className={Styles.email}>joshnwarren@gmail.com</h2>
+      </a>
       <div className={Styles.bg}></div>
       <div className={Styles.gradient}></div>
       <div className={Styles.socials}>
-        <IoLogoGithub className={Styles.socialIcon} />
-        <IoLogoCodepen className={Styles.socialIcon} />
-        <AiFillTwitterCircle className={Styles.socialIcon} />
+        <a rel="noreferrer" target="_blank" href="https://github.com/joshwrn">
+          <IoLogoGithub className={Styles.socialIcon} />
+        </a>
+        <a rel="noreferrer" target="_blank" href="https://codepen.io/joshwrn">
+          <IoLogoCodepen className={Styles.socialIcon} />
+        </a>
+        <a rel="noreferrer" target="_blank" href="https://twitter.com/joshwrn">
+          <AiFillTwitterCircle className={Styles.socialIcon} />
+        </a>
       </div>
     </motion.div>
   );

@@ -85,5 +85,5 @@
 }
 
 .iconContainer:hover .skillText {
-  color: white;
+  color: var(--color-hover);
 }

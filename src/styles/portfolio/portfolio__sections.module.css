@@ -13,9 +13,10 @@
   padding: 10px 75px;
   box-sizing: border-box;
   border-radius: 12px;
-  background-color: rgb(10, 10, 10);
-  border: 1px solid rgb(26, 26, 26);
+  background-color: var(--bg-portfolio);
+  border: var(--border-portfolio);
   opacity: 0;
+  box-shadow: 0px 2px 20px 1px rgba(0, 0, 0, 0.068);
 }
 
 @media only screen and (max-width: 850px) {
@@ -81,13 +82,14 @@
   padding: 10px 30px;
   border-radius: 13px;
   background-color: transparent;
-  border: 1px solid rgb(39, 39, 39);
+  color: var(--font-color-one);
+  border: var(--btn-border-portfolio);
   transition: color 0.25s, box-shadow 0.5s;
 }
 
 .live {
-  background-color: rgb(221, 221, 221);
-  color: rgb(77, 77, 77);
+  background-color: var(--btn-bg-portfolio-live);
+  color: var(--btn-color-portfolio-live);
 }
 
 .button:hover {
