@@ -1,9 +1,12 @@
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 25px 50px;
   width: 100vw;
   height: 54px;
+  top: 0;
+  left: 0;
   box-sizing: border-box;
   position: fixed;
   font-weight: bold;

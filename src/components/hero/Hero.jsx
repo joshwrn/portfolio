@@ -31,7 +31,9 @@ const Hero = () => {
         <motion.img className={Styles.image} animate={animation} src={src} alt="" />
       </div> */}
       <motion.div animate={headerAnim} className={Styles.headerContainer}>
-        <motion.h2 className={Styles.header}>Josh Warren. Full Stack React Developer.</motion.h2>
+        <motion.h2 animate={headerAnim} className={Styles.header}>
+          Josh Warren. Full Stack React Developer.
+        </motion.h2>
         <motion.p className={Styles.sub}></motion.p>
       </motion.div>
       <div className={Styles.gradient}></div>

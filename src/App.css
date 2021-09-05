@@ -18,6 +18,11 @@
   src: url('./assets/fonts/haas/NeueHaasDisplayMedium.woff');
 }
 
+@font-face {
+  font-family: 'haas-roman';
+  src: url('./assets/fonts/haas/NeueHaasDisplayRoman.woff');
+}
+
 html {
   background-color: black;
   width: 100vw;
@@ -99,4 +104,10 @@ input::placeholder {
 textarea:focus,
 input:focus {
   outline: none;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
 }

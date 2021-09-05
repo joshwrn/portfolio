@@ -2,7 +2,6 @@
 
 .outer {
   width: 100%;
-  margin-bottom: 50px;
 }
 
 .sectionContainer {
@@ -14,8 +13,8 @@
   padding: 10px 75px;
   box-sizing: border-box;
   border-radius: 12px;
-  background-color: rgb(19, 19, 19);
-  border: 1px solid rgb(39, 39, 39);
+  background-color: rgb(10, 10, 10);
+  border: 1px solid rgb(26, 26, 26);
   opacity: 0;
 }
 
@@ -31,7 +30,7 @@
   grid-template-columns: 2fr 3fr;
   column-gap: 50px;
   justify-content: center;
-  margin: 30px 0 0 0;
+  align-items: center;
 }
 
 @media only screen and (max-width: 850px) {
@@ -53,19 +52,20 @@
 
 .header {
   font-size: 5rem;
-  font-family: harmond;
 }
 
 .subHeader {
   font-size: 1.4rem;
   font-weight: bold;
   text-transform: uppercase;
+  margin-top: 10px;
 }
 
 .description {
   margin-top: 25px;
   line-height: 2.8rem;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  font-family: haas-roman;
 }
 
 /*@ Buttons */
@@ -91,11 +91,11 @@
 }
 
 .button:hover {
-  background: -webkit-linear-gradient(45deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #dfd877 95%);
+  background: -webkit-linear-gradient(45deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #dfbe77 95%);
   color: white;
   /* offset-x | offset-y | blur-radius | spread-radius | color */
   box-shadow: 0px 0px 7px 1px rgba(255, 122, 122, 0.2);
-  background-size: 100% 500%;
+  background-size: 100% 800%;
   animation: gradientMove 5s ease infinite alternate;
 }
 

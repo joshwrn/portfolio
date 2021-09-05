@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 40px 10%;
+}
+
+@media only screen and (max-width: 850px) {
+  .container {
+    padding: 20px;
+  }
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  overflow: hidden;
+  height: 100px;
+  margin: 0 0 50px 0;
+}
+
+@media only screen and (max-width: 850px) {
+  .headerContainer {
+    justify-content: center;
+  }
+}
+
+.header {
+  font-size: 8rem;
+  transform: translateY(100vh);
+}
+
+.sectionContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: flex-start;
+  gap: 100px;
+}
+
+.rowContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.iconRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 100%;
+}
+
+.rowHeader {
+  font-size: 3rem;
+  width: 100%;
+}
+
+.animationContainer {
+  overflow: hidden;
+  height: 4rem;
+}
+
+.iconContainer {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 3.7rem;
+  color: rgb(212, 212, 212);
+}
+
+.skillText {
+  font-size: 2.1rem;
+  color: gray;
+  font-family: haas-roman;
+}
+
+.iconContainer:hover .skillText {
+  color: white;
+}

@@ -18,6 +18,9 @@
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  overflow: hidden;
+  height: 100px;
+  margin: 0 0 50px 0;
 }
 
 @media only screen and (max-width: 850px) {
@@ -27,8 +30,18 @@
 }
 
 .header {
-  opacity: 0;
+  display: flex;
+  opacity: 1;
   font-size: 8rem;
-  font-family: harmond;
-  margin: 50px 0 50px 0;
+}
+
+.headerContainer p {
+  font-size: 8rem;
+  transform: translateY(100vh);
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
 }
