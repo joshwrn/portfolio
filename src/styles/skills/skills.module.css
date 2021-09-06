@@ -39,7 +39,11 @@
   align-items: flex-start;
   gap: 100px;
 }
-
+@media only screen and (max-width: 850px) {
+  .sectionContainer {
+    flex-direction: column;
+  }
+}
 .rowContainer {
   display: flex;
   justify-content: space-evenly;

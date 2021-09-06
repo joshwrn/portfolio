@@ -7,6 +7,13 @@
   width: 100%;
 }
 
+@media only screen and (max-width: 850px) {
+  .container {
+    justify-content: flex-start;
+    height: 300px;
+  }
+}
+
 /* .bg {
   position: absolute;
   height: 70vh;

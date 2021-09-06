@@ -40,12 +40,25 @@
   justify-content: flex-start;
   gap: 100px;
 }
+@media only screen and (max-width: 850px) {
+  .sectionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 .stickerContainer {
   display: flex;
   width: 100%;
   justify-content: flex-start;
   transform: translateY(-80px);
+}
+
+@media only screen and (max-width: 850px) {
+  .stickerContainer {
+    justify-content: center;
+  }
 }
 
 .sticker {
