@@ -26,21 +26,32 @@ const Hero = () => {
     'https://images.unsplash.com/photo-1509114397022-ed747cca3f65?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80';
 
   return (
-    <div ref={ref} className={Styles.hero}>
+    <motion.div animate={headerAnim} className={Styles.hero}>
       {/* <div className={Styles.imageContainer}>
         <motion.img className={Styles.image} animate={animation} src={src} alt="" />
       </div> */}
-      <motion.div animate={headerAnim} className={Styles.headerContainer}>
-        <motion.h2 animate={headerAnim} className={Styles.header}>
-          Josh Warren. Full Stack React Developer.
-        </motion.h2>
+      <motion.div className={Styles.headerContainer}>
+        <motion.h2 className={Styles.header}>Josh Warren. Full Stack React Developer.</motion.h2>
         <motion.p className={Styles.sub}></motion.p>
       </motion.div>
       <div className={Styles.gradient}></div>
-      <motion.video animate={animation} playsinline muted autoPlay loop className={Styles.video}>
-        <source src={heroVideo} type="video/mp4" />
-      </motion.video>
-    </div>
+      <div
+        ref={ref}
+        className={Styles.video}
+        dangerouslySetInnerHTML={{
+          __html: `
+        <video
+          loop
+          muted
+          autoplay
+          playsinline
+          preload="metadata"
+        >
+        <source className=${Styles.video} src="${heroVideo}" type="video/mp4" />
+        </video>`,
+        }}
+      ></div>
+    </motion.div>
   );
 };
 

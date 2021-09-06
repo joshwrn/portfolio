@@ -138,3 +138,13 @@ input:focus {
   flex-direction: column;
   gap: 100px;
 }
+
+.heroVideo {
+  position: absolute;
+  z-index: 5;
+  width: 100vw;
+  height: 200px;
+  filter: brightness(0.85);
+  object-fit: cover;
+  opacity: 1;
+}
