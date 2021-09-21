@@ -14,32 +14,6 @@
   }
 }
 
-.headerContainer {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  overflow: hidden;
-  height: 100px;
-  margin: 0 0 50px 0;
-}
-
-@media only screen and (max-width: 850px) {
-  .headerContainer {
-    justify-content: center;
-  }
-}
-
-.header {
-  display: flex;
-  opacity: 1;
-  font-size: 8rem;
-}
-
-.headerContainer h2 {
-  font-size: 8rem;
-  transform: translateY(100vh);
-}
-
 .feed {
   display: flex;
   flex-direction: column;

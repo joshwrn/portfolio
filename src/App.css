@@ -148,3 +148,26 @@ input:focus {
   object-fit: cover;
   opacity: 1;
 }
+
+.overlay-gradient {
+  width: 100vw;
+  height: 15vh;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 99;
+  background: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

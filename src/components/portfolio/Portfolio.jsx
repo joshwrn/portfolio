@@ -1,43 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import PortfolioSection from './PortfolioSection';
-import defaults from '../../framer/inView';
-import { motion, useViewportScroll, useMotionValue, useAnimation } from 'framer-motion';
 import Styles from '../../styles/portfolio/portfolio.module.css';
-import { useInView } from 'react-intersection-observer';
+import Header from '../reusable/Header';
 
 const Portfolio = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-  });
-  const animateLetter = useAnimation();
-
-  const letter = {
-    initial: {
-      y: 400,
-    },
-    animate: {
-      y: 0,
-      transition: {
-        duration: 1,
-        ease: [0.6, 0.01, -0.05, 0.9],
-      },
-    },
-  };
-
-  useEffect(() => {
-    if (inView) {
-      animateLetter.start(letter.animate);
-    } else {
-      animateLetter.start(letter.initial);
-    }
-  }, [inView]);
-
   return (
     <div className={Styles.container}>
-      <motion.div ref={ref} className={Styles.headerContainer}>
-        <motion.h2 animate={animateLetter}>Projects</motion.h2>
-      </motion.div>
+      <Header title="Projects" />
       <div className={Styles.feed}>
         <PortfolioSection
           header="Instagram"

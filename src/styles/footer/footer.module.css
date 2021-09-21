@@ -34,13 +34,19 @@
 
 .email {
   font-size: 4rem;
-  background: -webkit-linear-gradient(45deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #dfd877 95%);
+  /* background: -webkit-linear-gradient(45deg, #2d4de0 0, #9f71f0 30%, #fc6277 58%, #dfd877 95%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-size: 100% 500%;
-  color: rgb(212, 212, 212);
+  background-size: 100% 500%; */
+  color: var(--font-color-one);
   /* text-shadow: 0px 0px 7px rgba(255, 122, 122, 0.575); */
   /* animation: gradientMove 2s ease infinite alternate; */
+  transition: color 0.5s;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.email:hover {
+  color: var(--color-hover);
 }
 
 @media only screen and (max-width: 850px) {

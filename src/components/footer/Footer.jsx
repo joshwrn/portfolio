@@ -10,21 +10,8 @@ import { AiFillTwitterCircle } from 'react-icons/ai';
 import Styles from '../../styles/footer/footer.module.css';
 
 const Footer = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-  });
-  const animateText = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      animateText.start(defaults.end);
-    } else {
-      animateText.start(defaults.start);
-    }
-    console.log(inView);
-  }, [inView]);
   return (
-    <motion.div animate={animateText} ref={ref} className={Styles.container}>
+    <motion.div className={Styles.container}>
       <a href="mailto:joshnwarren@gmail.com">
         <h2 className={Styles.email}>joshnwarren@gmail.com</h2>
       </a>

@@ -5,10 +5,15 @@ import Styles from '../../styles/skills/skills.module.css';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import defaults from '../../framer/inView';
+import Header from '../reusable/Header';
 
 //+ icons
 import { DiReact, DiCss3Full, DiMongodb } from 'react-icons/di';
-import { IoLogoJavascript, IoLogoNodejs, IoGitBranchOutline } from 'react-icons/io5';
+import {
+  IoLogoJavascript,
+  IoLogoNodejs,
+  IoGitBranchOutline,
+} from 'react-icons/io5';
 import {
   Adobeaftereffects,
   Adobephotoshop,
@@ -18,48 +23,10 @@ import {
 } from '@icons-pack/react-simple-icons';
 
 const Skills = () => {
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-  });
-  const animateHeader = useAnimation();
-  const animateText = useAnimation();
-
-  const header = {
-    initial: {
-      y: 400,
-    },
-    animate: {
-      y: 0,
-      transition: {
-        duration: 1,
-        ease: [0.6, 0.01, -0.05, 0.9],
-        when: 'afterChildren',
-        delayChildren: 0.6,
-        staggerChildren: 0.04,
-        staggerDirection: -1,
-      },
-    },
-  };
-
-  useEffect(() => {
-    if (inView) {
-      animateHeader.start(header.animate);
-      animateText.start(defaults.end);
-    } else {
-      animateHeader.start(header.initial);
-      animateText.start(defaults.start);
-    }
-    console.log(inView);
-  }, [inView]);
-
   return (
-    <div ref={ref} className={Styles.container}>
-      <motion.div className={Styles.headerContainer}>
-        <motion.h2 animate={animateHeader} className={Styles.header}>
-          Skills
-        </motion.h2>
-      </motion.div>
-      <motion.div animate={animateText} className={Styles.sectionContainer}>
+    <div className={Styles.container}>
+      <Header title="Skills" />
+      <motion.div className={Styles.sectionContainer}>
         <div className={Styles.rowContainer}>
           <h2 className={Styles.rowHeader}>Coding</h2>
           <div className={Styles.iconRow}>
