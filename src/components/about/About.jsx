@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import defaults from '../../framer/inView';
 import { useInView } from 'react-intersection-observer';
 
-import img from '../../assets/images/lpt3.png';
+import img from '../../assets/images/lpt.png';
 import Header from '../reusable/Header';
 import Styles from '../../styles/about/about.module.css';
 

@@ -45,6 +45,8 @@
   --btn-border-portfolio: 1px solid rgb(39, 39, 39);
   --btn-color-portfolio-live: rgb(77, 77, 77);
   --color-hover: white;
+  --overlay-gradient: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  --nav-bg: rgba(0, 0, 0, 0.5);
 }
 
 html {
@@ -133,10 +135,19 @@ input:focus {
   outline: none;
 }
 
+::selection {
+  background: #161616;
+  text-shadow: 1px 1px 10px white;
+}
+::-moz-selection {
+  background: #161616;
+  text-shadow: 1px 1px 10px white;
+}
+
 .feed {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 90px;
 }
 
 .heroVideo {
@@ -157,7 +168,8 @@ input:focus {
   box-sizing: border-box;
   position: fixed;
   z-index: 99;
-  background: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  pointer-events: none;
+  background: var(--overlay-gradient);
 }
 
 @keyframes gradientMove {

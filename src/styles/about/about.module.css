@@ -15,7 +15,7 @@
 
 .sectionContainer {
   display: grid;
-  grid-template-columns: 3fr 4fr;
+  grid-template-columns: 3fr 2fr;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 100px;
@@ -32,7 +32,7 @@
   display: flex;
   width: 100%;
   justify-content: flex-start;
-  transform: translateY(-80px);
+  transform: translateY(-30px);
 }
 
 @media only screen and (max-width: 850px) {
@@ -44,7 +44,6 @@
 .image {
   width: 100%;
   max-width: 600px;
-  filter: brightness(0.8);
   /* animation: rotate 20s infinite linear; */
 }
 

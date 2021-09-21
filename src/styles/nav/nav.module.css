@@ -34,12 +34,12 @@ nav {
 
 .color {
   border-bottom: var(--border-portfolio);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--nav-bg);
 }
 
 .name,
 .portfolio {
-  color: rgb(212, 212, 212);
+  color: var(--font-color-one);
 }
 
 .toggleContainer {
