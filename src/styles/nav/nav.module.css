@@ -13,9 +13,11 @@ nav {
   z-index: 99;
   transition: background-color 1s, border-bottom 1s;
   border-bottom: 1px solid rgba(26, 26, 26, 0);
+  opacity: 0;
 }
 
 .top {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .blur {

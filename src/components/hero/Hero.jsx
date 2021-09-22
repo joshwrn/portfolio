@@ -4,6 +4,7 @@ import heroVideo from '../../assets/images/sparks.mp4';
 import Styles from '../../styles/hero/hero.module.css';
 import { useInView } from 'react-intersection-observer';
 import defaults from '../../framer/inView';
+import img from '../../assets/images/lava.jpg';
 
 const Hero = ({ setTop }) => {
   const [ref, inView] = useInView({
@@ -49,14 +50,12 @@ const Hero = ({ setTop }) => {
   }, [topView]);
 
   return (
-    <motion.div animate={headerAnim} className={Styles.hero}>
+    <div className={Styles.hero}>
       <div ref={topRef} className={Styles.navRef}></div>
-      <motion.div animate={animation} className={Styles.headerContainer}>
+      <motion.div className={Styles.headerContainer}>
         <div className={Styles.headerSubContainer}>
-          <motion.h2 className={Styles.header}>Josh Warren.</motion.h2>
-          <motion.h2 className={Styles.header}>
-            Full Stack Web Developer.
-          </motion.h2>
+          <h2 className={Styles.header}>Josh Warren.</h2>
+          <h2 className={Styles.header}>Full Stack Web Developer.</h2>
           {/* <div className={Styles.sectionLinks}>
             <motion.p className={Styles.sub}>Portfolio</motion.p>
             <motion.p className={Styles.sub}>Skills</motion.p>
@@ -67,7 +66,6 @@ const Hero = ({ setTop }) => {
       </motion.div>
       <div className={Styles.gradient}></div>
       <div
-        ref={ref}
         className={Styles.video}
         dangerouslySetInnerHTML={{
           __html: `
@@ -82,7 +80,7 @@ const Hero = ({ setTop }) => {
         </video>`,
         }}
       ></div>
-    </motion.div>
+    </div>
   );
 };
 

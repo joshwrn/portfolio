@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  opacity: 0;
+  opacity: 1;
 }
 
 .headerContainer {
@@ -20,8 +20,7 @@
   justify-content: center;
   align-items: center;
   width: 60%;
-  filter: blur(100px);
-  opacity: 0;
+  opacity: 1;
 }
 
 @media only screen and (max-width: 850px) {
@@ -79,7 +78,7 @@
   height: 600px;
   filter: brightness(0.5);
   object-fit: cover;
-  opacity: 0;
+  opacity: 1;
 }
 
 .imageBlur {

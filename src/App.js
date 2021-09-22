@@ -8,11 +8,7 @@ import About from './components/about/About';
 import Skills from './components/skills/Skills';
 
 function App() {
-  const [top, setTop] = useState(false);
-
-  useEffect(() => {
-    console.log('top', top);
-  }, [top]);
+  const [top, setTop] = useState(true);
 
   return (
     <div className="App">

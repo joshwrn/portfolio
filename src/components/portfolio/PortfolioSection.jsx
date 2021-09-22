@@ -38,6 +38,7 @@ const PortfolioSection = ({ header, sub, desc, src, codeLink, demoLink }) => {
               maxWidth="600px"
               justifySelf="flex-end"
               borderRadius="12px"
+              transition="opacity 0.7s, transform 0.75s"
             />
           </a>
         </div>

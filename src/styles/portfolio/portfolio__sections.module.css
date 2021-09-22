@@ -131,3 +131,11 @@
   border-radius: 12px;
   cursor: pointer;
 }
+
+.link > div {
+  overflow: hidden;
+}
+
+.link > div > img:hover {
+  transform: scale(1.05);
+}

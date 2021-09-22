@@ -7,12 +7,11 @@ const ImageLoader = ({
   maxWidth = 'initial',
   justifySelf = 'initial',
   height = '100%',
-  transition = 0.7,
+  transition = `opacity 0.7s`,
   cursor = 'pointer',
   borderRadius = '0',
   shadow = 'none',
   zIndex = '1',
-  transform = 'initial',
 }) => {
   const [loading, setLoading] = useState(true);
 
@@ -30,7 +29,6 @@ const ImageLoader = ({
     animation: '2s linear infinite gradientMove',
     borderRadius,
     boxShadow: shadow,
-    transform,
     maxWidth,
     justifySelf,
     display: 'flex',
@@ -63,10 +61,9 @@ const ImageLoader = ({
     objectPosition: 'center',
     cursor,
     opacity: '1',
-    transition: `opacity ${transition}s`,
+    transition,
     borderRadius,
     boxShadow: shadow,
-    transform,
     maxWidth,
     justifySelf,
   };
@@ -77,7 +74,6 @@ const ImageLoader = ({
     height,
     opacity: '0',
     borderRadius,
-    transform,
     maxWidth,
     justifySelf,
   };
