@@ -15,6 +15,7 @@ const dark = () => {
     'linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0))'
   );
   root.style.setProperty('--nav-bg', 'rgba(0, 0, 0, 0.5)');
+  root.style.setProperty('--about-filter', 'initial');
 };
 
 const light = () => {
@@ -35,6 +36,7 @@ const light = () => {
   root.style.setProperty('--color-hover', 'black');
   root.style.setProperty('--overlay-gradient', 'none');
   root.style.setProperty('--nav-bg', 'rgba(255, 255, 255, 0.7)');
+  root.style.setProperty('--about-filter', 'invert(1) hue-rotate(150deg)');
 };
 
 export { light, dark };
