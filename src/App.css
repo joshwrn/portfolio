@@ -150,7 +150,7 @@ input:focus {
 .feed {
   display: flex;
   flex-direction: column;
-  gap: 90px;
+  gap: 200px;
 }
 
 .heroVideo {
