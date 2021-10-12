@@ -12,6 +12,10 @@
   }
 }
 
+.inner {
+  max-width: var(--max-size);
+}
+
 .sectionContainer {
   display: flex;
   justify-content: space-evenly;

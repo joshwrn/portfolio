@@ -48,12 +48,14 @@
   --overlay-gradient: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0));
   --nav-bg: rgba(0, 0, 0, 0.5);
   --about-filter: initial;
+  --max-size: 1400px;
 }
 
 html {
   background-color: var(--bg-color);
   width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {

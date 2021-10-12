@@ -4,8 +4,11 @@ import defaults from '../../framer/inView';
 import { useInView } from 'react-intersection-observer';
 
 //+ icons
-import { IoLogoGithub, IoLogoCodepen } from 'react-icons/io5';
-import { AiFillTwitterCircle } from 'react-icons/ai';
+import { IoLogoGithub, IoLogoCodepen, IoLogoTwitter } from 'react-icons/io5';
+import { AiFillTwitterCircle, AiOutlineInstagram } from 'react-icons/ai';
+import { FiTwitter, FiCodepen } from 'react-icons/fi';
+import { ImCodepen } from 'react-icons/im';
+import { VscGithub } from 'react-icons/vsc';
 
 import Styles from '../../styles/footer/footer.module.css';
 
@@ -19,13 +22,20 @@ const Footer = () => {
       <div className={Styles.gradient}></div>
       <div className={Styles.socials}>
         <a rel="noreferrer" target="_blank" href="https://github.com/joshwrn">
-          <IoLogoGithub className={Styles.socialIcon} />
+          <VscGithub className={Styles.socialIcon} />
         </a>
         <a rel="noreferrer" target="_blank" href="https://codepen.io/joshwrn">
-          <IoLogoCodepen className={Styles.socialIcon} />
+          <ImCodepen className={Styles.socialIcon} />
         </a>
         <a rel="noreferrer" target="_blank" href="https://twitter.com/joshwrn">
-          <AiFillTwitterCircle className={Styles.socialIcon} />
+          <FiTwitter className={Styles.socialIcon} />
+        </a>
+        <a
+          rel="noreferrer"
+          target="_blank"
+          href="https://instagram.com/joshnwarren"
+        >
+          <AiOutlineInstagram className={Styles.socialIcon} />
         </a>
       </div>
     </motion.div>

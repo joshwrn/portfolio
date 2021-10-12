@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10vw 0 100px 0;
+  padding: 10vw 0 200px 0;
   width: 100%;
 }
 
@@ -18,7 +18,7 @@
   font-size: 4rem;
   color: var(--font-color-one);
   transition: color 0.5s;
-  text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+  /* text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);*/
 }
 
 .email:hover {
@@ -50,7 +50,7 @@
 }
 
 .socialIcon {
-  font-size: 4rem;
+  font-size: 2.7rem;
   cursor: pointer;
 }
 

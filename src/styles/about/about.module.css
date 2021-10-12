@@ -13,6 +13,10 @@
   }
 }
 
+.inner {
+  max-width: var(--max-size);
+}
+
 .sectionContainer {
   display: grid;
   grid-template-columns: 2fr 2fr;

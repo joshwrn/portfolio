@@ -27,22 +27,24 @@ const Nav = ({ top }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, type: 'spring', stiffness: 100 }}
     >
-      <div className={Styles.navStart}>
-        <p className={Styles.portfolio}>PORTFOLIO {date()}</p>
-      </div>
-      <div className={Styles.navContainer}>
-        <p className={Styles.name}>JOSH WARREN</p>
-      </div>
-      <div className={Styles.navEnd}>
-        <div onClick={handleTheme} className={Styles.toggleContainer}>
-          <CgDarkMode
-            className={Styles.icon}
-            style={
-              theme === 'dark'
-                ? null
-                : { transform: 'translateX(29px) rotate(180deg)' }
-            }
-          />
+      <div className={Styles.navInner}>
+        <div className={Styles.navStart}>
+          <p className={Styles.portfolio}>PORTFOLIO {date()}</p>
+        </div>
+        <div className={Styles.navContainer}>
+          <p className={Styles.name}>JOSH WARREN</p>
+        </div>
+        <div className={Styles.navEnd}>
+          <div onClick={handleTheme} className={Styles.toggleContainer}>
+            <CgDarkMode
+              className={Styles.icon}
+              style={
+                theme === 'dark'
+                  ? null
+                  : { transform: 'translateX(29px) rotate(180deg)' }
+              }
+            />
+          </div>
         </div>
       </div>
       <div

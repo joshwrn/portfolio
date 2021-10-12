@@ -2,8 +2,9 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 25px 50px;
+  padding: 25px 150px;
   width: 100vw;
+
   height: 35px;
   top: 0;
   left: 0;
@@ -14,6 +15,14 @@ nav {
   transition: background-color 1s, border-bottom 1s;
   border-bottom: 1px solid rgba(26, 26, 26, 0);
   opacity: 0;
+}
+
+.navInner {
+  width: 100%;
+  max-width: var(--max-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .top {
