@@ -6,6 +6,7 @@ import Header from '../reusable/Header';
 
 //+ icons
 import { IconContext } from 'react-icons';
+import { SiGraphql } from 'react-icons/si';
 import { DiReact, DiCss3Full, DiMongodb } from 'react-icons/di';
 import {
   IoLogoJavascript,
@@ -34,29 +35,40 @@ const Skills = () => {
                   <DiReact />
                   <SkillText>React</SkillText>
                 </IconContainer>
+
                 <IconContainer>
                   <IoLogoJavascript />
                   <SkillText>Javascript</SkillText>
                 </IconContainer>
+
                 <IconContainer>
-                  <DiCss3Full />
-                  <SkillText>CSS</SkillText>
+                  <SiGraphql />
+                  <SkillText>GraphQL</SkillText>
                 </IconContainer>
+
+                <IconContainer>
+                  <IoGitBranchOutline />
+                  <SkillText>Git</SkillText>
+                </IconContainer>
+
                 <IconContainer>
                   <DiMongodb />
                   <SkillText>MongoDB</SkillText>
                 </IconContainer>
+
                 <IconContainer>
                   <Express size={40} />
                   <SkillText>Express</SkillText>
                 </IconContainer>
+
                 <IconContainer>
                   <IoLogoNodejs />
-                  <SkillText>NodeJS</SkillText>
+                  <SkillText>Node</SkillText>
                 </IconContainer>
+
                 <IconContainer>
-                  <IoGitBranchOutline />
-                  <SkillText>Git</SkillText>
+                  <DiCss3Full />
+                  <SkillText>CSS</SkillText>
                 </IconContainer>
               </IconRow>
             </RowContainer>
@@ -67,14 +79,17 @@ const Skills = () => {
                   <Adobeaftereffects size={40} />
                   <SkillText>After Effects</SkillText>
                 </IconContainer>
+
                 <IconContainer>
                   <Adobepremierepro size={40} />
                   <SkillText>Premiere</SkillText>
                 </IconContainer>
+
                 <IconContainer>
                   <Adobephotoshop size={40} />
                   <SkillText>Photoshop</SkillText>
                 </IconContainer>
+
                 <IconContainer>
                   <Figma size={40} />
                   <SkillText>Figma</SkillText>
