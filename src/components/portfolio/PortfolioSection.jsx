@@ -1,19 +1,16 @@
-import React, { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import React from 'react';
 import Styles from '../../styles/portfolio/portfolio__sections.module.css';
 import ImageLoader from '../reusable/ImageLoader';
-import { useInView } from 'react-intersection-observer';
-import defaults from '../../framer/inView';
 
 const PortfolioSection = ({ header, sub, desc, src, codeLink, demoLink }) => {
   return (
     <div className={Styles.outer}>
-      <motion.div className={Styles.sectionContainer}>
+      <div className={Styles.sectionContainer}>
         <div className={Styles.subContainer}>
           <div className={Styles.infoContainer}>
-            <motion.h3 className={Styles.header}>{header}</motion.h3>
-            <motion.p className={Styles.subHeader}>{sub}</motion.p>
-            <motion.p className={Styles.description}>{desc}</motion.p>
+            <h3 className={Styles.header}>{header}</h3>
+            <p className={Styles.subHeader}>{sub}</p>
+            <p className={Styles.description}>{desc}</p>
             <div className={Styles.linksContainer}>
               <a rel="noreferrer" target="_blank" href={demoLink}>
                 <button className={`${Styles.button} ${Styles.live}`}>
@@ -42,7 +39,7 @@ const PortfolioSection = ({ header, sub, desc, src, codeLink, demoLink }) => {
             />
           </a>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

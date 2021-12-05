@@ -1,7 +1,4 @@
-import React, { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import defaults from '../../framer/inView';
-import { useInView } from 'react-intersection-observer';
+import React from 'react';
 
 import img from '../../assets/images/macbook-1.jpg';
 import Header from '../reusable/Header';
@@ -9,7 +6,7 @@ import Styles from '../../styles/about/about.module.css';
 
 const About = () => {
   return (
-    <motion.div className={Styles.container}>
+    <div className={Styles.container}>
       <div className={Styles.inner}>
         <Header title="About" />
         <div className={Styles.sectionContainer}>
@@ -36,7 +33,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

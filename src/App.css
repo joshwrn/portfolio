@@ -9,11 +9,6 @@
 }
 
 @font-face {
-  font-family: 'magilio';
-  src: url('./assets/fonts/magilio/MagilioRegular-Yzv2O.ttf');
-}
-
-@font-face {
   font-family: 'haas';
   src: url('./assets/fonts/haas/NeueHaasDisplayMedium.woff');
 }
@@ -90,7 +85,7 @@ h4,
 h5 {
   font-size: 2rem;
   color: var(--font-color-one);
-  font-family: haas !important;
+  font-family: haas;
 }
 
 a {
@@ -173,6 +168,7 @@ input:focus {
   z-index: 99;
   pointer-events: none;
   background: var(--overlay-gradient);
+  opacity: 0;
 }
 
 @keyframes gradientMove {

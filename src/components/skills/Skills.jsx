@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Styles from '../../styles/skills/skills.module.css';
 
 //+ Aniamtion
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import defaults from '../../framer/inView';
 import Header from '../reusable/Header';
 
 //+ icons
@@ -27,14 +24,14 @@ const Skills = () => {
     <div className={Styles.container}>
       <div className={Styles.inner}>
         <Header title="Skills" />
-        <motion.div className={Styles.sectionContainer}>
+        <div className={Styles.sectionContainer}>
           <div className={Styles.rowContainer}>
             <h2 className={Styles.rowHeader}>Coding</h2>
             <div className={Styles.iconRow}>
-              <motion.div className={Styles.iconContainer}>
+              <div className={Styles.iconContainer}>
                 <DiReact className={Styles.icon} />
                 <p className={Styles.skillText}>React</p>
-              </motion.div>
+              </div>
               <div className={Styles.iconContainer}>
                 <IoLogoJavascript className={Styles.icon} />
                 <p className={Styles.skillText}>Javascript</p>
@@ -82,7 +79,7 @@ const Skills = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

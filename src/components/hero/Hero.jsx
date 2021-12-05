@@ -19,13 +19,14 @@ const Hero = ({ setTop }) => {
   return (
     <div className={Styles.hero}>
       <div ref={topRef} className={Styles.navRef}></div>
-      <div className={Styles.headerContainer}>
-        <div className={Styles.headerSubContainer}>
-          <h2 className={Styles.header}>Josh Warren.</h2>
-          <h2 className={Styles.header}>Full Stack Web Developer.</h2>
-        </div>
+
+      <div className={Styles.headerSubContainer}>
+        <h2 className={Styles.header}>Josh Warren.</h2>
+        <h2 className={Styles.header}>Full Stack Web Developer.</h2>
       </div>
+
       <div className={Styles.gradient}></div>
+      {/* <ThreeHero /> */}
       <div
         className={Styles.video}
         dangerouslySetInnerHTML={{

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Styles from '../../styles/nav/nav.module.css';
 import { motion } from 'framer-motion';
 import { light, dark } from '../functions/theme';

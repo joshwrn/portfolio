@@ -1,6 +1,6 @@
 import './App.css';
 import Nav from './components/nav/Nav';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Hero from './components/hero/Hero';
 import Portfolio from './components/portfolio/Portfolio';
 import Footer from './components/footer/Footer';
@@ -16,6 +16,7 @@ function App() {
       <div className="overlay-gradient"></div>
       <div className="feed">
         <Hero setTop={setTop} />
+
         <Portfolio />
         <Skills />
         <About />
