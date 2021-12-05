@@ -1,0 +1,10 @@
+.container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+  /* background: linear-gradient(to top, #000000, #1c3e55 40%); */
+}
+
+.canvas {
+}
