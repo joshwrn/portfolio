@@ -1,15 +1,16 @@
 import React from 'react';
 
 import PortfolioSection from './PortfolioSection';
-import Styles from '../../styles/portfolio/portfolio.module.css';
 import Header from '../reusable/Header';
+
+import styled from 'styled-components';
 
 const Portfolio = () => {
   return (
-    <div className={Styles.container}>
-      <div className={Styles.inner}>
+    <Container>
+      <Inner>
         <Header title="Projects" />
-        <div className={Styles.feed}>
+        <Feed>
           <PortfolioSection
             header="Instagram"
             sub="Instagram Clone"
@@ -27,10 +28,33 @@ const Portfolio = () => {
             demoLink="https://joshwrn.github.io/shopping-cart/"
             codeLink="https://github.com/joshwrn/shopping-cart"
           />
-        </div>
-      </div>
-    </div>
+        </Feed>
+      </Inner>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 100px;
+  @media only screen and (max-width: 850px) {
+    padding: 20px;
+  }
+`;
+
+const Inner = styled.div`
+  width: 100%;
+  max-width: ${({ theme }) => theme.maxWidth};
+`;
+
+const Feed = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 1600px;
+  gap: 60px;
+`;
 
 export default Portfolio;

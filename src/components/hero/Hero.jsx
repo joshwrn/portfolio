@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import heroVideo from '../../assets/images/sparks.mp4';
-import Styles from '../../styles/hero/hero.module.css';
 import { useInView } from 'react-intersection-observer';
+
+import heroVideo from '../../assets/images/sparks.mp4';
+
+import styled from 'styled-components';
 
 const Hero = ({ setTop }) => {
   const [topRef, topView] = useInView({
@@ -17,18 +19,16 @@ const Hero = ({ setTop }) => {
   }, [topView]);
 
   return (
-    <div className={Styles.hero}>
-      <div ref={topRef} className={Styles.navRef}></div>
+    <HeroContainer>
+      <NavRef ref={topRef} />
 
-      <div className={Styles.headerSubContainer}>
-        <h2 className={Styles.header}>Josh Warren.</h2>
-        <h2 className={Styles.header}>Full Stack Web Developer.</h2>
-      </div>
+      <HeaderContainer>
+        <HeroHeader>Josh Warren.</HeroHeader>
+        <HeroHeader>Full Stack Web Developer.</HeroHeader>
+      </HeaderContainer>
 
-      <div className={Styles.gradient}></div>
-      {/* <ThreeHero /> */}
-      <div
-        className={Styles.video}
+      <Gradient />
+      <HeroVideo
         dangerouslySetInnerHTML={{
           __html: `
         <video
@@ -38,12 +38,74 @@ const Hero = ({ setTop }) => {
           playsinline
           preload="metadata"
         >
-        <source className=${Styles.video} src="${heroVideo}" type="video/mp4" />
+        <source src="${heroVideo}" type="video/mp4" />
         </video>`,
         }}
-      ></div>
-    </div>
+      ></HeroVideo>
+    </HeroContainer>
   );
 };
+
+const NavRef = styled.div`
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 0;
+`;
+
+const HeroContainer = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  background-color: 'black';
+`;
+
+const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+`;
+
+const HeroHeader = styled.h2`
+  font-size: 10rem;
+  padding: 0;
+  margin: 0;
+  display: inline;
+  line-height: 10rem;
+  color: rgb(212, 212, 212);
+  pointer-events: none;
+  user-select: none;
+  @media only screen and (max-width: 850px) {
+    font-size: 6rem;
+    padding: 0 40px;
+    line-height: 6rem;
+  }
+`;
+
+const Gradient = styled.div`
+  min-width: 100%;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(0deg, black 1%, rgba(0, 0, 0, 0));
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+`;
+
+const HeroVideo = styled.div`
+  position: absolute;
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
+  filter: brightness(0.85);
+  object-fit: cover;
+  opacity: 1;
+  overflow: hidden;
+`;
 
 export default Hero;
