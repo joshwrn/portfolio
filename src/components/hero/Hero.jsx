@@ -12,9 +12,9 @@ const Hero = ({ setTop }) => {
 
   useEffect(() => {
     if (topView) {
-      setTop(true);
+      setTop('true');
     } else {
-      setTop(false);
+      setTop('false');
     }
   }, [topView]);
 

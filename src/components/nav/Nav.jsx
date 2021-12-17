@@ -34,7 +34,7 @@ const Nav = ({ top, currentTheme, setCurrentTheme }) => {
         </NavCenter>
         <NavEnd>
           <ToggleContainer onClick={handleTheme}>
-            <ThemeIcon currentTheme={currentTheme} />
+            <ThemeIcon currenttheme={currentTheme} />
           </ToggleContainer>
         </NavEnd>
       </NavInner>
@@ -58,9 +58,9 @@ const StyledNav = styled(motion.nav)`
   z-index: 99;
   transition: background-color 1s, border-bottom 1s;
   background-color: ${({ theme, top }) =>
-    top ? 'transparent' : theme.nav.background};
+    top === 'true' ? 'transparent' : theme.nav.background};
   border-bottom: ${({ theme, top }) =>
-    top ? 'transparent' : theme.portfolio.border};
+    top === 'true' ? 'transparent' : theme.portfolio.border};
   opacity: 0;
 `;
 
@@ -107,12 +107,12 @@ const ThemeIcon = styled(CgDarkMode)`
   color: black !important;
   font-size: 2rem;
   transition: transform 0.5s;
-  transform: ${({ currentTheme }) =>
-    currentTheme === 'dark' ? null : 'translateX(29px) rotate(180deg)'};
+  transform: ${({ currenttheme }) =>
+    currenttheme === 'dark' ? null : 'translateX(29px) rotate(180deg)'};
 `;
 
 const Blur = styled.div`
-  opacity: ${({ top }) => (top ? '0' : '1')};
+  opacity: ${({ top }) => (top === 'true' ? '0' : '1')};
   backdrop-filter: blur(100px);
   transition: opacity 1s;
   width: 100vw;

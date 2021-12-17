@@ -1,15 +1,33 @@
 import React from 'react';
 
+import { motion, MotionConfig, useMotionValue } from 'framer-motion';
+import useMeasure from 'react-use-measure';
+import { useInView } from 'react-intersection-observer';
 import img from '../../assets/images/macbook-1.jpg';
 import Header from '../reusable/Header';
 import styled from 'styled-components';
 
+import Laptop from '../../three/Laptop';
+import Test from '../../three/Test';
+
 const About = () => {
+  const [mouseRef, bounds] = useMeasure({ scroll: true });
+  const [viewRef, inView] = useInView({
+    threshold: 0.1,
+  });
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
   return (
-    <Container>
+    <Container
+      ref={mouseRef}
+      onPointerMove={(e) => {
+        mouseX.set(e.clientX - bounds.x - bounds.width / 2);
+        mouseY.set(e.clientY - bounds.y - bounds.height / 2);
+      }}
+    >
       <Inner>
         <Header title="About" />
-        <SectionContainer>
+        <SectionContainer ref={viewRef}>
           <Text>
             Hi, my name is Josh. I'm a 26 year old full stack developer, looking
             for a position as a junior dev. My past experience has mostly just
@@ -28,7 +46,7 @@ const About = () => {
             , where I have over 10,000 subscribers.
           </Text>
           <ImageContainer>
-            <Image src={img} alt="" />
+            <Laptop mouseX={mouseX} mouseY={mouseY} inView={inView} />
           </ImageContainer>
         </SectionContainer>
       </Inner>
@@ -57,7 +75,7 @@ const SectionContainer = styled.div`
   grid-template-columns: 2fr 2fr;
   align-items: flex-start;
   justify-content: flex-start;
-  padding-bottom: 100px;
+  min-height: 50vh;
   @media only screen and (max-width: 1050px) {
     display: flex;
     flex-direction: column;
@@ -70,9 +88,8 @@ const SectionContainer = styled.div`
 const ImageContainer = styled.div`
   display: flex;
   width: 100%;
-  justify-content: flex-start;
-  transform: translateY(-11vw);
-  z-index: -5;
+  height: 100%;
+  justify-content: center;
   position: relative;
   @media only screen and (max-width: 1050px) {
     justify-content: center;
@@ -90,6 +107,7 @@ const Text = styled.p`
   font-family: haas-roman;
   font-size: 1.9rem;
   line-height: 30px;
+  z-index: 1;
 `;
 
 const AboutLink = styled(Text).attrs({

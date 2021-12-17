@@ -26,6 +26,7 @@ body {
   width: 100vw;
   background-color: ${({ theme }) => theme.main.background};
   z-index: -3;
+  transition: background-color 0.5s ease-in-out;
 }
 
 * {
@@ -60,13 +61,13 @@ a {
 }
 
 button {
-  border: 1px solid gray;
+  /* border: 1px solid gray;
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
   padding: 8px 10px;
   font-size: 1.3rem;
   width: 200px;
-  cursor: pointer;
+  cursor: pointer; */
 }
 
 input {

@@ -127,6 +127,7 @@ const Button = styled.button`
   color: ${({ theme }) => theme.main.fonts.primary};
   border: ${({ theme }) => theme.portfolio.buttons.border};
   transition: color 0.25s, box-shadow 0.5s;
+  font-size: 1.3rem;
   &:hover {
     background: -webkit-linear-gradient(
       45deg,
