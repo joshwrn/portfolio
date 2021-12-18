@@ -3,7 +3,6 @@ import React from 'react';
 import { motion, MotionConfig, useMotionValue } from 'framer-motion';
 import useMeasure from 'react-use-measure';
 import { useInView } from 'react-intersection-observer';
-import img from '../../assets/images/macbook-1.jpg';
 import Header from '../reusable/Header';
 import styled from 'styled-components';
 

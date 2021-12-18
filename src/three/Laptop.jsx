@@ -1,9 +1,32 @@
-import { Suspense, useState, useEffect } from 'react';
-import { useGLTF } from '@react-three/drei';
-import { motion, MotionConfig, useMotionValue } from 'framer-motion';
+import { Suspense, useState, useEffect, useRef } from 'react';
+import { Canvas, useThree } from '@react-three/fiber';
 import { Shapes } from './Shapes';
-import { transition } from './settings';
+import { useFrame } from '@react-three/fiber';
 import styled from 'styled-components';
+
+function BloomContainer({ children }) {
+  const { gl, camera, size, set } = useThree();
+  const [scene, setScene] = useState();
+  const composer = useRef();
+  useEffect(
+    () => void scene && composer.current.setSize(size.width, size.height),
+    [size]
+  );
+  useFrame(() => scene && composer.current.render(), 1);
+
+  return (
+    <>
+      <scene ref={setScene}>{children}</scene>
+      <effectComposer ref={composer} args={[gl]}>
+        <renderPass attachArray="passes" scene={scene} camera={camera} />
+        <unrealBloomPass
+          attachArray="passes"
+          args={[undefined, 0.4, 0.1, 0.7]}
+        />
+      </effectComposer>
+    </>
+  );
+}
 
 const Laptop = ({ mouseX, mouseY, inView }) => {
   const [openLaptop, setOpenLaptop] = useState(false);
@@ -18,12 +41,21 @@ const Laptop = ({ mouseX, mouseY, inView }) => {
     <ShapesContainer>
       <Container>
         <Suspense fallback={null}>
-          <Shapes
-            openLaptop={openLaptop}
-            setOpenLaptop={setOpenLaptop}
-            mouseX={mouseX}
-            mouseY={mouseY}
-          />
+          <Canvas
+            camera={{ position: [0, 0, 100] }}
+            shadows
+            dpr={2}
+            resize={{ scroll: false, offsetSize: true }}
+          >
+            <BloomContainer>
+              <Shapes
+                openLaptop={openLaptop}
+                setOpenLaptop={setOpenLaptop}
+                mouseX={mouseX}
+                mouseY={mouseY}
+              />
+            </BloomContainer>
+          </Canvas>
         </Suspense>
       </Container>
     </ShapesContainer>

@@ -4,6 +4,7 @@ const baseTheme = {
 
 export const darkTheme = {
   ...baseTheme,
+  type: 'dark',
   main: {
     background: 'black',
     hover: 'white',
@@ -33,6 +34,7 @@ export const darkTheme = {
 
 export const lightTheme = {
   ...baseTheme,
+  type: 'light',
   main: {
     background: 'white',
     hover: 'black',

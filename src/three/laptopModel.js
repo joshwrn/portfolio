@@ -1,8 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { useGLTF, softShadows } from '@react-three/drei';
+import React, { useRef } from 'react';
+import { useGLTF } from '@react-three/drei';
 
-import * as THREE from 'three';
-import { Canvas, useThree, useFrame, extend } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { useSpring, animated } from '@react-spring/three';
 
 export function Lights() {
@@ -10,7 +9,7 @@ export function Lights() {
     <>
       <spotLight
         castShadow
-        color="#ffffff"
+        color="#88edff"
         position={[-10, -10, -10]}
         intensity={0.3}
       />
@@ -18,24 +17,38 @@ export function Lights() {
   );
 }
 
-export default function Model({ openLaptop, setOpenLaptop, ...props }) {
+export default function Model({
+  openLaptop,
+  setOpenLaptop,
+  laptopScreenRef,
+  laptopRef,
+  ...props
+}) {
   const group = useRef();
   const screen = useRef();
   const { nodes, materials } = useGLTF('../../laptop/scene.gltf');
+
+  // open laptop screen
   const config = {
     mass: 1,
-    tension: 270,
+    tension: 490,
     friction: 80,
     clamp: false,
     precision: 0.01,
     velocity: 0,
   };
-  const openLaptopAnimation = useSpring({
+  const openLaptopScreenAnimation = useSpring({
     config: config,
-    delay: 450,
     rotation: openLaptop
       ? [Math.PI, 0, -Math.PI]
       : [Math.PI + 1.59, 0, -Math.PI],
+    ref: laptopScreenRef,
+  });
+
+  // rotate laptop
+  const laptopRotateAnimation = useSpring({
+    config: config,
+    rotation: openLaptop ? [0.55, -0.5, 0] : [0, 0, 0],
   });
 
   useFrame(({ clock }) => {
@@ -43,9 +56,9 @@ export default function Model({ openLaptop, setOpenLaptop, ...props }) {
   });
 
   return (
-    <group
+    <animated.group
       scale={[2.6, 2.6, 2.6]}
-      rotation={[6.9, -0.5, 0]}
+      rotation={laptopRotateAnimation.rotation}
       position={[-7, 0, 0]}
       ref={group}
       {...props}
@@ -66,14 +79,13 @@ export default function Model({ openLaptop, setOpenLaptop, ...props }) {
           </group>
           <animated.group
             onClick={() => {
-              setOpenLaptop(!openLaptop);
+              setOpenLaptop((prev) => !prev);
             }}
             ref={screen}
             position={[0, -5.65, -10.3]}
-            rotation={openLaptopAnimation.rotation}
+            rotation={openLaptopScreenAnimation.rotation}
             scale={[100, 100, 88.24]}
           >
-            <Lights />
             <mesh
               geometry={nodes.Screen_ComputerScreen_0.geometry}
               material={materials.ComputerScreen}
@@ -81,7 +93,7 @@ export default function Model({ openLaptop, setOpenLaptop, ...props }) {
           </animated.group>
         </group>
       </group>
-    </group>
+    </animated.group>
   );
 }
 
