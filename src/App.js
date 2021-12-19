@@ -6,8 +6,6 @@ import Footer from './components/footer/Footer';
 import About from './components/about/About';
 import Skills from './components/skills/Skills';
 
-import Test from './three/Test';
-
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './styles/theme';
 import GlobalStyles from './styles/GlobalStyles';

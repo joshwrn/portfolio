@@ -28,7 +28,7 @@ const Hero = ({ setTop }) => {
       </HeaderContainer>
 
       <Gradient />
-      <HeroVideo
+      {/* <HeroVideo
         dangerouslySetInnerHTML={{
           __html: `
         <video
@@ -41,7 +41,7 @@ const Hero = ({ setTop }) => {
         <source src="${heroVideo}" type="video/mp4" />
         </video>`,
         }}
-      ></HeroVideo>
+      ></HeroVideo> */}
     </HeroContainer>
   );
 };

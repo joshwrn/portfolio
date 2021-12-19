@@ -17,7 +17,7 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 
 extend({ EffectComposer, RenderPass, UnrealBloomPass });
 
-export const Shapes = ({ mouseX, mouseY, openLaptop, setOpenLaptop }) => {
+export const Scene = ({ mouseX, mouseY, openLaptop, setOpenLaptop }) => {
   const lightRotateX = useSmoothTransform(mouseY, spring, mouseToLightRotation);
   const lightRotateY = useSmoothTransform(mouseX, spring, mouseToLightRotation);
 
@@ -25,7 +25,7 @@ export const Shapes = ({ mouseX, mouseY, openLaptop, setOpenLaptop }) => {
   const config = {
     mass: 2,
     tension: 500,
-    friction: 20,
+    friction: 40,
     clamp: openLaptop ? false : true,
     precision: 0.01,
     velocity: 0,
@@ -40,7 +40,7 @@ export const Shapes = ({ mouseX, mouseY, openLaptop, setOpenLaptop }) => {
 
   useChain(
     openLaptop ? [laptopScreenRef, shapeRef] : [shapeRef, laptopScreenRef],
-    openLaptop ? [0, 0.4] : [0, 0]
+    openLaptop ? [0, 0.2] : [0, 0]
   );
 
   return (
@@ -62,14 +62,14 @@ export const Shapes = ({ mouseX, mouseY, openLaptop, setOpenLaptop }) => {
       <pointLight
         distance={90}
         decay={2}
-        color="#ececec"
+        color="#ffffff"
         position={[0, -18, 65]}
         intensity={0.5}
       />
       <animated.group
         initial={false}
         dispose={null}
-        position={[3, 4, 3]}
+        position={[-3.5, 4, 3]}
         scale={openLaptopAnimation.scale}
       >
         <Sphere />
@@ -118,36 +118,28 @@ export function Lights() {
   );
 }
 
-export function Floor() {
-  const shape = useRef();
-  return (
-    <mesh ref={shape} position={[-1.3, -35.4, -25.5]} rotation={[-0.5, 0, 0]}>
-      <planeBufferGeometry attach="geometry" args={[400, 400]} />
-      <meshStandardMaterial attach="material" color="#4e4e4e" />
-    </mesh>
-  );
-}
+// export function Floor() {
+//   const shape = useRef();
+//   return (
+//     <mesh ref={shape} position={[-1.3, -35.4, -25.5]} rotation={[-0.5, 0, 0]}>
+//       <planeBufferGeometry attach="geometry" args={[400, 400]} />
+//       <meshStandardMaterial attach="material" color="#4e4e4e" />
+//     </mesh>
+//   );
+// }
 
 export function Cone() {
   const shape = useRef();
   useFrame(({ clock }) => {
     shape.current.position.y =
-      0.25 + Math.sin(clock.getElapsedTime() * 0.5) * 0.125;
+      -0.25 + Math.sin(clock.getElapsedTime() * 0.5) * 0.125;
   });
   return (
     <mesh
       ref={shape}
       castShadow
-      position={[-1.3, 0.4, -1.5]}
+      position={[0.35, 0.4, 0.8]}
       rotation={[-0.5, 0, -0.3]}
-      variants={{
-        hover: {
-          z: 1.1,
-          x: -1.5,
-          rotateX: -0.2,
-          rotateZ: 0.4,
-        },
-      }}
     >
       <coneGeometry args={[0.3, 0.6, 20]} />
       <Material />
@@ -178,7 +170,7 @@ export function Torus() {
   const shape = useRef();
   useFrame(({ clock }) => {
     shape.current.position.y =
-      0.1 + Math.sin(clock.getElapsedTime() * 0.4) * 0.135;
+      0.8 + Math.sin(clock.getElapsedTime() * 0.4) * 0.135;
   });
   return (
     <motion.mesh
@@ -186,13 +178,6 @@ export function Torus() {
       castShadow
       position={[0.5, 0.4, 0]}
       rotation={[-0.5, 0.5, 0]}
-      variants={{
-        hover: {
-          y: 0.5,
-          z: 2,
-          rotateY: -0.2,
-        },
-      }}
     >
       <torusGeometry args={[0.2, 0.1, 10, 50]} />
       <Material />
@@ -212,14 +197,6 @@ export function Icosahedron() {
       scale={[0.75, 0.75, 0.75]}
       position={[1.4, 0, -0.1]}
       rotation-z={0.5}
-      variants={{
-        hover: {
-          x: 1.8,
-          z: 0.6,
-          y: 0.6,
-          rotateZ: -0.5,
-        },
-      }}
     >
       <icosahedronGeometry args={[0.7, 0]} />
       <Material />

@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { motion, MotionConfig, useMotionValue } from 'framer-motion';
+import { useMotionValue } from 'framer-motion';
 import useMeasure from 'react-use-measure';
 import { useInView } from 'react-intersection-observer';
 import Header from '../reusable/Header';
 import styled from 'styled-components';
 
-import Laptop from '../../three/Laptop';
-import Test from '../../three/Test';
+import Laptop from '../../three/laptop/Laptop';
 
 const About = () => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
@@ -59,7 +58,6 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   padding: 0 100px;
-  opacity: 1;
   @media only screen and (max-width: 850px) {
     padding: 20px;
   }
@@ -80,7 +78,7 @@ const SectionContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    min-height: 0;
   }
 `;
 
@@ -93,13 +91,6 @@ const ImageContainer = styled.div`
   @media only screen and (max-width: 1050px) {
     justify-content: center;
   }
-`;
-
-const Image = styled.img`
-  width: 100%;
-  position: absolute;
-  transform: scale(1.5);
-  filter: ${({ theme }) => theme.about.filter};
 `;
 
 const Text = styled.p`

@@ -1,11 +1,11 @@
 import { Suspense, useState, useEffect, useRef } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
-import { Shapes } from './Shapes';
+import { Scene } from './Scene';
 import { useFrame } from '@react-three/fiber';
 import styled from 'styled-components';
 
-function BloomContainer({ children }) {
-  const { gl, camera, size, set } = useThree();
+function BloomContainer({ children, theme }) {
+  const { gl, camera, size } = useThree();
   const [scene, setScene] = useState();
   const composer = useRef();
   useEffect(
@@ -13,7 +13,6 @@ function BloomContainer({ children }) {
     [size]
   );
   useFrame(() => scene && composer.current.render(), 1);
-
   return (
     <>
       <scene ref={setScene}>{children}</scene>
@@ -37,6 +36,7 @@ const Laptop = ({ mouseX, mouseY, inView }) => {
       setOpenLaptop(false);
     }
   }, [inView]);
+
   return (
     <ShapesContainer>
       <Container>
@@ -48,7 +48,7 @@ const Laptop = ({ mouseX, mouseY, inView }) => {
             resize={{ scroll: false, offsetSize: true }}
           >
             <BloomContainer>
-              <Shapes
+              <Scene
                 openLaptop={openLaptop}
                 setOpenLaptop={setOpenLaptop}
                 mouseX={mouseX}
@@ -62,20 +62,7 @@ const Laptop = ({ mouseX, mouseY, inView }) => {
   );
 };
 
-const Separator = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-`;
-
 const ShapesContainer = styled.div`
-  --purple: #db07d1;
-  --pink: #f2056f;
-  --blue: #4700b9;
-  position: relative;
   text-align: center;
   display: flex;
   align-items: center;
@@ -85,38 +72,26 @@ const ShapesContainer = styled.div`
   left: -1px;
   right: -1px;
   bottom: -1px;
-
   canvas {
-    position: absolute;
     width: 100%;
     height: 100%;
     z-index: 10;
   }
+  @media only screen and (max-width: 1050px) {
+    position: relative;
+  }
 `;
 
 const Container = styled.div`
-  position: absolute;
   width: 60vw;
   transform: translateY(-50px);
-  height: calc(100vh);
-`;
-
-const Blush = styled.div`
-  position: absolute;
-  bottom: -45px;
-  width: 250px;
-  height: 60px;
-  filter: blur(60px);
-`;
-
-const Pink = styled(Blush)`
-  right: 20px;
-  background: var(--purple);
-`;
-
-const Blue = styled(Blush)`
-  left: 20px;
-  background: var(--blue);
+  height: 100vh;
+  max-height: 1000px;
+  @media only screen and (max-width: 1050px) {
+    width: 80vw;
+    transform: translateY(0px);
+    height: 60vh;
+  }
 `;
 
 export default Laptop;

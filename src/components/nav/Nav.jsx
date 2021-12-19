@@ -1,21 +1,12 @@
 import React from 'react';
 
 import { motion } from 'framer-motion';
-import { CgDarkMode } from 'react-icons/cg';
 
 import styled from 'styled-components';
 
-const Nav = ({ top, currentTheme, setCurrentTheme }) => {
+const Nav = ({ top }) => {
   const date = () => {
     return new Date().getFullYear();
-  };
-
-  const handleTheme = () => {
-    if (currentTheme === 'dark') {
-      setCurrentTheme('light');
-    } else {
-      setCurrentTheme('dark');
-    }
   };
 
   return (
@@ -33,9 +24,7 @@ const Nav = ({ top, currentTheme, setCurrentTheme }) => {
           <NavText>JOSH WARREN</NavText>
         </NavCenter>
         <NavEnd>
-          <ToggleContainer onClick={handleTheme}>
-            <ThemeIcon currenttheme={currentTheme} />
-          </ToggleContainer>
+          <NavText>EMAIL ME</NavText>
         </NavEnd>
       </NavInner>
       <Blur top={top}></Blur>
@@ -81,10 +70,16 @@ const NavSection = styled.div`
 
 const NavStart = styled(NavSection)`
   justify-content: flex-start;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const NavEnd = styled(NavSection)`
   justify-content: flex-end;
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const NavCenter = styled(NavSection)`
@@ -93,22 +88,6 @@ const NavCenter = styled(NavSection)`
 
 const NavText = styled.p`
   color: ${({ theme }) => theme.main.fonts.primary};
-`;
-
-const ToggleContainer = styled.div`
-  width: 50px;
-  height: 20px;
-  border-radius: 30px;
-  cursor: pointer;
-  background-color: rgb(212, 212, 212);
-`;
-
-const ThemeIcon = styled(CgDarkMode)`
-  color: black !important;
-  font-size: 2rem;
-  transition: transform 0.5s;
-  transform: ${({ currenttheme }) =>
-    currenttheme === 'dark' ? null : 'translateX(29px) rotate(180deg)'};
 `;
 
 const Blur = styled.div`
