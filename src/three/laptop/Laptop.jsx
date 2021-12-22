@@ -42,7 +42,6 @@ const Laptop = ({ mouseX, mouseY, inView }) => {
       <Container>
         <Canvas
           camera={{ position: [0, 0, 100] }}
-          shadows
           dpr={2}
           resize={{ scroll: false, offsetSize: true }}
         >

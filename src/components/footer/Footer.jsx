@@ -85,8 +85,7 @@ const Container = styled.div`
   height: 100vh;
   width: 100%;
   @media only screen and (max-width: 850px) {
-    justify-content: flex-start;
-    height: 300px;
+    height: 80vh;
   }
 `;
 
@@ -108,9 +107,6 @@ const Email = styled.h2`
   margin-right: 15px;
   &:hover {
     color: ${({ theme }) => theme.main.hover};
-  }
-  @media only screen and (max-width: 850px) {
-    font-size: 3rem;
   }
 `;
 

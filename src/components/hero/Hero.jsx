@@ -21,7 +21,6 @@ const Hero = ({ setTop }) => {
   return (
     <HeroContainer>
       <NavRef ref={topRef} />
-
       <HeaderContainer>
         <HeroHeader>Josh Warren.</HeroHeader>
         <HeroHeader>Full Stack Web Developer.</HeroHeader>
@@ -99,7 +98,6 @@ const Gradient = styled.div`
   width: 100vw;
   background: linear-gradient(0deg, black 1%, rgba(0, 0, 0, 0));
   position: absolute;
-  z-index: -1;
   pointer-events: none;
 `;
 

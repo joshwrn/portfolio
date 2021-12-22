@@ -13,7 +13,6 @@ const FooterScene = () => {
         <Suspense fallback={null}>
           <Canvas
             camera={{ position: [0, 0, 100] }}
-            shadows
             dpr={2}
             resize={{ scroll: false, offsetSize: true }}
           >
@@ -42,9 +41,6 @@ const ShapesContainer = styled.div`
   canvas {
     width: 100%;
     height: 100%;
-  }
-  @media only screen and (max-width: 1050px) {
-    position: relative;
   }
 `;
 

@@ -32,7 +32,7 @@ export default function Model({ ...props }) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
-        <mesh receiveShadow geometry={nodes.Mesh_0.geometry}>
+        <mesh geometry={nodes.Mesh_0.geometry}>
           <meshPhongMaterial
             color="#000000"
             specular="#646464"

@@ -22,13 +22,13 @@ const GlobalStyles = createGlobalStyle`
 html {
   background-color: ${({ theme }) => theme.main.background};
   width: 100vw;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
   position: relative;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   width: 100vw;
   background-color: ${({ theme }) => theme.main.background};
   z-index: -3;

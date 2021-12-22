@@ -46,14 +46,13 @@ const SectionContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  height: 500px;
+  height: 450px;
   padding: 10px 75px;
   box-sizing: border-box;
   border-radius: 12px;
   background-color: ${({ theme }) => theme.portfolio.background};
   border: ${({ theme }) => theme.portfolio.border};
   opacity: 1;
-  box-shadow: 0px 2px 20px 1px rgba(0, 0, 0, 0.068);
   @media only screen and (max-width: 1050px) {
     padding: 80px 30px;
     height: fit-content;
@@ -126,8 +125,9 @@ const Button = styled.button`
   background-color: transparent;
   color: ${({ theme }) => theme.main.fonts.primary};
   border: ${({ theme }) => theme.portfolio.buttons.border};
-  transition: color 0.25s, box-shadow 0.5s;
+  transition: color 0.25s;
   font-size: 1.3rem;
+  cursor: pointer;
   &:hover {
     background: -webkit-linear-gradient(
       45deg,
@@ -137,7 +137,6 @@ const Button = styled.button`
       #dfbe77 95%
     );
     color: white;
-    box-shadow: 0px 0px 7px 1px rgba(255, 122, 122, 0.2);
     background-size: 100% 800%;
     animation: ${gradientMove} 5s ease infinite alternate;
   }

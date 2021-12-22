@@ -136,12 +136,7 @@ export function Cone() {
       -0.25 + Math.sin(clock.getElapsedTime() * 0.5) * 0.125;
   });
   return (
-    <mesh
-      ref={shape}
-      castShadow
-      position={[0.35, 0.4, 0.8]}
-      rotation={[-0.5, 0, -0.3]}
-    >
+    <mesh ref={shape} position={[0.35, 0.4, 0.8]} rotation={[-0.5, 0, -0.3]}>
       <coneGeometry args={[0.3, 0.6, 20]} />
       <Material />
     </mesh>
@@ -156,7 +151,7 @@ export function Sphere() {
   });
   return (
     <motion.mesh
-      castShadow
+      cast
       ref={shape}
       position={[-0.3, -0.5, 0.1]}
       variants={{ hover: { z: 2 } }}
@@ -174,12 +169,7 @@ export function Torus() {
       0.8 + Math.sin(clock.getElapsedTime() * 0.4) * 0.135;
   });
   return (
-    <motion.mesh
-      ref={shape}
-      castShadow
-      position={[0.5, 0.4, 0]}
-      rotation={[-0.5, 0.5, 0]}
-    >
+    <motion.mesh ref={shape} position={[0.5, 0.4, 0]} rotation={[-0.5, 0.5, 0]}>
       <torusGeometry args={[0.2, 0.1, 10, 50]} />
       <Material />
     </motion.mesh>
@@ -194,7 +184,6 @@ export function Icosahedron() {
   return (
     <motion.mesh
       ref={shape}
-      castShadow
       scale={[0.75, 0.75, 0.75]}
       position={[1.4, 0, -0.1]}
       rotation-z={0.5}

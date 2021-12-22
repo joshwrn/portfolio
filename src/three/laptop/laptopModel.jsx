@@ -61,7 +61,6 @@ export default function Model({
             <mesh
               geometry={nodes.Frame_ComputerFrame_0.geometry}
               material={materials.ComputerFrame}
-              receiveShadow
             />
           </group>
           <animated.group
