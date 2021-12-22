@@ -1,21 +1,14 @@
 {
   "files": {
-    "main.js": "/static/js/main.c3badcfe.chunk.js",
-    "main.js.map": "/static/js/main.c3badcfe.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.931e61bc.js",
-    "runtime-main.js.map": "/static/js/runtime-main.931e61bc.js.map",
-    "static/js/2.0f4fbcad.chunk.js": "/static/js/2.0f4fbcad.chunk.js",
-    "static/js/2.0f4fbcad.chunk.js.map": "/static/js/2.0f4fbcad.chunk.js.map",
+    "main.js": "/static/js/main.719fb2e7.js",
+    "static/media/sparks.mp4": "/static/media/sparks.98b55f4a82ed1d743a1e.mp4",
+    "static/media/NeueHaasDisplayMedium.woff": "/static/media/NeueHaasDisplayMedium.f832a6de7899a449de29.woff",
+    "static/media/NeueHaasDisplayRoman.woff": "/static/media/NeueHaasDisplayRoman.bf8caa25260dcf491fd5.woff",
+    "static/media/HelveticaNeueCyr-Medium.otf": "/static/media/HelveticaNeueCyr-Medium.c0307693e561e43cb5c0.otf",
     "index.html": "/index.html",
-    "static/js/2.0f4fbcad.chunk.js.LICENSE.txt": "/static/js/2.0f4fbcad.chunk.js.LICENSE.txt",
-    "static/media/NeueHaasDisplayMedium.f832a6de.woff": "/static/media/NeueHaasDisplayMedium.f832a6de.woff",
-    "static/media/NeueHaasDisplayRoman.bf8caa25.woff": "/static/media/NeueHaasDisplayRoman.bf8caa25.woff",
-    "static/media/macbook-1.19eb9f2e.jpg": "/static/media/macbook-1.19eb9f2e.jpg",
-    "static/media/sparks.98b55f4a.mp4": "/static/media/sparks.98b55f4a.mp4"
+    "main.719fb2e7.js.map": "/static/js/main.719fb2e7.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.931e61bc.js",
-    "static/js/2.0f4fbcad.chunk.js",
-    "static/js/main.c3badcfe.chunk.js"
+    "static/js/main.719fb2e7.js"
   ]
 }
