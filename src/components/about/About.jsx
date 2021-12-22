@@ -5,14 +5,16 @@ import useMeasure from 'react-use-measure';
 import { useInView } from 'react-intersection-observer';
 import Header from '../reusable/Header';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 import Laptop from '../../three/laptop/Laptop';
 
 const About = () => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
-  const [viewRef, inView] = useInView({
-    threshold: 0.1,
-  });
+  // const [viewRef, inView] = useInView({
+  //   threshold: 0.1,
+  // });
+  const [inView, setInView] = React.useState(true);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   return (
@@ -25,15 +27,15 @@ const About = () => {
     >
       <Inner>
         <Header title="About" />
-        <SectionContainer ref={viewRef}>
+        <SectionContainer>
           <Text>
-            Hi, my name is Josh. I'm a 26 year old full stack developer, looking
-            for a position as a junior dev. My past experience has mostly just
-            been freelance work but I'm looking to be part of an actual team.
-            I've spent most of my time during the pandemic studying web design
-            and teaching myself different programming languages. When I'm not
-            coding I like to mess around in Photoshop and occasionally I make
-            beats for{' '}
+            Hi, my name is Josh. I'm a 26 year old full stack developer living
+            in Northern California. I'm currently looking for a position as a
+            junior dev. My past experience has mostly been freelance work, but
+            I'm looking to be part of an actual team. I've spent the majority of
+            my time during the pandemic studying web design and teaching myself
+            how to code. When I'm not coding I like to mess around in Photoshop
+            and occasionally I make beats for{' '}
             <AboutLink
               rel="noreferrer"
               target="_blank"
@@ -52,12 +54,14 @@ const About = () => {
   );
 };
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   padding: 0 100px;
+  z-index: 10;
+  position: relative;
   @media only screen and (max-width: 850px) {
     padding: 20px;
   }

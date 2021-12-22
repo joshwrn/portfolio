@@ -4,19 +4,6 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useSpring, animated } from '@react-spring/three';
 
-export function Lights() {
-  return (
-    <>
-      <spotLight
-        castShadow
-        color="#88edff"
-        position={[-10, -10, -10]}
-        intensity={0.3}
-      />
-    </>
-  );
-}
-
 export default function Model({
   openLaptop,
   setOpenLaptop,
@@ -52,7 +39,7 @@ export default function Model({
   });
 
   useFrame(({ clock }) => {
-    group.current.position.y = Math.sin(clock.getElapsedTime() * 1) * 0.4 - 5;
+    group.current.position.y = Math.sin(clock.getElapsedTime() * 1) * 0.45 - 5;
   });
 
   return (

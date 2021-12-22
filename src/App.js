@@ -9,6 +9,7 @@ import Skills from './components/skills/Skills';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './styles/theme';
 import GlobalStyles from './styles/GlobalStyles';
+import styled from 'styled-components';
 
 function App() {
   const [top, setTop] = useState('true');
@@ -22,15 +23,21 @@ function App() {
         setCurrentTheme={setCurrentTheme}
         top={top}
       />
-      <div className="feed">
+      <Feed>
         <Hero setTop={setTop} />
         <Portfolio />
         <Skills />
         <About />
         <Footer />
-      </div>
+      </Feed>
     </ThemeProvider>
   );
 }
+
+const Feed = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 200px;
+`;
 
 export default App;

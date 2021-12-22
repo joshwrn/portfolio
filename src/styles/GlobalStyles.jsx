@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import haas from '../assets/fonts/haas/NeueHaasDisplayMedium.woff';
 import haasRoman from '../assets/fonts/haas/NeueHaasDisplayRoman.woff';
+import cyr from '../assets/fonts/cyr/HelveticaNeueCyr-Medium.otf';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -13,16 +14,21 @@ const GlobalStyles = createGlobalStyle`
   src: url(${haasRoman}) format('woff');
 }
 
+@font-face {
+  font-family: 'cyr';
+  src: url(${cyr}) format('woff');
+}
+
 html {
   background-color: ${({ theme }) => theme.main.background};
   width: 100vw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   scroll-behavior: smooth;
 }
 
 body {
   position: relative;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   width: 100vw;
   background-color: ${({ theme }) => theme.main.background};
   z-index: -3;
@@ -109,11 +115,6 @@ input:focus {
   text-shadow: 1px 1px 10px white;
 }
 
-.feed {
-  display: flex;
-  flex-direction: column;
-  gap: 200px;
-}
 
 `;
 

@@ -26,9 +26,8 @@ const Hero = ({ setTop }) => {
         <HeroHeader>Josh Warren.</HeroHeader>
         <HeroHeader>Full Stack Web Developer.</HeroHeader>
       </HeaderContainer>
-
       <Gradient />
-      {/* <HeroVideo
+      <HeroVideo
         dangerouslySetInnerHTML={{
           __html: `
         <video
@@ -41,7 +40,7 @@ const Hero = ({ setTop }) => {
         <source src="${heroVideo}" type="video/mp4" />
         </video>`,
         }}
-      ></HeroVideo> */}
+      ></HeroVideo>
     </HeroContainer>
   );
 };
@@ -57,10 +56,16 @@ const HeroContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
   align-items: center;
   justify-content: center;
   opacity: 1;
   background-color: 'black';
+`;
+
+const SceneContainer = styled.div`
+  position: absolute;
+  z-index: -2;
 `;
 
 const HeaderContainer = styled.div`
@@ -73,6 +78,7 @@ const HeaderContainer = styled.div`
 
 const HeroHeader = styled.h2`
   font-size: 10rem;
+  position: relative;
   padding: 0;
   margin: 0;
   display: inline;

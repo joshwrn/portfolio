@@ -1,7 +1,7 @@
 import { Suspense, useState, useEffect, useRef } from 'react';
-import { Canvas, useThree } from '@react-three/fiber';
+import { Canvas, useThree, useFrame } from '@react-three/fiber';
+import { Loader } from '@react-three/drei';
 import { Scene } from './Scene';
-import { useFrame } from '@react-three/fiber';
 import styled from 'styled-components';
 
 function BloomContainer({ children, theme }) {
@@ -40,13 +40,13 @@ const Laptop = ({ mouseX, mouseY, inView }) => {
   return (
     <ShapesContainer>
       <Container>
-        <Suspense fallback={null}>
-          <Canvas
-            camera={{ position: [0, 0, 100] }}
-            shadows
-            dpr={2}
-            resize={{ scroll: false, offsetSize: true }}
-          >
+        <Canvas
+          camera={{ position: [0, 0, 100] }}
+          shadows
+          dpr={2}
+          resize={{ scroll: false, offsetSize: true }}
+        >
+          <Suspense fallback={null}>
             <BloomContainer>
               <Scene
                 openLaptop={openLaptop}
@@ -55,8 +55,12 @@ const Laptop = ({ mouseX, mouseY, inView }) => {
                 mouseY={mouseY}
               />
             </BloomContainer>
-          </Canvas>
-        </Suspense>
+          </Suspense>
+        </Canvas>
+        <Loader
+          containerStyles={{ backgroundColor: 'black' }}
+          dataStyles={{ display: 'none' }}
+        />
       </Container>
     </ShapesContainer>
   );
@@ -68,13 +72,12 @@ const ShapesContainer = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
+  width: 50vw;
   top: -1px;
   left: -1px;
   right: -1px;
   bottom: -1px;
   canvas {
-    width: 100%;
-    height: 100%;
     z-index: 10;
   }
   @media only screen and (max-width: 1050px) {
@@ -83,12 +86,16 @@ const ShapesContainer = styled.div`
 `;
 
 const Container = styled.div`
-  width: 60vw;
-  transform: translateY(-50px);
+  transform: translateY(-10%) translateX(-17%);
   height: 100vh;
-  max-height: 1000px;
+  width: 100vw;
+  max-height: 900px;
+  max-width: 1400px;
+  div {
+    overflow: visible !important;
+  }
   @media only screen and (max-width: 1050px) {
-    width: 80vw;
+    width: 100vw;
     transform: translateY(0px);
     height: 60vh;
   }

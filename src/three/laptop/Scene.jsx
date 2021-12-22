@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion/three';
-import { useRef } from 'react';
-import { extend } from '@react-three/fiber';
+import { useRef, useLayoutEffect } from 'react';
+import { extend, useThree } from '@react-three/fiber';
 import { useSmoothTransform } from './use-smooth-transform';
 import {
   useSpring,
@@ -45,6 +45,7 @@ export const Scene = ({ mouseX, mouseY, openLaptop, setOpenLaptop }) => {
 
   return (
     <>
+      <Camera mouseX={mouseX} mouseY={mouseY} />
       <ambientLight intensity={0.15} />
       <LaptopModel
         laptopScreenRef={laptopScreenRef}
@@ -206,6 +207,45 @@ export function Icosahedron() {
 
 export function Material() {
   return <meshPhongMaterial color="#535353" specular="#c0c0c0" shininess={3} />;
+}
+
+function Camera({ mouseX, mouseY, ...props }) {
+  const cameraX = useSmoothTransform(mouseX, spring, (x) => (-1 * x) / 300);
+  const cameraY = useSmoothTransform(mouseY, spring, (y) => (-1 * y) / 300);
+
+  const set = useThree(({ set }) => set);
+  const camera = useThree(({ camera }) => camera);
+  const size = useThree(({ size }) => size);
+  const scene = useThree(({ scene }) => scene);
+  const cameraRef = useRef();
+
+  useLayoutEffect(() => {
+    const { current: cam } = cameraRef;
+    if (cam) {
+      cam.aspect = size.width / size.height;
+      cam.updateProjectionMatrix();
+    }
+  }, [size, props]);
+
+  useLayoutEffect(() => {
+    if (cameraRef.current) {
+      const oldCam = camera;
+      set(() => ({ camera: cameraRef.current }));
+      return () => set(() => ({ camera: oldCam }));
+    }
+  }, [camera, cameraRef, set]);
+
+  useLayoutEffect(() => {
+    return cameraX.onChange(() => camera.lookAt(scene.position));
+  }, [cameraX]);
+
+  return (
+    <motion.perspectiveCamera
+      ref={cameraRef}
+      fov={70}
+      position={[cameraX, cameraY, 100]}
+    />
+  );
 }
 
 const spring = { stiffness: 600, damping: 30 };

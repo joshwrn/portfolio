@@ -31,12 +31,14 @@ const Header = ({ title }) => {
 
   const letter = {
     hidden: {
-      y: 400,
       filter: 'blur(100px)',
+      opacity: 0,
+      y: 100,
     },
     show: {
-      y: 0,
       filter: 'blur(0px)',
+      opacity: 1,
+      y: 0,
       transition: {
         // duration: 0.45,
         // ease: [0.6, 0.01, -0.05, 0.9],
@@ -50,11 +52,7 @@ const Header = ({ title }) => {
 
   return (
     <HeaderContainer ref={ref}>
-      <HeaderTitle
-        variants={container}
-        initial="hidden"
-        animate={letterControls}
-      >
+      <HeaderTitle variants={letter} initial="hidden" animate={letterControls}>
         {title.split('').map((item, index) => (
           <HeaderLetter variants={letter} key={index}>
             {item}
@@ -69,7 +67,6 @@ const HeaderContainer = styled(motion.div)`
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  overflow: hidden;
   height: 100px;
   margin: 0px 0 25px 0;
 `;

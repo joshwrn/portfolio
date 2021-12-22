@@ -124,6 +124,7 @@ const SectionContainer = styled.div`
   width: 100%;
   align-items: flex-start;
   gap: 100px;
+  padding-bottom: 100px;
   @media only screen and (max-width: 850px) {
     flex-direction: column;
   }

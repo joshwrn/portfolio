@@ -2,11 +2,19 @@ import React from 'react';
 
 import { motion } from 'framer-motion';
 
+import { IoMailOutline } from 'react-icons/io5';
 import styled from 'styled-components';
 
 const Nav = ({ top }) => {
   const date = () => {
     return new Date().getFullYear();
+  };
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth',
+    });
   };
 
   return (
@@ -23,8 +31,9 @@ const Nav = ({ top }) => {
         <NavCenter>
           <NavText>JOSH WARREN</NavText>
         </NavCenter>
-        <NavEnd>
-          <NavText>EMAIL ME</NavText>
+        <NavEnd onMouseDown={scrollToBottom}>
+          <ContactText>CONTACT</ContactText>
+          <MailIcon />
         </NavEnd>
       </NavInner>
       <Blur top={top}></Blur>
@@ -77,6 +86,7 @@ const NavStart = styled(NavSection)`
 
 const NavEnd = styled(NavSection)`
   justify-content: flex-end;
+  gap: 8px;
   @media only screen and (max-width: 600px) {
     display: none;
   }
@@ -88,6 +98,17 @@ const NavCenter = styled(NavSection)`
 
 const NavText = styled.p`
   color: ${({ theme }) => theme.main.fonts.primary};
+`;
+
+const ContactText = styled(NavText)`
+  cursor: pointer;
+`;
+
+const MailIcon = styled(IoMailOutline)`
+  color: #fff;
+  font-size: 1.7rem;
+  transform: translateY(-1px);
+  cursor: pointer;
 `;
 
 const Blur = styled.div`
