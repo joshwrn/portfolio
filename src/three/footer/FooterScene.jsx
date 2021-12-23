@@ -1,12 +1,13 @@
-import { Suspense, useState, useEffect, useRef } from 'react';
-import { Canvas, useThree } from '@react-three/fiber';
-import { motion } from 'framer-motion/three';
-import { useFrame } from '@react-three/fiber';
-import { Stars } from '@react-three/drei';
-import styled from 'styled-components';
+import { Suspense } from 'react';
+
+import { Canvas } from '@react-three/fiber';
+import Camera from '../reusable/MovableCamera';
+
 import LowHeart from './LowHeart';
 
-const FooterScene = () => {
+import styled from 'styled-components';
+
+const FooterScene = ({ mouseX, mouseY }) => {
   return (
     <ShapesContainer>
       <Container>
@@ -16,6 +17,7 @@ const FooterScene = () => {
             dpr={2}
             resize={{ scroll: false, offsetSize: true }}
           >
+            <Camera mouseX={mouseX} mouseY={mouseY} />
             <ambientLight intensity={0.55} />
             {/* <Sphere /> */}
             <LowHeart scale={[15, 15, 15]} position={[0, 0, -10]} />

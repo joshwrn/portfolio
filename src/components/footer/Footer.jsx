@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { useMotionValue, motion } from 'framer-motion';
+import useMeasure from 'react-use-measure';
+
 //+ icons
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { FiTwitter } from 'react-icons/fi';
@@ -13,10 +16,19 @@ import FooterScene from '../../three/footer/FooterScene';
 import styled from 'styled-components';
 
 const Footer = () => {
+  const [mouseRef, bounds] = useMeasure({ scroll: true });
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
   return (
-    <Container>
+    <Container
+      ref={mouseRef}
+      onPointerMove={(e) => {
+        mouseX.set((e.clientX - bounds.x - bounds.width / 2) * 5);
+        mouseY.set((e.clientY - bounds.y - bounds.height / 2) * 10);
+      }}
+    >
       <SceneContainer>
-        <FooterScene />
+        <FooterScene mouseX={mouseX} mouseY={mouseY} />
       </SceneContainer>
       <Inner>
         <div>
@@ -75,7 +87,7 @@ const SceneContainer = styled.div`
   z-index: -2;
 `;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   position: relative;
   z-index: 1;

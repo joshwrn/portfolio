@@ -1,20 +1,19 @@
 import React from 'react';
 
-import { useMotionValue } from 'framer-motion';
+import { useMotionValue, motion } from 'framer-motion';
 import useMeasure from 'react-use-measure';
 import { useInView } from 'react-intersection-observer';
 import Header from '../reusable/Header';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 
 import Laptop from '../../three/laptop/Laptop';
 
 const About = () => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
-  // const [viewRef, inView] = useInView({
-  //   threshold: 0.1,
-  // });
-  const [inView, setInView] = React.useState(true);
+  const [viewRef, inView] = useInView({
+    threshold: 0.1,
+  });
+  // const [inView, setInView] = React.useState(true);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   return (
@@ -25,7 +24,7 @@ const About = () => {
         mouseY.set(e.clientY - bounds.y - bounds.height / 2);
       }}
     >
-      <Inner>
+      <Inner ref={viewRef}>
         <Header title="About" />
         <SectionContainer>
           <Text>

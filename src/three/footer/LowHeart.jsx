@@ -1,18 +1,10 @@
 import React, { useRef } from 'react';
-import { useGLTF, Environment } from '@react-three/drei';
+import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
-import { Canvas, useThree, useFrame } from '@react-three/fiber';
-import {
-  CubeTextureLoader,
-  CubeCamera,
-  WebGLCubeRenderTarget,
-  RGBFormat,
-  LinearMipmapLinearFilter,
-} from 'three';
+import { useFrame } from '@react-three/fiber';
+import { CubeTextureLoader } from 'three';
 
 const loader = new CubeTextureLoader();
-// The CubeTextureLoader load method takes an array of urls representing all 6 sides of the cube.
-
 const texture = loader.load([
   '/envMaps/corridor/nx.png',
   '/envMaps/corridor/ny.png',
@@ -21,14 +13,13 @@ const texture = loader.load([
   '/envMaps/corridor/py.png',
   '/envMaps/corridor/pz.png',
 ]);
-console.log(texture);
 
 export default function Model({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF('../../polyHeart/scene.gltf');
-  useFrame(() => {
-    group.current.rotation.y += 0.005;
-  });
+  const { nodes } = useGLTF('../../polyHeart/scene.gltf');
+  // useFrame(({ clock }) => {
+  //   group.current.rotation.y = clock.getElapsedTime() * 0.05;
+  // });
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
