@@ -2,18 +2,13 @@ import React from 'react';
 
 import { useMotionValue, motion } from 'framer-motion';
 import useMeasure from 'react-use-measure';
-import { useInView } from 'react-intersection-observer';
 import Header from '../reusable/Header';
 import styled from 'styled-components';
 
 import Laptop from '../../three/laptop/Laptop';
 
-const About = () => {
+const About = ({ aboutRef }) => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
-  const [viewRef, inView] = useInView({
-    threshold: 0.1,
-  });
-  // const [inView, setInView] = React.useState(true);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   return (
@@ -24,8 +19,8 @@ const About = () => {
         mouseY.set(e.clientY - bounds.y - bounds.height / 2);
       }}
     >
-      <Inner ref={viewRef}>
-        <Header title="About" />
+      <Inner>
+        <Header title="About" headerRef={aboutRef} />
         <SectionContainer>
           <Text>
             Hi, my name is Josh. I'm a 26 year old full stack developer living
@@ -45,7 +40,7 @@ const About = () => {
             , where I have over 10,000 subscribers.
           </Text>
           <ImageContainer>
-            <Laptop mouseX={mouseX} mouseY={mouseY} inView={inView} />
+            <Laptop mouseX={mouseX} mouseY={mouseY} />
           </ImageContainer>
         </SectionContainer>
       </Inner>
@@ -97,7 +92,7 @@ const ImageContainer = styled.div`
 `;
 
 const Text = styled.p`
-  font-family: haas-roman;
+  font-family: ${({ theme }) => theme.main.fontFamily.primary};
   font-size: 1.9rem;
   line-height: 30px;
   z-index: 1;

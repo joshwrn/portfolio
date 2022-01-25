@@ -8,9 +8,17 @@ export const darkTheme = {
       primary: 'rgb(212, 212, 212)',
       secondary: 'rgb(192, 192, 192)',
     },
+    fontFamily: {
+      primary: 'cyrRoman',
+      header: 'cyrRoman',
+    },
   },
   nav: {
     background: 'rgba(0, 0, 0, 0.5)',
+    fonts: {
+      primary: 'rgb(182, 182, 182)',
+      hover: 'rgb(212, 212, 212)',
+    },
   },
   portfolio: {
     background: 'rgb(10, 10, 10)',

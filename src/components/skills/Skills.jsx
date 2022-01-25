@@ -21,11 +21,11 @@ import {
   Express,
 } from '@icons-pack/react-simple-icons';
 
-const Skills = () => {
+const Skills = ({ skillsRef }) => {
   return (
     <Container>
       <Inner>
-        <Header title="Skills" />
+        <Header title="Skills" headerRef={skillsRef} />
         <IconContext.Provider value={{ style: iconStyle }}>
           <SectionContainer>
             <RowContainer>
@@ -161,7 +161,7 @@ const iconStyle = {
 const SkillText = styled.p`
   font-size: 2.1rem;
   color: gray;
-  font-family: haas-roman;
+  font-family: ${({ theme }) => theme.main.fontFamily.primary};
 `;
 
 const IconContainer = styled.div`

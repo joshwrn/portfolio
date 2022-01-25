@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import heroVideo from '../../assets/images/sparks.mp4';
+import { useMotionValue, motion } from 'framer-motion';
+import useMeasure from 'react-use-measure';
+
+import HeroScene from '../../three/hero/HeroScene';
 
 import styled from 'styled-components';
 
 const Hero = ({ setTop }) => {
+  const [mouseRef, bounds] = useMeasure({ scroll: true });
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
   const [topRef, topView] = useInView({
     threshold: 0.1,
   });
@@ -19,27 +26,16 @@ const Hero = ({ setTop }) => {
   }, [topView]);
 
   return (
-    <HeroContainer>
+    <HeroContainer
+      ref={mouseRef}
+      onPointerMove={(e) => {
+        mouseX.set((e.clientX - bounds.x - bounds.width / 2) * 0.5);
+        mouseY.set((e.clientY - bounds.y - bounds.height / 2) * 1);
+      }}
+    >
       <NavRef ref={topRef} />
-      <HeaderContainer>
-        <HeroHeader>Josh Warren.</HeroHeader>
-        <HeroHeader>Full Stack Web Developer.</HeroHeader>
-      </HeaderContainer>
       <Gradient />
-      <HeroVideo
-        dangerouslySetInnerHTML={{
-          __html: `
-        <video
-          loop
-          muted
-          autoplay
-          playsinline
-          preload="metadata"
-        >
-        <source src="${heroVideo}" type="video/mp4" />
-        </video>`,
-        }}
-      ></HeroVideo>
+      <HeroScene mouseX={mouseX} mouseY={mouseY} />
     </HeroContainer>
   );
 };
@@ -51,65 +47,26 @@ const NavRef = styled.div`
   top: 0;
 `;
 
-const HeroContainer = styled.div`
-  min-height: 100vh;
+const HeroContainer = styled(motion.div)`
+  min-height: 150vh;
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: absolute;
   align-items: center;
   justify-content: center;
   opacity: 1;
   background-color: 'black';
 `;
 
-const SceneContainer = styled.div`
-  position: absolute;
-  z-index: -2;
-`;
-
-const HeaderContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  pointer-events: none;
-  position: relative;
-  z-index: 1;
-`;
-
-const HeroHeader = styled.h2`
-  font-size: 10rem;
-  position: relative;
-  padding: 0;
-  margin: 0;
-  display: inline;
-  line-height: 10rem;
-  color: rgb(212, 212, 212);
-  pointer-events: none;
-  user-select: none;
-  @media only screen and (max-width: 850px) {
-    font-size: 6rem;
-    padding: 0 40px;
-    line-height: 6rem;
-  }
-`;
-
 const Gradient = styled.div`
   min-width: 100%;
-  height: 100vh;
+  height: 50vh;
   width: 100vw;
-  background: linear-gradient(0deg, black 1%, rgba(0, 0, 0, 0));
+  bottom: 0;
+  background: linear-gradient(0deg, black 1%, rgba(0, 0, 0, 0) 90%);
   position: absolute;
   pointer-events: none;
-`;
-
-const HeroVideo = styled.div`
-  position: absolute;
-  z-index: -2;
-  width: 100vw;
-  height: 100vh;
-  filter: brightness(0.85);
-  object-fit: cover;
-  opacity: 1;
-  overflow: hidden;
+  z-index: 5;
 `;
 
 export default Hero;

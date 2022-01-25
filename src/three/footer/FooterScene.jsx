@@ -12,17 +12,9 @@ const FooterScene = ({ mouseX, mouseY }) => {
     <ShapesContainer>
       <Container>
         <Suspense fallback={null}>
-          <Canvas
-            camera={{ position: [0, 0, 100] }}
-            dpr={2}
-            resize={{ scroll: false, offsetSize: true }}
-          >
-            <Camera mouseX={mouseX} mouseY={mouseY} />
-            <ambientLight intensity={0.55} />
-            {/* <Sphere /> */}
-            <LowHeart scale={[15, 15, 15]} position={[0, 0, -10]} />
-            {/* <Lights position={[0, 40, 0]} />
-            <Lights position={[0, 10, 0]} /> */}
+          <Canvas dpr={1} resize={{ scroll: false, offsetSize: true }}>
+            <Camera mouseX={mouseX} mouseY={mouseY} fov={65} />
+            <LowHeart scale={16} position={[0, 0, -10]} />
           </Canvas>
         </Suspense>
       </Container>

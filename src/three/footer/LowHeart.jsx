@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
-import { useFrame } from '@react-three/fiber';
 import { CubeTextureLoader } from 'three';
 
 const loader = new CubeTextureLoader();
@@ -17,14 +16,11 @@ const texture = loader.load([
 export default function Model({ ...props }) {
   const group = useRef();
   const { nodes } = useGLTF('../../polyHeart/scene.gltf');
-  // useFrame(({ clock }) => {
-  //   group.current.rotation.y = clock.getElapsedTime() * 0.05;
-  // });
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <mesh geometry={nodes.Mesh_0.geometry}>
-          <meshPhongMaterial
+          {/* <meshPhongMaterial
             color="#000000"
             specular="#646464"
             shininess={3}
@@ -32,6 +28,18 @@ export default function Model({ ...props }) {
             envMap={texture}
             attach="material"
             reflectivity={0.14}
+          /> */}
+          <meshPhysicalMaterial
+            reflectivity={4}
+            color="#3b3b3b"
+            emissive="#0f0f0f"
+            metalness={1}
+            roughness={0}
+            clearcoat={1}
+            clearcoatRoughness={0}
+            attach="material"
+            combine={THREE.MixOperation}
+            envMap={texture}
           />
         </mesh>
       </group>

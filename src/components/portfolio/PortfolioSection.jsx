@@ -95,7 +95,7 @@ const Description = styled.p`
   margin-top: 25px;
   line-height: 2.8rem;
   font-size: 1.6rem;
-  font-family: haas-roman;
+  font-family: ${({ theme }) => theme.main.fontFamily.primary};
 `;
 
 //@ Buttons
@@ -128,6 +128,7 @@ const Button = styled.button`
   transition: color 0.25s;
   font-size: 1.3rem;
   cursor: pointer;
+  transition: box-shadow 0.25s;
   &:hover {
     background: -webkit-linear-gradient(
       45deg,
@@ -136,6 +137,7 @@ const Button = styled.button`
       #fc6277 58%,
       #dfbe77 95%
     );
+    box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.301);
     color: white;
     background-size: 100% 800%;
     animation: ${gradientMove} 5s ease infinite alternate;

@@ -1,7 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 import haas from '../assets/fonts/haas/NeueHaasDisplayMedium.woff';
 import haasRoman from '../assets/fonts/haas/NeueHaasDisplayRoman.woff';
-import cyr from '../assets/fonts/cyr/HelveticaNeueCyr-Medium.otf';
+
+import cyrBold from '../assets/fonts/HelveticaNeueCyr-Bold.otf';
+import cyrMedium from '../assets/fonts/HelveticaNeueCyr-Medium.otf';
+import cyrRoman from '../assets/fonts/HelveticaNeueCyr-Roman.otf';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -15,8 +18,18 @@ const GlobalStyles = createGlobalStyle`
 }
 
 @font-face {
-  font-family: 'cyr';
-  src: url(${cyr}) format('woff');
+  font-family: 'cyrBold';
+  src: url(${cyrBold}) format('woff');
+}
+
+@font-face {
+  font-family: 'cyrMed';
+  src: url(${cyrMedium}) format('woff');
+}
+
+@font-face {
+  font-family: 'cyrRoman';
+  src: url(${cyrRoman}) format('woff');
 }
 
 html {
@@ -39,7 +52,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font: 62.5% haas, Helvetica, Arial, sans-serif;
+  font: 62.5% cyrRoman,  Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -59,22 +72,13 @@ h4,
 h5 {
   font-size: 2rem;
   color: ${({ theme }) => theme.main.fonts.primary};
-  font-family: haas, helvetica, arial, sans-serif;
+  font-family: cyrRoman, helvetica, arial, sans-serif;
 }
 
 a {
   text-decoration: none;
 }
 
-button {
-  /* border: 1px solid gray;
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-  padding: 8px 10px;
-  font-size: 1.3rem;
-  width: 200px;
-  cursor: pointer; */
-}
 
 input {
   padding: 0 16px;

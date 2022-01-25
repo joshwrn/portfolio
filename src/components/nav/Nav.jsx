@@ -2,10 +2,9 @@ import React from 'react';
 
 import { motion } from 'framer-motion';
 
-import { IoMailOutline } from 'react-icons/io5';
 import styled from 'styled-components';
 
-const Nav = ({ top }) => {
+const Nav = ({ top, portfolioRef, skillsRef, aboutRef }) => {
   const date = () => {
     return new Date().getFullYear();
   };
@@ -13,6 +12,13 @@ const Nav = ({ top }) => {
   const scrollToBottom = () => {
     window.scrollTo({
       top: document.body.scrollHeight,
+      behavior: 'smooth',
+    });
+  };
+
+  const scrollToSection = (section) => {
+    if (!section.current) return;
+    section.current.scrollIntoView({
       behavior: 'smooth',
     });
   };
@@ -26,14 +32,20 @@ const Nav = ({ top }) => {
     >
       <NavInner>
         <NavStart>
-          <NavText>PORTFOLIO {date()}</NavText>
+          <NavText>Portfolio {date()}</NavText>
         </NavStart>
-        <NavCenter>
-          <NavText>JOSH WARREN</NavText>
-        </NavCenter>
-        <NavEnd onMouseDown={scrollToBottom}>
-          <ContactText>CONTACT</ContactText>
-          <MailIcon />
+        <NavCenter></NavCenter>
+        <NavEnd>
+          <NavTextLink onClick={() => scrollToSection(portfolioRef)}>
+            Portfolio
+          </NavTextLink>
+          <NavTextLink onClick={() => scrollToSection(skillsRef)}>
+            Skills
+          </NavTextLink>
+          <NavTextLink onClick={() => scrollToSection(aboutRef)}>
+            About
+          </NavTextLink>
+          <NavTextLink onClick={scrollToBottom}>Contact</NavTextLink>
         </NavEnd>
       </NavInner>
       <Blur top={top}></Blur>
@@ -57,8 +69,6 @@ const StyledNav = styled(motion.nav)`
   transition: background-color 1s, border-bottom 1s;
   background-color: ${({ theme, top }) =>
     top === 'true' ? 'transparent' : theme.nav.background};
-  border-bottom: ${({ theme, top }) =>
-    top === 'true' ? 'transparent' : theme.portfolio.border};
   opacity: 0;
 `;
 
@@ -68,6 +78,7 @@ const NavInner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${({ theme }) => theme.nav.fonts.primary};
 `;
 
 const NavSection = styled.div`
@@ -86,7 +97,7 @@ const NavStart = styled(NavSection)`
 
 const NavEnd = styled(NavSection)`
   justify-content: flex-end;
-  gap: 8px;
+  gap: 42px;
   @media only screen and (max-width: 600px) {
     display: none;
   }
@@ -97,18 +108,16 @@ const NavCenter = styled(NavSection)`
 `;
 
 const NavText = styled.p`
-  color: ${({ theme }) => theme.main.fonts.primary};
+  color: ${({ theme }) => theme.nav.fonts.primary};
 `;
 
-const ContactText = styled(NavText)`
+const NavTextLink = styled(NavText)`
   cursor: pointer;
-`;
-
-const MailIcon = styled(IoMailOutline)`
-  color: #fff;
-  font-size: 1.7rem;
-  transform: translateY(-1px);
-  cursor: pointer;
+  transition: color 0.5s;
+  &:hover {
+    color: ${({ theme }) => theme.nav.fonts.hover};
+    text-shadow: 0 0 10px ${({ theme }) => theme.nav.fonts.hover};
+  }
 `;
 
 const Blur = styled.div`
@@ -123,6 +132,7 @@ const Blur = styled.div`
   box-sizing: border-box;
   position: absolute;
   z-index: -5;
+  border-bottom: ${({ theme }) => theme.portfolio.border};
 `;
 
 export default Nav;

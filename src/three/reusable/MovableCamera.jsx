@@ -5,7 +5,7 @@ import { useSmoothTransform } from '../reusable/use-smooth-transform';
 
 const spring = { stiffness: 600, damping: 30 };
 
-function Camera({ mouseX, mouseY, ...props }) {
+function Camera({ mouseX, mouseY, fov, cameraZ = 100, ...props }) {
   const cameraX = useSmoothTransform(mouseX, spring, (x) => (-1 * x) / 300);
   const cameraY = useSmoothTransform(mouseY, spring, (y) => (-1 * y) / 300);
 
@@ -38,8 +38,8 @@ function Camera({ mouseX, mouseY, ...props }) {
   return (
     <motion.perspectiveCamera
       ref={cameraRef}
-      fov={70}
-      position={[cameraX, cameraY, 100]}
+      fov={fov}
+      position={[cameraX, cameraY, cameraZ]}
     />
   );
 }

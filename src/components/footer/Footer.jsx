@@ -30,54 +30,46 @@ const Footer = () => {
       <SceneContainer>
         <FooterScene mouseX={mouseX} mouseY={mouseY} />
       </SceneContainer>
-      <Inner>
-        <div>
+      <InnerContainer>
+        <Inner>
           <Contact>Contact Me.</Contact>
           <Socials>
             <a href="mailto:joshnwarren@gmail.com">
               <Email>joshnwarren@gmail.com</Email>
             </a>
-            <SocialHeader>
-              <CgArrowLongLeft size={24} />
-              Email Me
-            </SocialHeader>
           </Socials>
-        </div>
-        <Socials>
-          <SocialHeader>
-            Social Media
-            <CgArrowLongRight size={24} />
-          </SocialHeader>
-          <SocialIcon
-            rel="noreferrer"
-            target="_blank"
-            href="https://github.com/joshwrn"
-          >
-            <VscGithub size={24} />
-          </SocialIcon>
-          <SocialIcon
-            rel="noreferrer"
-            target="_blank"
-            href="https://codepen.io/joshwrn"
-          >
-            <ImCodepen size={24} />
-          </SocialIcon>
-          <SocialIcon
-            rel="noreferrer"
-            target="_blank"
-            href="https://twitter.com/joshwrn"
-          >
-            <TwitterIcon size={24} />
-          </SocialIcon>
-          <SocialIcon
-            rel="noreferrer"
-            target="_blank"
-            href="https://instagram.com/joshnwarren"
-          >
-            <AiOutlineInstagram size={24} />
-          </SocialIcon>
-        </Socials>
-      </Inner>
+          <Socials>
+            <SocialIcon
+              rel="noreferrer"
+              target="_blank"
+              href="https://github.com/joshwrn"
+            >
+              <VscGithub size={24} />
+            </SocialIcon>
+            <SocialIcon
+              rel="noreferrer"
+              target="_blank"
+              href="https://codepen.io/joshwrn"
+            >
+              <ImCodepen size={24} />
+            </SocialIcon>
+            <SocialIcon
+              rel="noreferrer"
+              target="_blank"
+              href="https://twitter.com/joshwrn"
+            >
+              <TwitterIcon size={24} />
+            </SocialIcon>
+            <SocialIcon
+              rel="noreferrer"
+              target="_blank"
+              href="https://instagram.com/joshnwarren"
+            >
+              <AiOutlineInstagram size={24} />
+            </SocialIcon>
+          </Socials>
+        </Inner>
+      </InnerContainer>
     </Container>
   );
 };
@@ -104,6 +96,21 @@ const Container = styled(motion.div)`
 const Inner = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  /* width: 100%;
+  height: 100%; */
+  /* backdrop-filter: blur(40px);
+  padding: 40px 50px;
+  border: 1px solid #292929;
+  border-radius: 10px; */
+`;
+
+const InnerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 `;
 
 const Contact = styled.h2`
@@ -116,7 +123,7 @@ const Email = styled.h2`
   z-index: 1;
   color: var(--font-color-one);
   transition: color 0.5s;
-  margin-right: 15px;
+  /* margin-right: 15px; */
   &:hover {
     color: ${({ theme }) => theme.main.hover};
   }
@@ -127,7 +134,8 @@ const Socials = styled.div`
   display: flex;
   position: relative;
   z-index: 1;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 25px;
   align-items: center;
 `;
 

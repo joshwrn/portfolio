@@ -4,7 +4,7 @@ import { Loader } from '@react-three/drei';
 import { Scene } from './Scene';
 import styled from 'styled-components';
 
-function BloomContainer({ children, theme }) {
+function BloomContainer({ children }) {
   const { gl, camera, size } = useThree();
   const [scene, setScene] = useState();
   const composer = useRef();
@@ -27,32 +27,14 @@ function BloomContainer({ children, theme }) {
   );
 }
 
-const Laptop = ({ mouseX, mouseY, inView }) => {
-  const [openLaptop, setOpenLaptop] = useState(false);
-  useEffect(() => {
-    if (inView) {
-      setOpenLaptop(true);
-    } else {
-      setOpenLaptop(false);
-    }
-  }, [inView]);
-
+const Laptop = ({ mouseX, mouseY }) => {
   return (
     <ShapesContainer>
       <Container>
-        <Canvas
-          camera={{ position: [0, 0, 100] }}
-          dpr={2}
-          resize={{ scroll: false, offsetSize: true }}
-        >
+        <Canvas dpr={[1, 2]} resize={{ scroll: false, offsetSize: true }}>
           <Suspense fallback={null}>
             <BloomContainer>
-              <Scene
-                openLaptop={openLaptop}
-                setOpenLaptop={setOpenLaptop}
-                mouseX={mouseX}
-                mouseY={mouseY}
-              />
+              <Scene mouseX={mouseX} mouseY={mouseY} />
             </BloomContainer>
           </Suspense>
         </Canvas>

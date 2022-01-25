@@ -1,5 +1,5 @@
 import Nav from './components/nav/Nav';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Hero from './components/hero/Hero';
 import Portfolio from './components/portfolio/Portfolio';
 import Footer from './components/footer/Footer';
@@ -13,16 +13,24 @@ import styled from 'styled-components';
 
 function App() {
   const [top, setTop] = useState('true');
+  const portfolioRef = useRef(null);
+  const skillsRef = useRef(null);
+  const aboutRef = useRef(null);
 
   return (
     <ThemeProvider theme={darkTheme}>
       <GlobalStyles />
-      <Nav top={top} />
+      <Nav
+        top={top}
+        portfolioRef={portfolioRef}
+        skillsRef={skillsRef}
+        aboutRef={aboutRef}
+      />
       <Feed>
         <Hero setTop={setTop} />
-        <Portfolio />
-        <Skills />
-        <About />
+        <Portfolio portfolioRef={portfolioRef} />
+        <Skills skillsRef={skillsRef} />
+        <About aboutRef={aboutRef} />
         <Footer />
       </Feed>
     </ThemeProvider>

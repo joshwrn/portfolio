@@ -8,11 +8,11 @@ import Header from '../reusable/Header';
 
 import styled from 'styled-components';
 
-const Portfolio = () => {
+const Portfolio = ({ portfolioRef }) => {
   return (
     <Container>
       <Inner>
-        <Header title="Projects" />
+        <Header title="Projects" headerRef={portfolioRef} />
         <Feed>
           <PortfolioSection
             header="Instagram"
@@ -38,6 +38,9 @@ const Portfolio = () => {
 };
 
 const Container = styled.div`
+  margin-top: 100vh;
+  position: relative;
+  z-index: 7;
   display: flex;
   flex-direction: column;
   align-items: center;

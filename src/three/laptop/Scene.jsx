@@ -2,12 +2,6 @@ import { motion } from 'framer-motion/three';
 import { useRef } from 'react';
 import { extend, useFrame } from '@react-three/fiber';
 import { useSmoothTransform } from '../reusable/use-smooth-transform';
-import {
-  useSpring,
-  animated,
-  useChain,
-  useSpringRef,
-} from '@react-spring/three';
 
 import LaptopModel from './laptopModel';
 import Camera from '../reusable/MovableCamera';
@@ -18,42 +12,15 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 
 extend({ EffectComposer, RenderPass, UnrealBloomPass });
 
-export const Scene = ({ mouseX, mouseY, openLaptop, setOpenLaptop }) => {
+export const Scene = ({ mouseX, mouseY }) => {
   const lightRotateX = useSmoothTransform(mouseY, spring, mouseToLightRotation);
   const lightRotateY = useSmoothTransform(mouseX, spring, mouseToLightRotation);
 
-  const shapeRef = useSpringRef();
-  const config = {
-    mass: 2,
-    tension: 500,
-    friction: 40,
-    clamp: openLaptop ? false : true,
-    precision: 0.01,
-    velocity: 0,
-  };
-  const openLaptopAnimation = useSpring({
-    config: config,
-    scale: openLaptop ? [20, 20, 20] : [0, 0, 0],
-    ref: shapeRef,
-  });
-  const laptopScreenRef = useSpringRef();
-  const laptopRef = useSpringRef();
-
-  useChain(
-    openLaptop ? [laptopScreenRef, shapeRef] : [shapeRef, laptopScreenRef],
-    openLaptop ? [0, 0.2] : [0, 0]
-  );
-
   return (
     <>
-      <Camera mouseX={mouseX} mouseY={mouseY} />
+      <Camera mouseX={mouseX} mouseY={mouseY} fov={70} />
       <ambientLight intensity={0.15} />
-      <LaptopModel
-        laptopScreenRef={laptopScreenRef}
-        laptopRef={laptopRef}
-        openLaptop={openLaptop}
-        setOpenLaptop={setOpenLaptop}
-      />
+      <LaptopModel />
       <motion.group
         center={[0, 0, 0]}
         position={[10, 10, -1]}
@@ -68,22 +35,22 @@ export const Scene = ({ mouseX, mouseY, openLaptop, setOpenLaptop }) => {
         position={[0, -18, 65]}
         intensity={0.5}
       />
-      <animated.group
+      <group
         initial={false}
         dispose={null}
         position={[-3.5, 4, 3]}
-        scale={openLaptopAnimation.scale}
+        scale={[20, 20, 20]}
       >
         <Sphere />
         <Cone />
         <Torus />
         <Icosahedron />
-      </animated.group>
+      </group>
     </>
   );
 };
 
-export function Lights() {
+function Lights() {
   return (
     <>
       <pointLight
@@ -120,17 +87,7 @@ export function Lights() {
   );
 }
 
-// export function Floor() {
-//   const shape = useRef();
-//   return (
-//     <mesh ref={shape} position={[-1.3, -35.4, -25.5]} rotation={[-0.5, 0, 0]}>
-//       <planeBufferGeometry attach="geometry" args={[400, 400]} />
-//       <meshStandardMaterial attach="material" color="#4e4e4e" />
-//     </mesh>
-//   );
-// }
-
-export function Cone() {
+function Cone() {
   const shape = useRef();
   useFrame(({ clock }) => {
     shape.current.position.y =
@@ -163,7 +120,7 @@ export function Sphere() {
   );
 }
 
-export function Torus() {
+function Torus() {
   const shape = useRef();
   useFrame(({ clock }) => {
     shape.current.position.y =
@@ -177,7 +134,7 @@ export function Torus() {
   );
 }
 
-export function Icosahedron() {
+function Icosahedron() {
   const shape = useRef();
   useFrame(({ clock }) => {
     shape.current.position.y = Math.cos(clock.getElapsedTime() * 0.6) * 0.125;
@@ -195,7 +152,7 @@ export function Icosahedron() {
   );
 }
 
-export function Material() {
+function Material() {
   return <meshPhongMaterial color="#535353" specular="#c0c0c0" shininess={3} />;
 }
 
