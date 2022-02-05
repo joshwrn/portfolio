@@ -88,6 +88,7 @@ const ImageContainer = styled.div`
   position: relative;
   @media only screen and (max-width: 1050px) {
     justify-content: center;
+    display: none;
   }
 `;
 

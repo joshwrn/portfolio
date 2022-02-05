@@ -98,32 +98,6 @@ const HeroScene = ({ mouseX, mouseY }) => {
   );
 };
 
-const HeaderContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  pointer-events: none;
-  position: relative;
-  z-index: 1;
-`;
-
-const HeroHeader = styled.h2`
-  font-size: 10rem;
-  position: relative;
-  padding: 0;
-  margin: 0;
-  display: inline;
-  line-height: 10rem;
-  color: rgb(212, 212, 212);
-  pointer-events: none;
-  user-select: none;
-  @media only screen and (max-width: 850px) {
-    font-size: 6rem;
-    padding: 0 40px;
-    line-height: 6rem;
-  }
-`;
-
 const ShapesContainer = styled.div`
   position: relative;
   text-align: center;
@@ -143,10 +117,10 @@ const ShapesContainer = styled.div`
 const Container = styled.div`
   width: 100vw;
   height: 150vh;
-  @media only screen and (max-width: 1050px) {
+  @media only screen and (max-width: 850px) {
     width: 100vw;
     transform: translateY(0px);
-    height: 60vh;
+    height: 50vh;
   }
 `;
 

@@ -48,6 +48,8 @@ const Container = styled.div`
   padding: 150px 100px 0 100px;
   @media only screen and (max-width: 850px) {
     padding: 20px;
+    margin-top: 40vh;
+    margin-bottom: 100px;
   }
 `;
 

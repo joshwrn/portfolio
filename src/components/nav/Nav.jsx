@@ -99,7 +99,7 @@ const NavEnd = styled(NavSection)`
   justify-content: flex-end;
   gap: 42px;
   @media only screen and (max-width: 600px) {
-    display: none;
+    justify-content: center;
   }
 `;
 

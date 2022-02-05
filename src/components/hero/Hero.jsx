@@ -56,6 +56,9 @@ const HeroContainer = styled(motion.div)`
   justify-content: center;
   opacity: 1;
   background-color: 'black';
+  @media only screen and (max-width: 850px) {
+    min-height: 0;
+  }
 `;
 
 const Gradient = styled.div`
