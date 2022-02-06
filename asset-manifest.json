@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.ce761a42.js",
+    "main.js": "/static/js/main.ec8f7368.js",
     "static/media/instagram-thumbnail.jpg": "/static/media/instagram-thumbnail.3ef79e7e7c958eb867ae.jpg",
     "static/media/fashion-thumbnail.jpeg": "/static/media/fashion-thumbnail.08fc9cff071fec65e8d5.jpeg",
     "static/media/NeueHaasDisplayMedium.woff": "/static/media/NeueHaasDisplayMedium.f832a6de7899a449de29.woff",
@@ -9,9 +9,9 @@
     "static/media/HelveticaNeueCyr-Medium.otf": "/static/media/HelveticaNeueCyr-Medium.c0307693e561e43cb5c0.otf",
     "static/media/HelveticaNeueCyr-Roman.otf": "/static/media/HelveticaNeueCyr-Roman.84fb498ef9ef3d096f71.otf",
     "index.html": "/index.html",
-    "main.ce761a42.js.map": "/static/js/main.ce761a42.js.map"
+    "main.ec8f7368.js.map": "/static/js/main.ec8f7368.js.map"
   },
   "entrypoints": [
-    "static/js/main.ce761a42.js"
+    "static/js/main.ec8f7368.js"
   ]
 }
