@@ -9,8 +9,6 @@ import { FiTwitter } from 'react-icons/fi';
 import { ImCodepen } from 'react-icons/im';
 import { VscGithub } from 'react-icons/vsc';
 
-import { CgArrowLongRight, CgArrowLongLeft } from 'react-icons/cg';
-
 import FooterScene from '../../three/footer/FooterScene';
 
 import styled from 'styled-components';
@@ -19,6 +17,9 @@ const Footer = () => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const date = () => {
+    return new Date().getFullYear();
+  };
   return (
     <Container
       ref={mouseRef}
@@ -30,46 +31,42 @@ const Footer = () => {
       <SceneContainer>
         <FooterScene mouseX={mouseX} mouseY={mouseY} />
       </SceneContainer>
-      <InnerContainer>
-        <Inner>
-          <Contact>Contact Me.</Contact>
-          <Socials>
-            <a href="mailto:joshnwarren@gmail.com">
-              <Email>joshnwarren@gmail.com</Email>
-            </a>
-          </Socials>
-          <Socials>
-            <SocialIcon
-              rel="noreferrer"
-              target="_blank"
-              href="https://github.com/joshwrn"
-            >
-              <VscGithub size={24} />
-            </SocialIcon>
-            <SocialIcon
-              rel="noreferrer"
-              target="_blank"
-              href="https://codepen.io/joshwrn"
-            >
-              <ImCodepen size={24} />
-            </SocialIcon>
-            <SocialIcon
-              rel="noreferrer"
-              target="_blank"
-              href="https://twitter.com/joshwrn"
-            >
-              <TwitterIcon size={24} />
-            </SocialIcon>
-            <SocialIcon
-              rel="noreferrer"
-              target="_blank"
-              href="https://instagram.com/joshnwarren"
-            >
-              <AiOutlineInstagram size={24} />
-            </SocialIcon>
-          </Socials>
-        </Inner>
-      </InnerContainer>
+      <Inner>
+        <Contact>Contact Me.</Contact>
+        <Email href="mailto:joshnwarren@gmail.com">joshnwarren@gmail.com</Email>
+        <Socials>
+          <SocialIcon
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/joshwrn"
+          >
+            <VscGithub size={24} />
+          </SocialIcon>
+          <SocialIcon
+            rel="noreferrer"
+            target="_blank"
+            href="https://codepen.io/joshwrn"
+          >
+            <ImCodepen size={24} />
+          </SocialIcon>
+          <SocialIcon
+            rel="noreferrer"
+            target="_blank"
+            href="https://twitter.com/joshwrn"
+          >
+            <TwitterIcon size={24} />
+          </SocialIcon>
+          <SocialIcon
+            rel="noreferrer"
+            target="_blank"
+            href="https://instagram.com/joshnwarren"
+          >
+            <AiOutlineInstagram size={24} />
+          </SocialIcon>
+        </Socials>
+        <Copyright>&copy; 2021- {date()} Josh Warren.</Copyright>
+        <Copyright>All rights reserved.</Copyright>
+      </Inner>
     </Container>
   );
 };
@@ -97,32 +94,23 @@ const Inner = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 100%;
-  height: 100%; */
-  /* backdrop-filter: blur(40px);
-  padding: 40px 50px;
-  border: 1px solid #292929;
-  border-radius: 10px; */
+  gap: 0;
 `;
 
-const InnerContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-`;
-
-const Contact = styled.h2`
+const Contact = styled.p`
   font-size: 3.5rem;
+  font-family: ${({ theme }) => theme.main.fontFamily.header};
 `;
 
-const Email = styled.h2`
-  font-size: 2rem;
+const Email = styled.a`
+  font-size: 1.6rem;
   position: relative;
   z-index: 1;
+  margin: 0;
+  padding: 0;
   color: var(--font-color-one);
   transition: color 0.5s;
+  margin-top: 5px;
   /* margin-right: 15px; */
   &:hover {
     color: ${({ theme }) => theme.main.hover};
@@ -130,19 +118,14 @@ const Email = styled.h2`
 `;
 
 const Socials = styled.div`
-  margin-top: 10px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   display: flex;
   position: relative;
   z-index: 1;
   /* justify-content: space-between; */
   gap: 25px;
   align-items: center;
-`;
-
-const SocialHeader = styled.div`
-  display: flex;
-  gap: 15px;
-  font-size: 2rem;
 `;
 
 const SocialIcon = styled.a`
@@ -154,6 +137,10 @@ const SocialIcon = styled.a`
 
 const TwitterIcon = styled(FiTwitter)`
   stroke-width: 1.5px;
+`;
+
+const Copyright = styled.div`
+  font-size: 0.9rem;
 `;
 
 export default Footer;

@@ -13,9 +13,9 @@ const HeroText = ({ text, position }) => {
     <Text
       position={position}
       letterSpacing={-0.01}
-      font="/fonts/HelveticaNeueCyr-Roman.otf"
+      font="/fonts/HelveticaNeueCyr-Medium.otf"
       fontSize={12}
-      color="white"
+      color="rgb(192, 192, 192)"
       material-toneMapped={false}
       material-fog={false}
       anchorX="left"

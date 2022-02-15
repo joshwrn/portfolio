@@ -72,7 +72,8 @@ h4,
 h5 {
   font-size: 2rem;
   color: ${({ theme }) => theme.main.fonts.primary};
-  font-family: cyrRoman, helvetica, arial, sans-serif;
+  font-family: ${({ theme }) =>
+    theme.main.fontFamily.primary}, helvetica, arial, sans-serif;
 }
 
 a {

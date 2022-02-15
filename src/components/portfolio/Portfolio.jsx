@@ -2,6 +2,7 @@ import React from 'react';
 
 import InstagramThumbnail from '../../assets/images/instagram-thumbnail.jpg';
 import FashionThumbnail from '../../assets/images/fashion-thumbnail.jpeg';
+import StreaksThumbnail from '../../assets/images/streaks-thumb.jpg';
 
 import PortfolioSection from './PortfolioSection';
 import Header from '../reusable/Header';
@@ -30,6 +31,14 @@ const Portfolio = ({ portfolioRef }) => {
             src={FashionThumbnail}
             demoLink="https://joshwrn.github.io/shopping-cart/"
             codeLink="https://github.com/joshwrn/shopping-cart"
+          />
+          <PortfolioSection
+            header="Streaks App"
+            sub="Task Tracker"
+            desc="I created this project to practice Typescript. You have a virtual pet you keep alive by completing daily tasks. It's currently unfinished."
+            src={StreaksThumbnail}
+            demoLink="https://joshwrn.github.io/streak-web-app/"
+            codeLink="https://github.com/joshwrn/streak-web-app"
           />
         </Feed>
       </Inner>

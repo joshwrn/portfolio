@@ -6,7 +6,7 @@ import Header from '../reusable/Header';
 
 //+ icons
 import { IconContext } from 'react-icons';
-import { SiGraphql } from 'react-icons/si';
+import { SiGraphql, SiTypescript } from 'react-icons/si';
 import { DiReact, DiCss3Full, DiMongodb } from 'react-icons/di';
 import {
   IoLogoJavascript,
@@ -38,7 +38,7 @@ const Skills = ({ skillsRef }) => {
 
                 <IconContainer>
                   <IoLogoJavascript />
-                  <SkillText>Javascript</SkillText>
+                  <SkillText>JavaScript</SkillText>
                 </IconContainer>
 
                 <IconContainer>
@@ -54,6 +54,11 @@ const Skills = ({ skillsRef }) => {
                 <IconContainer>
                   <DiMongodb />
                   <SkillText>MongoDB</SkillText>
+                </IconContainer>
+
+                <IconContainer>
+                  <SiTypescript />
+                  <SkillText>TypeScript</SkillText>
                 </IconContainer>
 
                 <IconContainer>

@@ -9,8 +9,8 @@ export const darkTheme = {
       secondary: 'rgb(192, 192, 192)',
     },
     fontFamily: {
-      primary: 'cyrRoman',
-      header: 'cyrRoman',
+      primary: 'haas-roman',
+      header: 'haas',
     },
   },
   nav: {

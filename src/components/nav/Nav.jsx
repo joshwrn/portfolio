@@ -5,10 +5,6 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 const Nav = ({ top, portfolioRef, skillsRef, aboutRef }) => {
-  const date = () => {
-    return new Date().getFullYear();
-  };
-
   const scrollToBottom = () => {
     window.scrollTo({
       top: document.body.scrollHeight,
@@ -32,7 +28,7 @@ const Nav = ({ top, portfolioRef, skillsRef, aboutRef }) => {
     >
       <NavInner>
         <NavStart>
-          <NavText>Portfolio {date()}</NavText>
+          <NavText>Josh Warren</NavText>
         </NavStart>
         <NavCenter></NavCenter>
         <NavEnd>

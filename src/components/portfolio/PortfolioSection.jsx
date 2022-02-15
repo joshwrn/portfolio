@@ -82,6 +82,7 @@ const InfoContainer = styled.div`
 
 const PortfolioHeader = styled.h3`
   font-size: 5rem;
+  font-family: 'cyrMed';
 `;
 
 const SubHeader = styled.p`
@@ -137,7 +138,6 @@ const Button = styled.button`
       #fc6277 58%,
       #dfbe77 95%
     );
-    box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.301);
     color: white;
     background-size: 100% 800%;
     animation: ${gradientMove} 5s ease infinite alternate;
