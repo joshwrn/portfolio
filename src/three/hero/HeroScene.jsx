@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 import { Canvas } from '@react-three/fiber';
-import { Text, Float, Loader } from '@react-three/drei';
+import { Text, Float } from '@react-three/drei';
 
 import BalloonModel from './BalloonModel';
 import Camera from '../reusable/MovableCamera';
@@ -32,7 +32,16 @@ const HeroScene = ({ mouseX, mouseY }) => {
       <Container>
         <Suspense fallback={null}>
           <Canvas dpr={1} resize={{ scroll: false, offsetSize: true }}>
-            <Camera mouseX={mouseX} mouseY={mouseY} fov={50} cameraZ={200} />
+            <Camera
+              mouseX={mouseX}
+              mouseY={mouseY}
+              fov={50}
+              cameraZ={200}
+              smoothTransformX={-5}
+              smoothTransformY={2}
+              stiffness={30}
+              damping={15}
+            />
             <ambientLight intensity={1.55} />
             <group position={[0, 35, 0]}>
               <HeroText text="Josh Warren" position={[-60, 0, 20]} />
@@ -52,7 +61,7 @@ const HeroScene = ({ mouseX, mouseY }) => {
               <Float speed={1} rotationIntensity={0.5} floatIntensity={25}>
                 <BalloonModel
                   scale={7}
-                  position={[5, 5, -5]}
+                  position={[5, 5, -5.5]}
                   rotation={[0, 0.2, -0.1]}
                 />
               </Float>
@@ -84,13 +93,6 @@ const HeroScene = ({ mouseX, mouseY }) => {
                 rotation={[-0.1, 0.2, 0.5]}
               />
             </group>
-            {/* <pointLight
-              distance={90}
-              decay={2}
-              color="#ffffff"
-              position={[0, -18, 65]}
-              intensity={10.5}
-            /> */}
           </Canvas>
         </Suspense>
       </Container>

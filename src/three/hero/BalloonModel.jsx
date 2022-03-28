@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { CubeTextureLoader } from 'three';
 
@@ -15,10 +14,10 @@ const texture = loader.load([
 ]);
 
 function Material() {
-  return <meshPhongMaterial color="#303030" specular="#505050" shininess={0} />;
+  return <meshPhongMaterial color="#292929" specular="#181818" shininess={0} />;
 }
 
-export default function Model({ ...props }) {
+export default function Model({ hideString, ...props }) {
   const group = useRef();
   const { nodes, materials } = useGLTF('../../redBalloon/scene.gltf');
   return (
@@ -36,7 +35,7 @@ export default function Model({ ...props }) {
               color="#242424"
               emissive="#1b1b1b"
               metalness={1}
-              roughness={0}
+              roughness={0.08}
               attach="material"
               combine={THREE.MixOperation}
               envMap={texture}

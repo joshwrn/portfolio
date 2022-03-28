@@ -1,8 +1,14 @@
 import { Suspense, useState, useEffect, useRef } from 'react';
-import { Canvas, useThree, useFrame } from '@react-three/fiber';
+import { Canvas, useThree, useFrame, extend } from '@react-three/fiber';
 import { Loader } from '@react-three/drei';
-import { Scene } from './Scene';
+import { LaptopScene } from './LaptopScene';
 import styled from 'styled-components';
+
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
+
+extend({ EffectComposer, RenderPass, UnrealBloomPass });
 
 function BloomContainer({ children }) {
   const { gl, camera, size } = useThree();
@@ -34,7 +40,7 @@ const Laptop = ({ mouseX, mouseY }) => {
         <Canvas dpr={[1, 2]} resize={{ scroll: false, offsetSize: true }}>
           <Suspense fallback={null}>
             <BloomContainer>
-              <Scene mouseX={mouseX} mouseY={mouseY} />
+              <LaptopScene mouseX={mouseX} mouseY={mouseY} />
             </BloomContainer>
           </Suspense>
         </Canvas>

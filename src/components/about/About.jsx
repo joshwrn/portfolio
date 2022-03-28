@@ -5,7 +5,7 @@ import useMeasure from 'react-use-measure';
 import Header from '../reusable/Header';
 import styled from 'styled-components';
 
-import Laptop from '../../three/laptop/Laptop';
+import LaptopContainer from '../../three/laptop/LaptopContainer';
 
 const About = ({ aboutRef }) => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
@@ -40,7 +40,7 @@ const About = ({ aboutRef }) => {
             , where I have over 10,000 subscribers.
           </Text>
           <ImageContainer>
-            <Laptop mouseX={mouseX} mouseY={mouseY} />
+            <LaptopContainer mouseX={mouseX} mouseY={mouseY} />
           </ImageContainer>
         </SectionContainer>
       </Inner>

@@ -1,18 +1,12 @@
 import { motion } from 'framer-motion/three';
 import { useRef } from 'react';
-import { extend, useFrame } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import { useSmoothTransform } from '../reusable/use-smooth-transform';
 
 import LaptopModel from './laptopModel';
 import Camera from '../reusable/MovableCamera';
 
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
-
-extend({ EffectComposer, RenderPass, UnrealBloomPass });
-
-export const Scene = ({ mouseX, mouseY }) => {
+export const LaptopScene = ({ mouseX, mouseY }) => {
   const lightRotateX = useSmoothTransform(mouseY, spring, mouseToLightRotation);
   const lightRotateY = useSmoothTransform(mouseX, spring, mouseToLightRotation);
 

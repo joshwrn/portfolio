@@ -3,11 +3,28 @@ import { useRef, useLayoutEffect } from 'react';
 import { useThree, useFrame } from '@react-three/fiber';
 import { useSmoothTransform } from '../reusable/use-smooth-transform';
 
-const spring = { stiffness: 600, damping: 30 };
-
-function Camera({ mouseX, mouseY, fov, cameraZ = 100, ...props }) {
-  const cameraX = useSmoothTransform(mouseX, spring, (x) => (-1 * x) / 300);
-  const cameraY = useSmoothTransform(mouseY, spring, (y) => (-1 * y) / 300);
+function Camera({
+  mouseX,
+  mouseY,
+  fov,
+  cameraZ = 100,
+  smoothTransformX = -1,
+  smoothTransformY = -1,
+  stiffness = 600,
+  damping = 30,
+  ...props
+}) {
+  const spring = { stiffness: stiffness, damping: damping };
+  const cameraX = useSmoothTransform(
+    mouseX,
+    spring,
+    (x) => (smoothTransformX * x) / 300
+  );
+  const cameraY = useSmoothTransform(
+    mouseY,
+    spring,
+    (y) => (smoothTransformY * y) / 300
+  );
 
   const set = useThree(({ set }) => set);
   const camera = useThree(({ camera }) => camera);
