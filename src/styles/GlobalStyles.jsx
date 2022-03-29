@@ -2,10 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 import haas from '../assets/fonts/haas/NeueHaasDisplayMedium.woff';
 import haasRoman from '../assets/fonts/haas/NeueHaasDisplayRoman.woff';
 
-import epilogue from '../assets/fonts/epilogue/Epilogue-Regular.ttf';
-import epilogueSemi from '../assets/fonts/epilogue/Epilogue-SemiBold.ttf';
-import epilogueBold from '../assets/fonts/epilogue/Epilogue-Bold.ttf';
-
 import cyrBold from '../assets/fonts/HelveticaNeueCyr-Bold.otf';
 import cyrMedium from '../assets/fonts/HelveticaNeueCyr-Medium.otf';
 import cyrRoman from '../assets/fonts/HelveticaNeueCyr-Roman.otf';
