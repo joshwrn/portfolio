@@ -1,8 +1,10 @@
 {
   "files": {
-    "main.js": "/static/js/main.0122bdc0.js",
+    "main.js": "/static/js/main.01cf18cf.js",
     "static/media/streaks-thumb.jpg": "/static/media/streaks-thumb.4c05425d2e9ec9d60231.jpg",
+    "static/media/Epilogue-SemiBold.ttf": "/static/media/Epilogue-SemiBold.b96fb4d2d6cfa771dc93.ttf",
     "static/media/instagram-thumbnail.jpg": "/static/media/instagram-thumbnail.3ef79e7e7c958eb867ae.jpg",
+    "static/media/Epilogue-Bold.ttf": "/static/media/Epilogue-Bold.3007dd969785359d4f4d.ttf",
     "static/media/fashion-thumbnail.jpeg": "/static/media/fashion-thumbnail.08fc9cff071fec65e8d5.jpeg",
     "static/media/NeueHaasDisplayMedium.woff": "/static/media/NeueHaasDisplayMedium.f832a6de7899a449de29.woff",
     "static/media/NeueHaasDisplayRoman.woff": "/static/media/NeueHaasDisplayRoman.bf8caa25260dcf491fd5.woff",
@@ -10,9 +12,9 @@
     "static/media/HelveticaNeueCyr-Medium.otf": "/static/media/HelveticaNeueCyr-Medium.c0307693e561e43cb5c0.otf",
     "static/media/HelveticaNeueCyr-Roman.otf": "/static/media/HelveticaNeueCyr-Roman.84fb498ef9ef3d096f71.otf",
     "index.html": "/index.html",
-    "main.0122bdc0.js.map": "/static/js/main.0122bdc0.js.map"
+    "main.01cf18cf.js.map": "/static/js/main.01cf18cf.js.map"
   },
   "entrypoints": [
-    "static/js/main.0122bdc0.js"
+    "static/js/main.01cf18cf.js"
   ]
 }
