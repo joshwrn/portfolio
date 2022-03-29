@@ -18,7 +18,6 @@ const HeroText = ({ text, position }) => {
       color="rgb(192, 192, 192)"
       material-toneMapped={false}
       material-fog={false}
-      anchorX="left"
       anchorY="middle"
     >
       {text}
@@ -26,7 +25,7 @@ const HeroText = ({ text, position }) => {
   );
 };
 
-const HeroScene = ({ mouseX, mouseY, isMobile }) => {
+const HeroScene = ({ mouseX, mouseY }) => {
   return (
     <ShapesContainer>
       <Container>
@@ -44,10 +43,10 @@ const HeroScene = ({ mouseX, mouseY, isMobile }) => {
             />
             <ambientLight intensity={1.55} />
             <group position={[0, 35, 0]}>
-              <HeroText text="Josh Warren" position={[-60, 0, 20]} />
+              <HeroText text="Josh Warren" position={[-34, 0, 20]} />
               <HeroText
                 text="Fullstack Web Developer."
-                position={[-60, -12, 20]}
+                position={[0, -12, 20]}
               />
               {/* left */}
               <Float speed={0.7} rotationIntensity={0.1} floatIntensity={10}>
@@ -119,7 +118,7 @@ const ShapesContainer = styled.div`
 const Container = styled.div`
   width: 100vw;
   height: 150vh;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 1050px) {
     width: 100vw;
     transform: translateY(0px);
     height: 30vh;

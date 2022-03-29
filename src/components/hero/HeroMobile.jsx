@@ -73,7 +73,7 @@ const HeroContainer = styled(motion.div)`
   justify-content: center;
   opacity: 1;
   background-color: 'black';
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 1050px) {
     min-height: 0;
     min-height: 20vh;
   }

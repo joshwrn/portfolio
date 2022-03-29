@@ -7,9 +7,9 @@ import StreaksThumbnail from '../../assets/images/streaks-thumb.jpg';
 import PortfolioSection from './PortfolioSection';
 import Header from '../reusable/Header';
 
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-const Portfolio = ({ portfolioRef }) => {
+const Portfolio = ({ portfolioRef, isMobile }) => {
   return (
     <Container>
       <Inner>
@@ -22,6 +22,7 @@ const Portfolio = ({ portfolioRef }) => {
             src={InstagramThumbnail}
             codeLink="https://github.com/joshwrn/instagram-clone"
             demoLink="https://joshwrn.github.io/instagram-clone/#/"
+            isMobile={isMobile}
           />
           <PortfolioSection
             header="Fashion Store"
@@ -30,6 +31,7 @@ const Portfolio = ({ portfolioRef }) => {
             src={FashionThumbnail}
             demoLink="https://joshwrn.github.io/shopping-cart/"
             codeLink="https://github.com/joshwrn/shopping-cart"
+            isMobile={isMobile}
           />
           <PortfolioSection
             header="Streaks App"
@@ -38,6 +40,7 @@ const Portfolio = ({ portfolioRef }) => {
             src={StreaksThumbnail}
             demoLink="https://joshwrn.github.io/streak-web-app/"
             codeLink="https://github.com/joshwrn/streak-web-app"
+            isMobile={isMobile}
           />
         </Feed>
         <ButtonContainer>
@@ -63,7 +66,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   padding: 150px 100px 0 100px;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 1050px) {
     padding: 20px;
     margin-top: 0vh;
     margin-bottom: 20px;

@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 import LaptopContainer from '../../three/laptop/LaptopContainer';
 
-const About = ({ aboutRef }) => {
+const About = ({ aboutRef, isMobile }) => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -39,9 +39,11 @@ const About = ({ aboutRef }) => {
             </AboutLink>
             , where I have over 10,000 subscribers.
           </Text>
-          <ImageContainer>
-            <LaptopContainer mouseX={mouseX} mouseY={mouseY} />
-          </ImageContainer>
+          {isMobile === 'false' && (
+            <ImageContainer>
+              <LaptopContainer mouseX={mouseX} mouseY={mouseY} />
+            </ImageContainer>
+          )}
         </SectionContainer>
       </Inner>
     </Container>
@@ -56,7 +58,7 @@ const Container = styled(motion.div)`
   padding: 0 100px;
   z-index: 10;
   position: relative;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 1050px) {
     padding: 20px;
   }
 `;
@@ -86,10 +88,6 @@ const ImageContainer = styled.div`
   height: 100%;
   justify-content: center;
   position: relative;
-  @media only screen and (max-width: 1050px) {
-    justify-content: center;
-    display: none;
-  }
 `;
 
 const Text = styled.p`

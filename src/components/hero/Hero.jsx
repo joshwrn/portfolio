@@ -61,7 +61,7 @@ const HeroContainer = styled(motion.div)`
   background-image: url(${Bg});
   background-position: top;
   background-size: cover;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 1050px) {
     min-height: 0;
   }
 `;

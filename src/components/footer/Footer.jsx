@@ -13,7 +13,7 @@ import FooterScene from '../../three/footer/FooterScene';
 
 import styled from 'styled-components';
 
-const Footer = () => {
+const Footer = ({ isMobile }) => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -28,9 +28,11 @@ const Footer = () => {
         mouseY.set((e.clientY - bounds.y - bounds.height / 2) * 10);
       }}
     >
-      <SceneContainer>
-        <FooterScene mouseX={mouseX} mouseY={mouseY} />
-      </SceneContainer>
+      {isMobile === 'false' && (
+        <SceneContainer>
+          <FooterScene mouseX={mouseX} mouseY={mouseY} />
+        </SceneContainer>
+      )}
       <Inner>
         <Contact>Contact Me.</Contact>
         <Email href="mailto:joshnwarren@gmail.com">joshnwarren@gmail.com</Email>
@@ -74,9 +76,6 @@ const Footer = () => {
 const SceneContainer = styled.div`
   position: absolute;
   z-index: -2;
-  @media only screen and (max-width: 850px) {
-    display: none;
-  }
 `;
 
 const Container = styled(motion.div)`
@@ -88,7 +87,7 @@ const Container = styled(motion.div)`
   align-items: center;
   height: 100vh;
   width: 100%;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 1050px) {
     height: fit-content;
     padding: 150px 20px;
   }

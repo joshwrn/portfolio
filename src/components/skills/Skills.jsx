@@ -116,7 +116,7 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   padding: 0 100px;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 1050px) {
     padding: 20px;
     height: fit-content;
   }
@@ -133,7 +133,7 @@ const SectionContainer = styled.div`
   align-items: flex-start;
   gap: 100px;
   padding-bottom: 100px;
-  @media only screen and (max-width: 850px) {
+  @media only screen and (max-width: 1050px) {
     flex-direction: column;
   }
 `;

@@ -4,7 +4,15 @@ import ImageLoader from '../reusable/ImageLoader';
 
 import styled, { keyframes } from 'styled-components';
 
-const PortfolioSection = ({ header, sub, desc, src, codeLink, demoLink }) => {
+const PortfolioSection = ({
+  header,
+  sub,
+  desc,
+  src,
+  codeLink,
+  demoLink,
+  isMobile,
+}) => {
   return (
     <Outer>
       <SectionContainer>
@@ -12,6 +20,17 @@ const PortfolioSection = ({ header, sub, desc, src, codeLink, demoLink }) => {
           <InfoContainer>
             <PortfolioHeader>{header}</PortfolioHeader>
             <SubHeader>{sub}</SubHeader>
+            {isMobile === 'true' && (
+              <ImageLink rel="noreferrer" target="_blank" href={demoLink}>
+                <ImageLoader
+                  src={src}
+                  maxWidth="600px"
+                  justifySelf="flex-end"
+                  borderRadius="12px"
+                  transition="opacity 0.7s, transform 0.75s"
+                />
+              </ImageLink>
+            )}
             <Description>{desc}</Description>
             <LinksContainer>
               <a rel="noreferrer" target="_blank" href={demoLink}>
@@ -22,15 +41,17 @@ const PortfolioSection = ({ header, sub, desc, src, codeLink, demoLink }) => {
               </a>
             </LinksContainer>
           </InfoContainer>
-          <ImageLink rel="noreferrer" target="_blank" href={demoLink}>
-            <ImageLoader
-              src={src}
-              maxWidth="600px"
-              justifySelf="flex-end"
-              borderRadius="12px"
-              transition="opacity 0.7s, transform 0.75s"
-            />
-          </ImageLink>
+          {isMobile === 'false' && (
+            <ImageLink rel="noreferrer" target="_blank" href={demoLink}>
+              <ImageLoader
+                src={src}
+                maxWidth="600px"
+                justifySelf="flex-end"
+                borderRadius="12px"
+                transition="opacity 0.7s, transform 0.75s"
+              />
+            </ImageLink>
+          )}
         </SubContainer>
       </SectionContainer>
     </Outer>
@@ -53,18 +74,15 @@ const SectionContainer = styled.div`
   background-color: ${({ theme }) => theme.portfolio.background};
   border: ${({ theme }) => theme.portfolio.border};
   opacity: 1;
+
   @media only screen and (max-width: 1050px) {
-    padding: 80px 30px;
-    height: fit-content;
-    align-items: center;
-  }
-  @media only screen and (max-width: 850px) {
     padding: 0px;
     padding-bottom: 55px;
     background-color: transparent;
     border: none;
     border-radius: 0px;
     border-bottom: 1px solid rgb(59, 59, 59);
+    height: fit-content;
   }
 `;
 
@@ -77,7 +95,6 @@ const SubContainer = styled.div`
   @media only screen and (max-width: 1050px) {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 80px;
     margin: 0;
   }
@@ -101,6 +118,9 @@ const SubHeader = styled.p`
   font-weight: bold;
   text-transform: uppercase;
   margin-top: 10px;
+  @media only screen and (max-width: 1050px) {
+    margin-bottom: 20px;
+  }
 `;
 
 const Description = styled.p`
@@ -108,6 +128,9 @@ const Description = styled.p`
   line-height: 2.8rem;
   font-size: 1.6rem;
   font-family: ${({ theme }) => theme.main.fontFamily.primary};
+  @media only screen and (max-width: 1050px) {
+    max-width: 600px;
+  }
 `;
 
 //@ Buttons
