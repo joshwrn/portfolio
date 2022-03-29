@@ -1,6 +1,7 @@
 import Nav from './components/nav/Nav';
 import React, { useState, useRef } from 'react';
 import Hero from './components/hero/Hero';
+import HeroMobile from './components/hero/HeroMobile';
 import Portfolio from './components/portfolio/Portfolio';
 import Footer from './components/footer/Footer';
 import About from './components/about/About';
@@ -17,17 +18,25 @@ function App() {
   const skillsRef = useRef(null);
   const aboutRef = useRef(null);
 
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  console.log(isMobile);
+
   return (
     <ThemeProvider theme={darkTheme}>
       <GlobalStyles />
-      <Nav
-        top={top}
-        portfolioRef={portfolioRef}
-        skillsRef={skillsRef}
-        aboutRef={aboutRef}
-      />
+      {!isMobile && (
+        <Nav
+          top={top}
+          portfolioRef={portfolioRef}
+          skillsRef={skillsRef}
+          aboutRef={aboutRef}
+        />
+      )}
+
       <Feed>
-        <Hero setTop={setTop} />
+        {!isMobile ? <Hero setTop={setTop} /> : <HeroMobile setTop={setTop} />}
+
         <Portfolio portfolioRef={portfolioRef} />
         <Skills skillsRef={skillsRef} />
         <About aboutRef={aboutRef} />

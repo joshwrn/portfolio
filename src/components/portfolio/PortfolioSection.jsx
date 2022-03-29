@@ -58,6 +58,14 @@ const SectionContainer = styled.div`
     height: fit-content;
     align-items: center;
   }
+  @media only screen and (max-width: 850px) {
+    padding: 0px;
+    padding-bottom: 55px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid rgb(59, 59, 59);
+  }
 `;
 
 const SubContainer = styled.div`
@@ -83,6 +91,9 @@ const InfoContainer = styled.div`
 const PortfolioHeader = styled.h3`
   font-size: 5rem;
   font-family: 'cyrMed';
+  @media only screen and (max-width: 1050px) {
+    font-size: 4rem;
+  }
 `;
 
 const SubHeader = styled.p`
@@ -131,8 +142,9 @@ const Button = styled.button`
   cursor: pointer;
   transition: box-shadow 0.25s;
   &:hover {
-    background: -webkit-linear-gradient(45deg, #d85566 0, #7451af, #283b8d);
-    color: white;
+    /* background: -webkit-linear-gradient(45deg, #d85566 0, #7451af, #283b8d);
+    color: white; */
+    box-shadow: 0px 0px 15px rgba(138, 138, 138, 0.5);
     background-size: 100% 400%;
     animation: ${gradientMove} 2s ease infinite alternate;
   }

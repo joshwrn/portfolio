@@ -74,6 +74,9 @@ const Footer = () => {
 const SceneContainer = styled.div`
   position: absolute;
   z-index: -2;
+  @media only screen and (max-width: 850px) {
+    display: none;
+  }
 `;
 
 const Container = styled(motion.div)`
@@ -86,7 +89,8 @@ const Container = styled(motion.div)`
   height: 100vh;
   width: 100%;
   @media only screen and (max-width: 850px) {
-    height: 80vh;
+    height: fit-content;
+    padding: 150px 20px;
   }
 `;
 

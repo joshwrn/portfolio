@@ -71,6 +71,9 @@ const HeaderTitle = styled(motion.div)`
 const HeaderLetter = styled(motion.div)`
   font-size: 7rem;
   font-family: ${({ theme }) => theme.main.fontFamily.header};
+  @media only screen and (max-width: 1050px) {
+    font-size: 5rem;
+  }
 `;
 
 export default Header;

@@ -18,8 +18,7 @@ const Portfolio = ({ portfolioRef }) => {
           <PortfolioSection
             header="Instagram"
             sub="Instagram Clone"
-            desc="I built this project using react. Besides using create-react-app and firestore, I
-        built everything from scratch. In total it took me around 20 days to complete."
+            desc="Fullstack clone of Instagram's features and a complete redesign of the UI. Originally built with firebase, it was rebuilt using React for the frontend, GraphQL for the backend, MongoDB for the database, and AWS S3 to store images."
             src={InstagramThumbnail}
             codeLink="https://github.com/joshwrn/instagram-clone"
             demoLink="https://joshwrn.github.io/instagram-clone/#/"
@@ -66,8 +65,8 @@ const Container = styled.div`
   padding: 150px 100px 0 100px;
   @media only screen and (max-width: 850px) {
     padding: 20px;
-    margin-top: 40vh;
-    margin-bottom: 100px;
+    margin-top: 0vh;
+    margin-bottom: 20px;
   }
 `;
 
@@ -115,10 +114,11 @@ const Button = styled.button`
   cursor: pointer;
   transition: box-shadow 0.25s;
   &:hover {
-    background: -webkit-linear-gradient(45deg, #d85566 0, #7451af, #283b8d);
-    color: white;
+    /* background: -webkit-linear-gradient(45deg, #d85566 0, #7451af, #283b8d); */
+    /* color: white; */
     background-size: 100% 400%;
     animation: ${gradientMove} 2s ease infinite alternate;
+    box-shadow: 0px 0px 20px rgba(138, 138, 138, 0.5);
   }
 `;
 

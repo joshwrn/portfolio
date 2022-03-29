@@ -36,19 +36,14 @@ const HeroScene = ({ mouseX, mouseY, isMobile }) => {
               mouseX={mouseX}
               mouseY={mouseY}
               fov={50}
-              cameraZ={200}
+              cameraZ={100}
               smoothTransformX={-5}
               smoothTransformY={2}
               stiffness={30}
               damping={15}
             />
             <ambientLight intensity={1.55} />
-            <group position={[0, 35, 0]}>
-              <HeroText text="Josh Warren" position={[-60, 0, 20]} />
-              <HeroText
-                text="Fullstack Web Developer."
-                position={[-60, -12, 20]}
-              />
+            <group position={[0, 0, 0]}>
               {/* left */}
               <Float speed={0.7} rotationIntensity={0.1} floatIntensity={10}>
                 <BalloonModel

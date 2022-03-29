@@ -118,6 +118,7 @@ const Container = styled.div`
   padding: 0 100px;
   @media only screen and (max-width: 850px) {
     padding: 20px;
+    height: fit-content;
   }
 `;
 
