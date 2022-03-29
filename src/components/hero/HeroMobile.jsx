@@ -36,7 +36,7 @@ const Hero = ({ setTop }) => {
       <NavRef ref={topRef} />
       <HeaderContainer>
         <Header>Josh Warren</Header>
-        <SubHeader>Fullstack Web Developer</SubHeader>
+        <SubHeader>Full Stack Web Developer</SubHeader>
       </HeaderContainer>
       <Gradient />
       <HeroScene mouseX={mouseX} mouseY={mouseY} />

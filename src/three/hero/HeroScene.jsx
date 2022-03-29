@@ -43,9 +43,9 @@ const HeroScene = ({ mouseX, mouseY }) => {
             />
             <ambientLight intensity={1.55} />
             <group position={[0, 35, 0]}>
-              <HeroText text="Josh Warren" position={[-34, 0, 20]} />
+              <HeroText text="Josh Warren" position={[-36, 0, 20]} />
               <HeroText
-                text="Fullstack Web Developer."
+                text="Full Stack Web Developer."
                 position={[0, -12, 20]}
               />
               {/* left */}

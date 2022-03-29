@@ -108,7 +108,6 @@ const NavCenter = styled(NavSection)`
 
 const NavText = styled.p`
   color: ${({ theme }) => theme.nav.fonts.primary};
-  /* font-family: ${({ theme }) => theme.main.fontFamily.primary}; */
   font-size: 17px;
 `;
 
@@ -123,9 +122,11 @@ const NavTextLink = styled(NavText)`
 
 const Blur = styled.div`
   opacity: ${({ top }) => (top === 'true' ? '0' : '1')};
+  opacity: 1;
   backdrop-filter: blur(100px);
   transition: opacity 1s, padding 0.5s;
   width: 100vw;
+  padding: 50px;
   padding: ${({ top }) => (top === 'true' ? '0px' : '25px 50px')};
   top: 0;
   left: 0;
