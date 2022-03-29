@@ -26,7 +26,7 @@ const Nav = ({ top, portfolioRef, skillsRef, aboutRef }) => {
       transition={{ duration: 1, type: 'spring', stiffness: 100 }}
       top={top}
     >
-      <NavInner>
+      <NavInner top={top}>
         <NavStart>
           <NavText>Josh Warren</NavText>
         </NavStart>
@@ -75,6 +75,9 @@ const NavInner = styled.div`
   justify-content: center;
   align-items: center;
   color: ${({ theme }) => theme.nav.fonts.primary};
+  transform: ${({ top }) =>
+    top === 'true' ? 'translateY(35px)' : 'translateY(0px)'};
+  transition: transform 0.5s;
 `;
 
 const NavSection = styled.div`
@@ -93,7 +96,7 @@ const NavStart = styled(NavSection)`
 
 const NavEnd = styled(NavSection)`
   justify-content: flex-end;
-  gap: 42px;
+  gap: 60px;
   @media only screen and (max-width: 600px) {
     justify-content: center;
   }
@@ -105,6 +108,8 @@ const NavCenter = styled(NavSection)`
 
 const NavText = styled.p`
   color: ${({ theme }) => theme.nav.fonts.primary};
+  /* font-family: ${({ theme }) => theme.main.fontFamily.primary}; */
+  font-size: 17px;
 `;
 
 const NavTextLink = styled(NavText)`
@@ -119,10 +124,9 @@ const NavTextLink = styled(NavText)`
 const Blur = styled.div`
   opacity: ${({ top }) => (top === 'true' ? '0' : '1')};
   backdrop-filter: blur(100px);
-  transition: opacity 1s;
+  transition: opacity 1s, padding 0.5s;
   width: 100vw;
-  height: 35px;
-  padding: 25px 50px;
+  padding: ${({ top }) => (top === 'true' ? '0px' : '25px 50px')};
   top: 0;
   left: 0;
   box-sizing: border-box;

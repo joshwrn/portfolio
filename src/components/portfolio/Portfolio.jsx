@@ -7,7 +7,7 @@ import StreaksThumbnail from '../../assets/images/streaks-thumb.jpg';
 import PortfolioSection from './PortfolioSection';
 import Header from '../reusable/Header';
 
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 const Portfolio = ({ portfolioRef }) => {
   return (
@@ -41,6 +41,15 @@ const Portfolio = ({ portfolioRef }) => {
             codeLink="https://github.com/joshwrn/streak-web-app"
           />
         </Feed>
+        <ButtonContainer>
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href="https://github.com/joshwrn?tab=repositories"
+          >
+            <Button>View More</Button>
+          </a>
+        </ButtonContainer>
       </Inner>
     </Container>
   );
@@ -72,6 +81,45 @@ const Feed = styled.div`
   flex-direction: column;
   max-width: 1600px;
   gap: 60px;
+  align-items: center;
+`;
+
+const gradientMove = keyframes`
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  padding-top: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+`;
+
+const Button = styled.button`
+  width: fit-content;
+  padding: 15px 35px;
+  border-radius: 13px;
+  background-color: transparent;
+  color: ${({ theme }) => theme.main.fonts.primary};
+  border: ${({ theme }) => theme.portfolio.buttons.border};
+  transition: color 0.25s;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: box-shadow 0.25s;
+  &:hover {
+    background: -webkit-linear-gradient(45deg, #d85566 0, #7451af, #283b8d);
+    color: white;
+    background-size: 100% 400%;
+    animation: ${gradientMove} 2s ease infinite alternate;
+  }
 `;
 
 export default Portfolio;

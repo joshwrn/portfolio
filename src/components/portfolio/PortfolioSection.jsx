@@ -131,16 +131,10 @@ const Button = styled.button`
   cursor: pointer;
   transition: box-shadow 0.25s;
   &:hover {
-    background: -webkit-linear-gradient(
-      45deg,
-      #2d4de0 0,
-      #9f71f0 30%,
-      #fc6277 58%,
-      #dfbe77 95%
-    );
+    background: -webkit-linear-gradient(45deg, #d85566 0, #7451af, #283b8d);
     color: white;
-    background-size: 100% 800%;
-    animation: ${gradientMove} 5s ease infinite alternate;
+    background-size: 100% 400%;
+    animation: ${gradientMove} 2s ease infinite alternate;
   }
 `;
 
