@@ -6,6 +6,8 @@ import useMeasure from 'react-use-measure';
 
 import HeroScene from '../../three/hero/HeroScene';
 
+import Bg from '../../assets/images/Untitled-1.jpg';
+
 import styled from 'styled-components';
 
 const Hero = ({ setTop }) => {
@@ -56,6 +58,9 @@ const HeroContainer = styled(motion.div)`
   justify-content: center;
   opacity: 1;
   background-color: 'black';
+  background-image: url(${Bg});
+  background-position: top;
+  background-size: cover;
   @media only screen and (max-width: 850px) {
     min-height: 0;
   }
