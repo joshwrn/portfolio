@@ -118,41 +118,27 @@ const LinksContainer = styled.div`
   gap: 20px;
 `;
 
-const gradientMove = keyframes`
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 0% 100%;
-  }
-`;
-
 const Button = styled.button`
   width: fit-content;
   padding: 10px 30px;
-  border-radius: 13px;
+  border-radius: 10px;
   background-color: transparent;
   color: ${({ theme }) => theme.main.fonts.primary};
   border: ${({ theme }) => theme.portfolio.buttons.border};
-  transition: color 0.25s;
   font-size: 1.3rem;
   cursor: pointer;
-  transition: box-shadow 0.25s;
+  transition: box-shadow 0.5s, border 1s;
   &:hover {
-    /* background: -webkit-linear-gradient(45deg, #d85566 0, #7451af, #283b8d);
-    color: white; */
-    box-shadow: 0px 0px 15px rgba(138, 138, 138, 0.5);
-    background-size: 100% 400%;
-    animation: ${gradientMove} 2s ease infinite alternate;
+    box-shadow: 0px 0px 15px rgba(148, 138, 138, 0.281);
   }
 `;
 
 const LiveButton = styled(Button)`
   background-color: ${({ theme }) => theme.portfolio.buttons.live.background};
-  color: ${({ theme }) => theme.portfolio.buttons.live.color};
+  color: black;
+  &:hover {
+    box-shadow: 0px 0px 15px rgba(148, 138, 138, 0.5);
+  }
 `;
 
 //@ Image

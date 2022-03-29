@@ -83,18 +83,6 @@ const Feed = styled.div`
   align-items: center;
 `;
 
-const gradientMove = keyframes`
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 0% 100%;
-  }
-`;
-
 const ButtonContainer = styled.div`
   padding-top: 30px;
   display: flex;
@@ -112,13 +100,9 @@ const Button = styled.button`
   transition: color 0.25s;
   font-size: 1.3rem;
   cursor: pointer;
-  transition: box-shadow 0.25s;
+  transition: box-shadow 0.5s;
   &:hover {
-    /* background: -webkit-linear-gradient(45deg, #d85566 0, #7451af, #283b8d); */
-    /* color: white; */
-    background-size: 100% 400%;
-    animation: ${gradientMove} 2s ease infinite alternate;
-    box-shadow: 0px 0px 20px rgba(138, 138, 138, 0.5);
+    box-shadow: 0px 0px 22px rgba(148, 138, 138, 0.411);
   }
 `;
 
