@@ -81,7 +81,6 @@ const Inner = styled.div`
 const Feed = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 1600px;
   gap: 60px;
   align-items: center;
 `;
