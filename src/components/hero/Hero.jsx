@@ -50,7 +50,6 @@ const NavRef = styled.div`
 `;
 
 const HeroContainer = styled(motion.div)`
-  min-height: 150vh;
   display: flex;
   flex-direction: column;
   position: absolute;

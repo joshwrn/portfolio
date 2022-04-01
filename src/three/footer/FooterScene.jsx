@@ -1,11 +1,21 @@
 import { Suspense } from 'react';
 
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useThree } from '@react-three/fiber';
 import Camera from '../reusable/MovableCamera';
 
 import LowHeart from './LowHeart';
 
 import styled from 'styled-components';
+
+const InnerContainer = ({ mouseX, mouseY }) => {
+  const { viewport } = useThree();
+  return (
+    <>
+      <Camera mouseX={mouseX} mouseY={mouseY} fov={65} />
+      <LowHeart scale={viewport.width} position={[0, 0, -10]} />
+    </>
+  );
+};
 
 const FooterScene = ({ mouseX, mouseY }) => {
   return (
@@ -13,8 +23,7 @@ const FooterScene = ({ mouseX, mouseY }) => {
       <Container>
         <Suspense fallback={null}>
           <Canvas dpr={1} resize={{ scroll: false, offsetSize: true }}>
-            <Camera mouseX={mouseX} mouseY={mouseY} fov={65} />
-            <LowHeart scale={16} position={[0, 0, -10]} />
+            <InnerContainer mouseX={mouseX} mouseY={mouseY} />
           </Canvas>
         </Suspense>
       </Container>
