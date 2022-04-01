@@ -27,7 +27,7 @@ const Portfolio = ({ portfolioRef, isMobile }) => {
           <PortfolioSection
             header="Fashion Store"
             sub="React Clothing Store"
-            desc="This project was built in react. You have the ability to add items to your cart and complete a fake checkout."
+            desc="A front end clothing store built with React, React Router, and CSS. The Store allows users to browse, add, and remove items from their cart."
             src={FashionThumbnail}
             demoLink="https://joshwrn.github.io/shopping-cart/"
             codeLink="https://github.com/joshwrn/shopping-cart"
@@ -36,7 +36,7 @@ const Portfolio = ({ portfolioRef, isMobile }) => {
           <PortfolioSection
             header="Streaks App"
             sub="Task Tracker"
-            desc="I created this project to practice Typescript. You have a virtual pet you keep alive by completing daily tasks. It's currently unfinished."
+            desc="Built using React, TypeScript, Three.js, Framer Motion, and styled-components. This app tasks you with caring for a virtual pet that you keep alive by completing daily tasks."
             src={StreaksThumbnail}
             demoLink="https://joshwrn.github.io/streak-web-app/"
             codeLink="https://github.com/joshwrn/streak-web-app"
