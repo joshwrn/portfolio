@@ -1,19 +1,18 @@
 {
   "files": {
-    "main.js": "/static/js/main.11c714b3.js",
+    "main.js": "/static/js/main.e26ba4fa.js",
     "static/media/Untitled-2.jpg": "/static/media/Untitled-2.2a6b089e4ddfdb1b2fdd.jpg",
     "static/media/streaks-thumb.jpg": "/static/media/streaks-thumb.4c05425d2e9ec9d60231.jpg",
+    "static/media/HelveticaNeue-Light.ttf": "/static/media/HelveticaNeue-Light.f1279b7b3457c18f9f82.ttf",
     "static/media/instagram-thumbnail.jpg": "/static/media/instagram-thumbnail.3ef79e7e7c958eb867ae.jpg",
     "static/media/fashion-thumbnail.jpeg": "/static/media/fashion-thumbnail.08fc9cff071fec65e8d5.jpeg",
-    "static/media/NeueHaasDisplayMedium.woff": "/static/media/NeueHaasDisplayMedium.f832a6de7899a449de29.woff",
-    "static/media/NeueHaasDisplayRoman.woff": "/static/media/NeueHaasDisplayRoman.bf8caa25260dcf491fd5.woff",
     "static/media/HelveticaNeueCyr-Bold.otf": "/static/media/HelveticaNeueCyr-Bold.cb5ad8328d40f792f2fa.otf",
     "static/media/HelveticaNeueCyr-Medium.otf": "/static/media/HelveticaNeueCyr-Medium.c0307693e561e43cb5c0.otf",
     "static/media/HelveticaNeueCyr-Roman.otf": "/static/media/HelveticaNeueCyr-Roman.84fb498ef9ef3d096f71.otf",
     "index.html": "/index.html",
-    "main.11c714b3.js.map": "/static/js/main.11c714b3.js.map"
+    "main.e26ba4fa.js.map": "/static/js/main.e26ba4fa.js.map"
   },
   "entrypoints": [
-    "static/js/main.11c714b3.js"
+    "static/js/main.e26ba4fa.js"
   ]
 }
