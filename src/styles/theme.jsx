@@ -1,5 +1,5 @@
 export const darkTheme = {
-  maxWidth: '1400px',
+  maxWidth: '1440px',
   type: 'dark',
   main: {
     background: 'black',
@@ -9,8 +9,7 @@ export const darkTheme = {
       secondary: 'rgb(192, 192, 192)',
     },
     fontFamily: {
-      primary: 'haas-roman',
-      header: 'haas',
+      primary: 'cyrRoman',
     },
   },
   nav: {
@@ -23,6 +22,11 @@ export const darkTheme = {
   portfolio: {
     background: 'rgb(10, 10, 10)',
     border: '1px solid rgb(26, 26, 26)',
+    line: '#414141',
+    fontColor: {
+      primary: 'rgb(255, 255, 255)',
+      secondary: 'rgba(255, 255, 255, 0.64)',
+    },
     buttons: {
       live: {
         background: 'rgb(221, 221, 221)',

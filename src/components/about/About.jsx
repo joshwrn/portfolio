@@ -5,6 +5,7 @@ import useMeasure from 'react-use-measure';
 import Header from '../reusable/Header';
 import styled from 'styled-components';
 
+import Divider from '../reusable/Divider';
 import LaptopContainer from '../../three/laptop/LaptopContainer';
 
 const About = ({ aboutRef, isMobile }) => {
@@ -22,29 +23,44 @@ const About = ({ aboutRef, isMobile }) => {
       <Inner>
         <Header title="About" headerRef={aboutRef} />
         <SectionContainer>
-          <Text>
-            Hi, my name is Josh. I'm a 26 year old full stack developer living
-            in Northern California. I'm currently looking for a position as a
-            junior dev. My past experience has mostly been freelance work, but
-            I'm looking to be part of an actual team. I've spent the majority of
-            my time during the pandemic studying web design and teaching myself
-            how to code. When I'm not coding I like to mess around in Photoshop
-            and occasionally I make beats for{' '}
-            <AboutLink
-              rel="noreferrer"
-              target="_blank"
-              href="https://www.youtube.com/channel/UCL3GruHNnB7F008lzpnF-pQ"
-            >
-              youtube
-            </AboutLink>
-            , where I have over 10,000 subscribers.
-          </Text>
+          <RightContainer>
+            <Description>
+              Passionate self-motivated React.js web developer with 3 years of
+              experience building websites. Proficient with Express.js, and
+              MongoDB. Used creativity and problem-solving skills to design and
+              implement websites for clients.
+            </Description>
+            <Skills>
+              <Skill>
+                <SkillTitle>Front End</SkillTitle>
+                <SkillItem>Javascript</SkillItem>
+                <SkillItem>Typescript</SkillItem>
+                <SkillItem>Redux</SkillItem>
+                <SkillItem>Three.js</SkillItem>
+              </Skill>
+              <Skill>
+                <SkillTitle>Design Tools</SkillTitle>
+                <SkillItem>Figma</SkillItem>
+                <SkillItem>Photoshop</SkillItem>
+                <SkillItem>Premiere</SkillItem>
+                <SkillItem>After Effects</SkillItem>
+              </Skill>
+              <Skill>
+                <SkillTitle>Back End</SkillTitle>
+                <SkillItem>Node.js</SkillItem>
+                <SkillItem>GraphQL</SkillItem>
+                <SkillItem>Express.js</SkillItem>
+                <SkillItem>MongoDB</SkillItem>
+              </Skill>
+            </Skills>
+          </RightContainer>
           {isMobile === 'false' && (
             <ImageContainer>
               <LaptopContainer mouseX={mouseX} mouseY={mouseY} />
             </ImageContainer>
           )}
         </SectionContainer>
+        <Divider />
       </Inner>
     </Container>
   );
@@ -55,12 +71,8 @@ const Container = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 0 100px;
-  z-index: 10;
+  padding: 100px 0 0 0;
   position: relative;
-  @media only screen and (max-width: 1050px) {
-    padding: 20px;
-  }
 `;
 
 const Inner = styled.div`
@@ -72,7 +84,8 @@ const SectionContainer = styled.div`
   grid-template-columns: 2fr 2fr;
   align-items: flex-start;
   justify-content: flex-start;
-  min-height: 50vh;
+  margin-top: 50px;
+  margin-bottom: 150px;
   @media only screen and (max-width: 1050px) {
     display: flex;
     flex-direction: column;
@@ -84,10 +97,10 @@ const SectionContainer = styled.div`
 
 const ImageContainer = styled.div`
   display: flex;
-  width: 100%;
-  height: 100%;
+  height: 600px;
   justify-content: center;
   position: relative;
+  z-index: -5;
 `;
 
 const Text = styled.p`
@@ -95,6 +108,44 @@ const Text = styled.p`
   font-size: 1.9rem;
   line-height: 30px;
   z-index: 1;
+`;
+
+const RightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Description = styled.p`
+  font-family: 'neueLight';
+  font-size: 2.4rem;
+  color: ${({ theme }) => theme.portfolio.fontColor.secondary};
+  line-height: 150%;
+`;
+
+const Skills = styled.div`
+  display: grid;
+  margin-top: 60px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 50px;
+`;
+
+const Skill = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const SkillTitle = styled.p`
+  font-family: 'cyrMed';
+  margin-bottom: 14px;
+  color: ${({ theme }) => theme.portfolio.fontColor.primary};
+  font-size: 2.4rem;
+`;
+
+const SkillItem = styled.p`
+  font-family: 'neueLight';
+  font-size: 2.4rem;
+  color: ${({ theme }) => theme.portfolio.fontColor.secondary};
 `;
 
 const AboutLink = styled(Text).attrs({

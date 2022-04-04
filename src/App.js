@@ -5,7 +5,6 @@ import HeroMobile from './components/hero/HeroMobile';
 import Portfolio from './components/portfolio/Portfolio';
 import Footer from './components/footer/Footer';
 import About from './components/about/About';
-import Skills from './components/skills/Skills';
 
 import useWindowDimensions from './hooks/useWindowDimensions';
 
@@ -53,7 +52,6 @@ function App() {
           <HeroMobile setTop={setTop} />
         )}
         <Portfolio portfolioRef={portfolioRef} isMobile={isMobile} />
-        <Skills skillsRef={skillsRef} />
         <About aboutRef={aboutRef} isMobile={isMobile} />
         <Footer isMobile={isMobile} />
       </Feed>
@@ -64,6 +62,7 @@ function App() {
 const Feed = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0 40px;
 `;
 
 export default App;

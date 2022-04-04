@@ -1,18 +1,72 @@
-import { Suspense } from 'react';
+import { Suspense, useRef } from 'react';
 
-import { Canvas, useThree } from '@react-three/fiber';
+import { Canvas, useThree, useFrame } from '@react-three/fiber';
+import { Float } from '@react-three/drei';
+
 import Camera from '../reusable/MovableCamera';
-
 import LowHeart from './LowHeart';
 
 import styled from 'styled-components';
 
 const InnerContainer = ({ mouseX, mouseY }) => {
+  const heartRef = useRef();
+  const heartRefTwo = useRef();
   const { viewport } = useThree();
+
+  useFrame(() => {
+    heartRef.current.position.y <= -250
+      ? (heartRef.current.position.y = 250)
+      : (heartRef.current.position.y -= 0.3);
+    heartRefTwo.current.position.y <= -250
+      ? (heartRefTwo.current.position.y = 250)
+      : (heartRefTwo.current.position.y -= 0.3);
+  });
+
   return (
     <>
       <Camera mouseX={mouseX} mouseY={mouseY} fov={65} />
-      <LowHeart scale={viewport.width} position={[0, 0, -10]} />
+      <group ref={heartRefTwo} position={[0, 250, 0]}>
+        <Float speed={1.4} rotationIntensity={1} floatIntensity={50}>
+          <LowHeart scale={viewport.width} position={[-60, 0, -20]} />
+        </Float>
+        <Float speed={1} rotationIntensity={0.3} floatIntensity={20}>
+          <LowHeart
+            heartRef={heartRef}
+            scale={viewport.width}
+            position={[30, 30, -100]}
+            rotation={[0, 0, -0.2]}
+          />
+        </Float>
+        <Float speed={1} rotationIntensity={0.3} floatIntensity={20}>
+          <LowHeart
+            heartRef={heartRef}
+            scale={viewport.width}
+            position={[150, -90, -90]}
+            rotation={[0, 0, -0.3]}
+          />
+        </Float>
+      </group>
+      <group ref={heartRef}>
+        <Float speed={1.4} rotationIntensity={1} floatIntensity={50}>
+          <LowHeart scale={viewport.width} position={[-60, 0, -20]} />
+        </Float>
+        <Float speed={1} rotationIntensity={0.3} floatIntensity={20}>
+          <LowHeart
+            heartRef={heartRef}
+            scale={viewport.width}
+            position={[30, 30, -100]}
+            rotation={[0, 0, -0.2]}
+          />
+        </Float>
+        <Float speed={1} rotationIntensity={0.3} floatIntensity={20}>
+          <LowHeart
+            heartRef={heartRef}
+            scale={viewport.width}
+            position={[150, -90, -90]}
+            rotation={[0, 0, -0.3]}
+          />
+        </Float>
+      </group>
     </>
   );
 };
@@ -20,6 +74,7 @@ const InnerContainer = ({ mouseX, mouseY }) => {
 const FooterScene = ({ mouseX, mouseY }) => {
   return (
     <ShapesContainer>
+      <Gradient />
       <Container>
         <Suspense fallback={null}>
           <Canvas dpr={1} resize={{ scroll: false, offsetSize: true }}>
@@ -30,6 +85,17 @@ const FooterScene = ({ mouseX, mouseY }) => {
     </ShapesContainer>
   );
 };
+
+const Gradient = styled.div`
+  min-width: 100%;
+  height: 50vh;
+  width: 100vw;
+  top: 0;
+  background: linear-gradient(180deg, black 1%, rgba(0, 0, 0, 0) 30%);
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+`;
 
 const ShapesContainer = styled.div`
   position: relative;
@@ -50,6 +116,7 @@ const ShapesContainer = styled.div`
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
+  max-height: 1080px;
   @media only screen and (max-width: 1050px) {
     width: 100vw;
     transform: translateY(0px);

@@ -35,9 +35,6 @@ const Nav = ({ top, portfolioRef, skillsRef, aboutRef }) => {
           <NavTextLink onClick={() => scrollToSection(portfolioRef)}>
             Portfolio
           </NavTextLink>
-          <NavTextLink onClick={() => scrollToSection(skillsRef)}>
-            Skills
-          </NavTextLink>
           <NavTextLink onClick={() => scrollToSection(aboutRef)}>
             About
           </NavTextLink>
@@ -109,6 +106,7 @@ const NavCenter = styled(NavSection)`
 const NavText = styled.p`
   color: ${({ theme }) => theme.nav.fonts.primary};
   font-size: 17px;
+  font-family: 'cyrMed';
 `;
 
 const NavTextLink = styled(NavText)`

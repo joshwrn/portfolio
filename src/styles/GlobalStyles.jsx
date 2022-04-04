@@ -1,35 +1,31 @@
 import { createGlobalStyle } from 'styled-components';
-import haas from '../assets/fonts/haas/NeueHaasDisplayMedium.woff';
-import haasRoman from '../assets/fonts/haas/NeueHaasDisplayRoman.woff';
 
 import cyrBold from '../assets/fonts/HelveticaNeueCyr-Bold.otf';
 import cyrMedium from '../assets/fonts/HelveticaNeueCyr-Medium.otf';
 import cyrRoman from '../assets/fonts/HelveticaNeueCyr-Roman.otf';
 
+import helveticaNeueLight from '../assets/fonts/HelveticaNeue-Light.ttf';
+
 const GlobalStyles = createGlobalStyle`
-  @font-face {
-  font-family: 'haas';
-  src: url(${haas}) format('woff');
-}
 
 @font-face {
-  font-family: 'haas-roman';
-  src: url(${haasRoman}) format('woff');
+  font-family: 'neueLight';
+  src: url(${helveticaNeueLight}) format('truetype');
 }
 
 @font-face {
   font-family: 'cyrBold';
-  src: url(${cyrBold}) format('woff');
+  src: url(${cyrBold}) format('opentype');
 }
 
 @font-face {
   font-family: 'cyrMed';
-  src: url(${cyrMedium}) format('woff');
+  src: url(${cyrMedium}) format('opentype');
 }
 
 @font-face {
   font-family: 'cyrRoman';
-  src: url(${cyrRoman}) format('woff');
+  src: url(${cyrRoman}) format('opentype');
 }
 
 html {
@@ -112,15 +108,36 @@ input:focus {
   outline: none;
 }
 
+// TEXT SELECTION
 ::selection {
-  background: #161616;
-  text-shadow: 1px 1px 10px white;
-}
-::-moz-selection {
-  background: #161616;
-  text-shadow: 1px 1px 10px white;
+  background: #2e2e2e;
 }
 
+::-moz-selection {
+  background: #161616;
+}
+
+// SCROLLBAR
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(124, 124, 124, 0.281);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 `;
 

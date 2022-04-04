@@ -13,13 +13,20 @@ import FooterScene from '../../three/footer/FooterScene';
 
 import styled from 'styled-components';
 
+const Link = ({ href, children }) => {
+  return (
+    <div>
+      <StyledLink href={href} target="_blank" rel="noreferrer">
+        {children}
+      </StyledLink>
+    </div>
+  );
+};
+
 const Footer = ({ isMobile }) => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const date = () => {
-    return new Date().getFullYear();
-  };
   return (
     <Container
       ref={mouseRef}
@@ -33,42 +40,42 @@ const Footer = ({ isMobile }) => {
           <FooterScene mouseX={mouseX} mouseY={mouseY} />
         </SceneContainer>
       )}
-      <Inner>
-        <Contact>Contact Me.</Contact>
-        <Email href="mailto:joshnwarren@gmail.com">joshnwarren@gmail.com</Email>
-        <Socials>
-          <SocialIcon
-            rel="noreferrer"
-            target="_blank"
-            href="https://github.com/joshwrn"
-          >
-            <VscGithub size={24} />
-          </SocialIcon>
-          <SocialIcon
-            rel="noreferrer"
-            target="_blank"
-            href="https://codepen.io/joshwrn"
-          >
-            <ImCodepen size={24} />
-          </SocialIcon>
-          <SocialIcon
-            rel="noreferrer"
-            target="_blank"
-            href="https://twitter.com/joshwrn"
-          >
-            <TwitterIcon size={24} />
-          </SocialIcon>
-          <SocialIcon
-            rel="noreferrer"
-            target="_blank"
-            href="https://instagram.com/joshnwarren"
-          >
-            <AiOutlineInstagram size={24} />
-          </SocialIcon>
-        </Socials>
-        <Copyright>&copy; 2021- {date()} Josh Warren.</Copyright>
-        <Copyright>All rights reserved.</Copyright>
-      </Inner>
+      <Center>
+        <HeaderContainer>
+          <Header>Want to get in touch?</Header>
+          <a href="mailto:joshnwarren@gmail.com">
+            <Email>joshnwarren@gmail.com</Email>
+          </a>
+        </HeaderContainer>
+      </Center>
+      <Bottom>
+        <Section>
+          <Span>Josh Warren</Span>
+          <Span>Portland, Oregon</Span>
+          <Span>Ⓒ 2022</Span>
+        </Section>
+
+        <Section>
+          <Bold>Built with</Bold>
+          <Span>React.js, Three.js,</Span>
+          <Span>Framer Motion & 🖤</Span>
+        </Section>
+
+        <Links>
+          <Section>
+            <Link href="https://twitter.com/joshwrn">Twitter</Link>
+            <Link href="https://instagram.com/joshnwarren">Instagram</Link>
+            <Link href="https://www.linkedin.com/in/joshwrn/">LinkedIn</Link>
+          </Section>
+          <Section>
+            <Link href="https://github.com/joshwrn">Github</Link>
+            <Link href="https://codepen.io/joshwrn">CodePen</Link>
+            <Link href="https://www.youtube.com/channel/UCL3GruHNnB7F008lzpnF-pQ">
+              Youtube
+            </Link>
+          </Section>
+        </Links>
+      </Bottom>
     </Container>
   );
 };
@@ -86,64 +93,102 @@ const Container = styled(motion.div)`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  max-height: 1080px;
   width: 100%;
+  overflow: hidden;
+  padding: 100px 0;
   @media only screen and (max-width: 1050px) {
     height: fit-content;
-    padding: 150px 20px;
   }
 `;
 
-const Inner = styled.div`
+const Center = styled.div`
+  width: 100%;
+  max-width: ${({ theme }) => theme.maxWidth};
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0;
+  justify-content: center;
+  align-items: flex-start;
 `;
 
-const Contact = styled.p`
-  font-size: 3.5rem;
-  font-family: ${({ theme }) => theme.main.fontFamily.header};
-`;
-
-const Email = styled.a`
-  font-size: 1.6rem;
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  padding: 0;
-  color: var(--font-color-one);
-  transition: color 0.5s;
-  margin-top: 5px;
-  /* margin-right: 15px; */
-  &:hover {
-    color: ${({ theme }) => theme.main.hover};
+const Header = styled.h1`
+  font-size: 6.4rem;
+  color: #fff;
+  font-family: 'cyrBold';
+  text-transform: uppercase;
+  @media only screen and (max-width: 1050px) {
+    font-size: 2.4rem;
   }
 `;
 
-const Socials = styled.div`
-  margin-top: 16px;
-  margin-bottom: 16px;
+const HeaderContainer = styled.div``;
+
+const Email = styled.h2`
+  font-size: 4rem;
+  color: rgb(189, 189, 189);
+  font-family: 'neueLight';
+  text-transform: uppercase;
+  @media only screen and (max-width: 1050px) {
+    font-size: 2rem;
+  }
+`;
+
+const Bottom = styled.div`
+  width: 100%;
+  max-width: ${({ theme }) => theme.maxWidth};
   display: flex;
-  position: relative;
-  z-index: 1;
-  /* justify-content: space-between; */
-  gap: 25px;
-  align-items: center;
-`;
-
-const SocialIcon = styled.a`
-  cursor: pointer;
-  &:hover {
-    color: ${({ theme }) => theme.main.hover};
+  justify-content: space-between;
+  bottom: 0;
+  @media only screen and (max-width: 1050px) {
+    margin-top: 100px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
   }
 `;
 
-const TwitterIcon = styled(FiTwitter)`
-  stroke-width: 1.5px;
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
-const Copyright = styled.div`
-  font-size: 0.9rem;
+const Span = styled.span`
+  position: relative;
+  font-size: 2.4rem;
+  font-family: 'cyrRoman';
+`;
+
+const StyledLink = styled.a`
+  position: relative;
+  font-size: 2.4rem;
+  font-family: 'cyrRoman';
+  &:hover {
+    ::after {
+      width: 100%;
+    }
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: rgb(255, 255, 255, 0.64);
+    transform: translateY(29px);
+    transition: width 0.5s;
+  }
+`;
+
+const Bold = styled(Span)`
+  font-family: 'cyrBold';
+`;
+
+const Links = styled.div`
+  display: flex;
+  gap: 50px;
 `;
 
 export default Footer;

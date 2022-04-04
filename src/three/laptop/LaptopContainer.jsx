@@ -73,11 +73,11 @@ const ShapesContainer = styled.div`
 `;
 
 const Container = styled.div`
-  transform: translateY(-10%) translateX(-17%);
+  transform: translateY(-4%) translateX(-10%);
   height: 100vh;
   width: 100vw;
   max-height: 900px;
-  max-width: 1400px;
+  max-width: ${({ theme }) => theme.maxWidth};
   div {
     overflow: visible !important;
   }

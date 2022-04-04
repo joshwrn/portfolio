@@ -2,6 +2,8 @@ import React from 'react';
 
 import ImageLoader from '../reusable/ImageLoader';
 
+import { FiArrowUpRight } from 'react-icons/fi';
+
 import styled, { keyframes } from 'styled-components';
 
 const PortfolioSection = ({
@@ -9,6 +11,8 @@ const PortfolioSection = ({
   sub,
   desc,
   src,
+  tech,
+  date,
   codeLink,
   demoLink,
   isMobile,
@@ -17,41 +21,55 @@ const PortfolioSection = ({
     <Outer>
       <SectionContainer>
         <SubContainer>
-          <InfoContainer>
+          <HeaderContainer>
             <PortfolioHeader>{header}</PortfolioHeader>
             <SubHeader>{sub}</SubHeader>
-            {isMobile === 'true' && (
-              <ImageLink rel="noreferrer" target="_blank" href={demoLink}>
-                <ImageLoader
-                  src={src}
-                  maxWidth="600px"
-                  justifySelf="flex-end"
-                  borderRadius="12px"
-                  transition="opacity 0.7s, transform 0.75s"
-                />
-              </ImageLink>
-            )}
-            <Description>{desc}</Description>
-            <LinksContainer>
-              <a rel="noreferrer" target="_blank" href={demoLink}>
-                <LiveButton>Live Demo</LiveButton>
-              </a>
-              <a rel="noreferrer" target="_blank" href={codeLink}>
-                <Button>View Code</Button>
-              </a>
-            </LinksContainer>
-          </InfoContainer>
-          {isMobile === 'false' && (
+          </HeaderContainer>
+
+          <MainContainer>
             <ImageLink rel="noreferrer" target="_blank" href={demoLink}>
               <ImageLoader
                 src={src}
-                maxWidth="600px"
                 justifySelf="flex-end"
-                borderRadius="12px"
                 transition="opacity 0.7s, transform 0.75s"
+                borderRadius="13px"
               />
             </ImageLink>
-          )}
+
+            <InfoSection>
+              <DescriptionContainer>
+                <DescriptionHeader>Summary</DescriptionHeader>
+                <Description>{desc}</Description>
+              </DescriptionContainer>
+
+              <TopSection>
+                <InfoContainer>
+                  <InfoHeader>Technologies</InfoHeader>
+                  <Info>{tech}</Info>
+                </InfoContainer>
+                <DateContainer>
+                  <InfoHeader>Date</InfoHeader>
+                  <Date>{date}</Date>
+                </DateContainer>
+              </TopSection>
+
+              <LinksContainer>
+                <a rel="noreferrer" target="_blank" href={demoLink}>
+                  <Button>
+                    <ButtonText>Live Preview</ButtonText>
+                    <ArrowIcon size={27} />
+                  </Button>
+                </a>
+                <a rel="noreferrer" target="_blank" href={codeLink}>
+                  <Button>
+                    <ButtonText>View Code</ButtonText>
+                    <ArrowIcon size={27} />
+                  </Button>
+                </a>
+              </LinksContainer>
+            </InfoSection>
+          </MainContainer>
+          <Line />
         </SubContainer>
       </SectionContainer>
     </Outer>
@@ -65,102 +83,180 @@ const Outer = styled.div`
 const SectionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  height: 450px;
-  padding: 10px 75px;
+  height: fit-content;
   box-sizing: border-box;
-  border-radius: 12px;
-  background-color: ${({ theme }) => theme.portfolio.background};
-  border: ${({ theme }) => theme.portfolio.border};
-  opacity: 1;
 
   @media only screen and (max-width: 1050px) {
     padding: 0px;
-    padding-bottom: 55px;
     background-color: transparent;
     border: none;
     border-radius: 0px;
-    border-bottom: 1px solid rgb(59, 59, 59);
     height: fit-content;
   }
 `;
 
 const SubContainer = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  column-gap: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   @media only screen and (max-width: 1050px) {
     display: flex;
     flex-direction: column;
-    gap: 80px;
     margin: 0;
+    gap: 40px;
   }
 `;
 
-const InfoContainer = styled.div`
+const TopSection = styled.div`
+  display: flex;
+  width: 100%;
+  gap: 60px;
+`;
+
+// Header
+
+const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
 const PortfolioHeader = styled.h3`
   font-size: 5rem;
-  font-family: 'cyrMed';
+  font-family: 'cyrBold';
+  color: ${({ theme }) => theme.portfolio.fontColor.primary};
   @media only screen and (max-width: 1050px) {
     font-size: 4rem;
   }
 `;
 
 const SubHeader = styled.p`
-  font-size: 1.4rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-top: 10px;
+  font-size: 2.4rem;
+  font-family: 'cyrMed';
+  color: ${({ theme }) => theme.portfolio.fontColor.secondary};
+`;
+
+// main
+
+const MainContainer = styled.div`
+  display: flex;
+  gap: 40px;
   @media only screen and (max-width: 1050px) {
-    margin-bottom: 20px;
+    flex-direction: column;
   }
 `;
 
-const Description = styled.p`
-  margin-top: 25px;
-  line-height: 2.8rem;
-  font-size: 1.6rem;
-  font-family: ${({ theme }) => theme.main.fontFamily.primary};
-  @media only screen and (max-width: 1050px) {
-    max-width: 600px;
-  }
+// Right Section
+
+const InfoSection = styled.div`
+  display: flex;
+  flex: 5;
+  flex-direction: column;
+  gap: 60px;
+`;
+
+// Info
+
+const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+`;
+
+const InfoHeader = styled.p`
+  font-size: 2.4rem;
+  color: ${({ theme }) => theme.portfolio.fontColor.primary};
+`;
+
+const Info = styled(InfoHeader)`
+  font-family: 'neueLight';
+  font-size: 2.4rem;
+  color: ${({ theme }) => theme.portfolio.fontColor.secondary};
+`;
+
+// Date
+
+const DateContainer = styled(InfoContainer)`
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 10px;
+`;
+
+const Date = styled(Info)`
+  transform: translateY(1px);
+`;
+
+// Summary
+
+const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+`;
+
+const DescriptionHeader = styled.p`
+  font-size: 3.2rem;
+  font-family: 'cyrMed';
+  color: ${({ theme }) => theme.portfolio.fontColor.primary};
+`;
+
+const Description = styled(Info)`
+  line-height: 150%;
 `;
 
 //@ Buttons
 
 const LinksContainer = styled.div`
   display: flex;
-  margin: 25px 0;
-  gap: 20px;
+  gap: 60px;
 `;
 
-const Button = styled.button`
-  width: fit-content;
-  padding: 10px 30px;
-  border-radius: 10px;
+const ButtonText = styled.p`
+  color: ${({ theme }) => theme.portfolio.fontColor.primary};
+  font-size: 2rem;
+  font-family: 'cyrMed';
+  text-transform: uppercase;
+  transition: text-shadow 0.5s;
+`;
+
+const ArrowIcon = styled(FiArrowUpRight)`
+  transform: translateY(2px);
+  transition: transform 0.75s;
+`;
+
+const Button = styled.div`
+  display: flex;
+  position: relative;
+  width: 100%;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: flex-end;
   background-color: transparent;
-  color: ${({ theme }) => theme.main.fonts.primary};
-  border: ${({ theme }) => theme.portfolio.buttons.border};
-  font-size: 1.3rem;
   cursor: pointer;
-  transition: box-shadow 0.5s, border 1s;
   &:hover {
-    box-shadow: 0px 0px 15px rgba(148, 138, 138, 0.281);
+    ${ButtonText} {
+      text-shadow: 0px 0px 10px rgb(170, 170, 170);
+    }
+    ::after {
+      width: 97%;
+    }
   }
-`;
-
-const LiveButton = styled(Button)`
-  background-color: ${({ theme }) => theme.portfolio.buttons.live.background};
-  color: black;
-  &:hover {
-    box-shadow: 0px 0px 15px rgba(148, 138, 138, 0.5);
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255, 0.64);
+    transform: translateY(31px);
+    transition: width 0.5s;
   }
 `;
 
@@ -168,21 +264,18 @@ const LiveButton = styled(Button)`
 
 const ImageLink = styled.a`
   display: flex;
+  flex: 6;
   width: 100%;
-  max-width: 600px;
   justify-self: flex-end;
   justify-content: center;
   align-items: center;
-  border-radius: 12px;
   cursor: pointer;
-  div {
-    overflow: hidden;
-    img {
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
-  }
+`;
+
+const Line = styled.div`
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid ${({ theme }) => theme.portfolio.line};
 `;
 
 export default PortfolioSection;

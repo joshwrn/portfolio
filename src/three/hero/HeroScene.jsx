@@ -14,7 +14,7 @@ const HeroText = ({ text, position }) => {
     <Text
       position={position}
       letterSpacing={-0.01}
-      font="/fonts/HelveticaNeueCyr-Medium.otf"
+      font="/fonts/HelveticaNeueCyr-Bold.otf"
       fontSize={12}
       color="rgb(192, 192, 192)"
       material-toneMapped={false}
@@ -37,13 +37,13 @@ const InnerContainer = ({ mouseX, mouseY }) => {
         cameraZ={200}
         smoothTransformX={-5}
         smoothTransformY={2}
-        stiffness={30}
+        stiffness={100}
         damping={15}
       />
       <ambientLight intensity={1.55} />
       <group position={[0, 35, 0]} scale={viewport.width / 10.5}>
-        <HeroText text="Josh Warren" position={[-36, 0, 20]} />
-        <HeroText text="Full Stack Web Developer." position={[0, -12, 20]} />
+        <HeroText text="Josh Warren" position={[-37, 0, 20]} />
+        <HeroText text="Full Stack Web Developer." position={[0, -14, 20]} />
         {/* left */}
         <Float speed={0.7} rotationIntensity={0.1} floatIntensity={10}>
           <BalloonModel
@@ -112,10 +112,8 @@ const ShapesContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  top: -1px;
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
+  top: 0;
+  left: 0;
   canvas {
     width: 100%;
     height: 100%;
