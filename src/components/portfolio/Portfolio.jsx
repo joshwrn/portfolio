@@ -2,7 +2,7 @@ import React from 'react';
 
 import InstagramThumbnail from '../../assets/images/instagram-thumbnail.jpg';
 import FashionThumbnail from '../../assets/images/fashion-thumbnail.jpeg';
-import StreaksThumbnail from '../../assets/images/streaks-thumb.jpg';
+import StreaksThumbnail from '../../assets/images/streaks-thumb2.jpg';
 
 import { FiArrowUpRight } from 'react-icons/fi';
 
@@ -16,7 +16,7 @@ const Portfolio = ({ portfolioRef, isMobile }) => {
     <Container>
       <Inner>
         <Header title="Projects" headerRef={portfolioRef} />
-        <Divider />
+        <TopDivider />
         <Feed>
           <PortfolioSection
             header="Instagram"
@@ -77,6 +77,7 @@ const Container = styled.div`
   padding: 150px 0 0 0;
   @media only screen and (max-width: 1050px) {
     margin-top: 0vh;
+    padding: 0;
   }
 `;
 
@@ -89,6 +90,10 @@ const Divider = styled.div`
   width: 100%;
   height: 1px;
   border-bottom: 1px solid ${({ theme }) => theme.portfolio.line};
+  margin: 60px 0 0px 0;
+`;
+
+const TopDivider = styled(Divider)`
   margin: 60px 0 60px 0;
 `;
 

@@ -60,7 +60,6 @@ const HeaderContainer = styled(motion.div)`
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  height: 100px;
 `;
 
 const HeaderTitle = styled(motion.div)`
@@ -71,8 +70,6 @@ const HeaderTitle = styled(motion.div)`
 const HeaderLetter = styled(motion.div)`
   font-size: 7rem;
   font-family: 'cyrBold';
-  @media only screen and (max-width: 1050px) {
-  }
 `;
 
 export default Header;

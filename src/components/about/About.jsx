@@ -73,6 +73,9 @@ const Container = styled(motion.div)`
   width: 100%;
   padding: 100px 0 0 0;
   position: relative;
+  @media only screen and (max-width: 1050px) {
+    padding: 0;
+  }
 `;
 
 const Inner = styled.div`
@@ -92,6 +95,7 @@ const SectionContainer = styled.div`
     align-items: center;
     justify-content: center;
     min-height: 0;
+    margin-bottom: 100px;
   }
 `;
 
@@ -146,12 +150,6 @@ const SkillItem = styled.p`
   font-family: 'neueLight';
   font-size: 2.4rem;
   color: ${({ theme }) => theme.portfolio.fontColor.secondary};
-`;
-
-const AboutLink = styled(Text).attrs({
-  as: 'a',
-})`
-  text-decoration: underline;
 `;
 
 export default About;
