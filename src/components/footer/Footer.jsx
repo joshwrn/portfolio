@@ -166,7 +166,8 @@ const StyledLink = styled.a`
   font-family: 'cyrRoman';
   &:hover {
     ::after {
-      width: 100%;
+      transform: scaleX(1) translateY(26px);
+      transform-origin: left;
     }
   }
   &::after {
@@ -174,11 +175,12 @@ const StyledLink = styled.a`
     position: absolute;
     top: 0;
     left: 0;
-    width: 0;
-    height: 3px;
+    width: 100%;
+    height: 2px;
     background-color: rgb(255, 255, 255, 0.64);
-    transform: translateY(29px);
-    transition: width 0.5s;
+    transform: scaleX(0) translateY(26px);
+    transform-origin: right;
+    transition: transform 0.5s;
   }
 `;
 

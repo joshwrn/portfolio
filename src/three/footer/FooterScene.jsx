@@ -27,12 +27,12 @@ const InnerContainer = ({ mouseX, mouseY }) => {
       <Camera mouseX={mouseX} mouseY={mouseY} fov={65} />
       <group ref={heartRefTwo} position={[0, 250, 0]}>
         <Float speed={1.4} rotationIntensity={1} floatIntensity={50}>
-          <LowHeart scale={viewport.width} position={[-60, 0, -20]} />
+          <LowHeart scale={16} position={[-60, 0, -20]} />
         </Float>
         <Float speed={1} rotationIntensity={0.3} floatIntensity={20}>
           <LowHeart
             heartRef={heartRef}
-            scale={viewport.width}
+            scale={16}
             position={[30, 30, -100]}
             rotation={[0, 0, -0.2]}
           />
@@ -40,7 +40,7 @@ const InnerContainer = ({ mouseX, mouseY }) => {
         <Float speed={1} rotationIntensity={0.3} floatIntensity={20}>
           <LowHeart
             heartRef={heartRef}
-            scale={viewport.width}
+            scale={16}
             position={[150, -90, -90]}
             rotation={[0, 0, -0.3]}
           />
@@ -48,12 +48,12 @@ const InnerContainer = ({ mouseX, mouseY }) => {
       </group>
       <group ref={heartRef}>
         <Float speed={1.4} rotationIntensity={1} floatIntensity={50}>
-          <LowHeart scale={viewport.width} position={[-60, 0, -20]} />
+          <LowHeart scale={16} position={[-60, 0, -20]} />
         </Float>
         <Float speed={1} rotationIntensity={0.3} floatIntensity={20}>
           <LowHeart
             heartRef={heartRef}
-            scale={viewport.width}
+            scale={16}
             position={[30, 30, -100]}
             rotation={[0, 0, -0.2]}
           />
@@ -61,7 +61,7 @@ const InnerContainer = ({ mouseX, mouseY }) => {
         <Float speed={1} rotationIntensity={0.3} floatIntensity={20}>
           <LowHeart
             heartRef={heartRef}
-            scale={viewport.width}
+            scale={16}
             position={[150, -90, -90]}
             rotation={[0, 0, -0.3]}
           />

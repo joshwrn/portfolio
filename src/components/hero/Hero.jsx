@@ -53,6 +53,8 @@ const HeroContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: absolute;
+  top: 0;
+  left: 0;
   align-items: center;
   justify-content: center;
   opacity: 1;
@@ -60,6 +62,7 @@ const HeroContainer = styled(motion.div)`
   background-image: url(${Bg});
   background-position: top;
   background-size: cover;
+  width: 100vw;
   @media only screen and (max-width: 1050px) {
     min-height: 0;
   }

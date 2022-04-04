@@ -73,6 +73,13 @@ const Blur = styled.img`
   transition: opacity 0.5s 0.5s, filter 0.5s;
   filter: blur(45px);
   z-index: -1;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  backface-visibility: hidden;
+  transform: translateZ(0) scale(1, 1);
+  @media only screen and (max-width: 1050px) {
+    filter: blur(25px);
+  }
 `;
 
 const LoadingDiv = styled.div`

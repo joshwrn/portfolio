@@ -223,6 +223,19 @@ const ButtonText = styled.p`
   font-family: 'cyrMed';
   text-transform: uppercase;
   transition: text-shadow 0.5s;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 255, 255, 0.64);
+    transform: scaleX(0) translateY(31px);
+    transform-origin: right;
+    transition: transform 0.5s;
+  }
 `;
 
 const ArrowIcon = styled(FiArrowUpRight)`
@@ -242,21 +255,11 @@ const Button = styled.div`
   &:hover {
     ${ButtonText} {
       text-shadow: 0px 0px 10px rgb(170, 170, 170);
+      ::after {
+        transform: scaleX(1) translateY(31px);
+        transform-origin: left;
+      }
     }
-    ::after {
-      width: 97%;
-    }
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: rgb(255, 255, 255, 0.64);
-    transform: translateY(31px);
-    transition: width 0.5s;
   }
 `;
 

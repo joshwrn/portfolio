@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 
 import { Text, Float } from '@react-three/drei';
+import { Loader } from '@react-three/drei';
 
 import BalloonModel from './BalloonModel';
 import Camera from '../reusable/MovableCamera';
@@ -79,7 +80,7 @@ const InnerContainer = ({ mouseX, mouseY }) => {
         {/* background balloons */}
         <BalloonModel
           scale={3}
-          position={[105, -75, -20]}
+          position={[80, -75, -20]}
           rotation={[-0.1, 0.2, 5.3]}
         />
         <BalloonModel
@@ -114,6 +115,9 @@ const ShapesContainer = styled.div`
   justify-content: center;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 150vh;
+  max-width: 1920px;
   canvas {
     width: 100%;
     height: 100%;
@@ -121,8 +125,8 @@ const ShapesContainer = styled.div`
 `;
 
 const Container = styled.div`
-  width: 100vw;
-  height: 150vh;
+  width: 100%;
+  height: 100%;
   @media only screen and (max-width: 1050px) {
     width: 100vw;
     transform: translateY(0px);

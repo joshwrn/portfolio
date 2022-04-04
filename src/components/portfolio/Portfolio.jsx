@@ -4,7 +4,7 @@ import InstagramThumbnail from '../../assets/images/instagram-thumbnail.jpg';
 import FashionThumbnail from '../../assets/images/fashion-thumbnail.jpeg';
 import StreaksThumbnail from '../../assets/images/streaks-thumb.jpg';
 
-import arrowImg from '../../assets/images/Arrow 1.png';
+import { FiArrowUpRight } from 'react-icons/fi';
 
 import PortfolioSection from './PortfolioSection';
 import Header from '../reusable/Header';
@@ -58,7 +58,7 @@ const Portfolio = ({ portfolioRef, isMobile }) => {
           href="https://github.com/joshwrn?tab=repositories"
         >
           <Button>View More</Button>
-          <Arrow src={arrowImg} alt="arrow" />
+          <ArrowIcon size={47} />
         </ButtonContainer>
         <Divider />
       </Inner>
@@ -99,24 +99,23 @@ const Feed = styled.div`
   align-items: center;
 `;
 
-const Arrow = styled.img`
-  width: fit-content;
-  height: fit-content;
-  opacity: 0.75;
-  transition: transform 0.75s ease-in-out;
+const ArrowIcon = styled(FiArrowUpRight)`
+  transform: translateY(0px);
+  transition: transform 0.75s;
 `;
 
 const ButtonContainer = styled.a`
   padding-top: 60px;
   display: flex;
   align-items: center;
-  width: 100%;
-  gap: 50px;
+  width: fit-content;
+  gap: 20px;
   &:hover {
     p {
       text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.664);
       &::after {
-        width: 100%;
+        transform: scaleX(1) translateY(50px);
+        transform-origin: left;
       }
     }
     img {
@@ -138,11 +137,12 @@ const Button = styled.p`
     content: ' ';
     top: 0;
     left: 0;
-    width: 0;
+    width: 100%;
+    transform: scaleX(0) translateY(50px);
+    transform-origin: right;
+    transition: transform 0.5s;
     height: 3px;
     background-color: rgb(255, 255, 255, 0.64);
-    transform: translateY(50px);
-    transition: width 0.75s 0.25s;
   }
 `;
 
