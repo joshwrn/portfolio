@@ -13,6 +13,8 @@ import { darkTheme } from './styles/theme';
 import GlobalStyles from './styles/GlobalStyles';
 import styled from 'styled-components';
 
+import ReactGA from 'react-ga4';
+
 function App() {
   const [top, setTop] = useState('true');
   const { height, width } = useWindowDimensions();
@@ -32,6 +34,11 @@ function App() {
       setIsMobile('false');
     }
   }, [height, width]);
+
+  useEffect(() => {
+    ReactGA.initialize('G-8JXYBFE4CM');
+    ReactGA.send('pageview');
+  }, []);
 
   return (
     <ThemeProvider theme={darkTheme}>
