@@ -8,7 +8,7 @@ import Camera from '../reusable/MovableCamera';
 
 import styled from 'styled-components';
 
-const HeroScene = ({ mouseX, mouseY, isMobile }) => {
+const HeroScene = ({ mouseX, mouseY }) => {
   return (
     <ShapesContainer>
       <Container>

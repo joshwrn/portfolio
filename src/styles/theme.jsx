@@ -1,3 +1,5 @@
+const extraFonts = 'Helvetica, Arial, sans-serif';
+
 export const darkTheme = {
   maxWidth: '1440px',
   type: 'dark',
@@ -9,7 +11,10 @@ export const darkTheme = {
       secondary: 'rgb(192, 192, 192)',
     },
     fontFamily: {
-      primary: 'cyrRoman',
+      light: `cyrLight, ${extraFonts}`,
+      primary: `cyrRoman, ${extraFonts}`,
+      med: `cyrMed, ${extraFonts}`,
+      bold: `cyrBold, ${extraFonts}`,
     },
   },
   nav: {

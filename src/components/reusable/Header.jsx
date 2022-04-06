@@ -69,7 +69,7 @@ const HeaderTitle = styled(motion.div)`
 
 const HeaderLetter = styled(motion.div)`
   font-size: 7rem;
-  font-family: 'cyrBold';
+  font-family: ${({ theme }) => theme.main.fontFamily.bold};
 `;
 
 export default Header;

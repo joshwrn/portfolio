@@ -15,7 +15,6 @@ const PortfolioSection = ({
   date,
   codeLink,
   demoLink,
-  isMobile,
 }) => {
   return (
     <Outer>
@@ -126,7 +125,7 @@ const HeaderContainer = styled.div`
 
 const PortfolioHeader = styled.h3`
   font-size: 5rem;
-  font-family: 'cyrBold';
+  font-family: ${({ theme }) => theme.main.fontFamily.bold};
   color: ${({ theme }) => theme.portfolio.fontColor.primary};
   @media only screen and (max-width: 1050px) {
     font-size: 4rem;
@@ -135,7 +134,7 @@ const PortfolioHeader = styled.h3`
 
 const SubHeader = styled.p`
   font-size: 2.4rem;
-  font-family: 'cyrMed';
+  font-family: ${({ theme }) => theme.main.fontFamily.med};
   color: ${({ theme }) => theme.portfolio.fontColor.secondary};
 `;
 
@@ -165,6 +164,7 @@ const InfoContainer = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
+  gap: 2px;
 `;
 
 const InfoHeader = styled.p`
@@ -173,7 +173,7 @@ const InfoHeader = styled.p`
 `;
 
 const Info = styled(InfoHeader)`
-  font-family: 'neueLight';
+  font-family: ${({ theme }) => theme.main.fontFamily.light};
   font-size: 2.4rem;
   color: ${({ theme }) => theme.portfolio.fontColor.secondary};
 `;
@@ -187,9 +187,7 @@ const DateContainer = styled(InfoContainer)`
   gap: 10px;
 `;
 
-const Date = styled(Info)`
-  transform: translateY(1px);
-`;
+const Date = styled(Info)``;
 
 // Summary
 
@@ -198,11 +196,12 @@ const DescriptionContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  gap: 2px;
 `;
 
 const DescriptionHeader = styled.p`
   font-size: 3.2rem;
-  font-family: 'cyrMed';
+  font-family: ${({ theme }) => theme.main.fontFamily.med};
   color: ${({ theme }) => theme.portfolio.fontColor.primary};
 `;
 
@@ -220,7 +219,7 @@ const LinksContainer = styled.div`
 const ButtonText = styled.p`
   color: ${({ theme }) => theme.portfolio.fontColor.primary};
   font-size: 2rem;
-  font-family: 'cyrMed';
+  font-family: ${({ theme }) => theme.main.fontFamily.med};
   text-transform: uppercase;
   transition: text-shadow 0.5s;
   position: relative;

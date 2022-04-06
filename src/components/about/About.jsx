@@ -25,14 +25,16 @@ const About = ({ aboutRef, isMobile }) => {
         <SectionContainer>
           <RightContainer>
             <Description>
-              Passionate self-motivated React.js web developer with 3 years of
-              experience building websites. Proficient with Express.js, and
-              MongoDB. Used creativity and problem-solving skills to design and
-              implement websites for clients.
+              Hi, I'm josh, a passionate self-motivated web developer with 3
+              years of experience building websites. I'm proficient with React,
+              Express.js, and MongoDB. I've used my creativity and
+              problem-solving skills to design and implement websites for
+              clients.
             </Description>
             <Skills>
               <Skill>
                 <SkillTitle>Front End</SkillTitle>
+                <SkillItem>React</SkillItem>
                 <SkillItem>Javascript</SkillItem>
                 <SkillItem>Typescript</SkillItem>
                 <SkillItem>Redux</SkillItem>
@@ -113,7 +115,7 @@ const RightContainer = styled.div`
 `;
 
 const Description = styled.p`
-  font-family: 'neueLight';
+  font-family: ${({ theme }) => theme.main.fontFamily.light};
   font-size: 2.4rem;
   color: ${({ theme }) => theme.portfolio.fontColor.secondary};
   line-height: 150%;
@@ -130,17 +132,18 @@ const Skills = styled.div`
 const Skill = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 2px;
 `;
 
 const SkillTitle = styled.p`
-  font-family: 'cyrMed';
+  font-family: ${({ theme }) => theme.main.fontFamily.med};
   margin-bottom: 14px;
   color: ${({ theme }) => theme.portfolio.fontColor.primary};
   font-size: 2.4rem;
 `;
 
 const SkillItem = styled.p`
-  font-family: 'neueLight';
+  font-family: ${({ theme }) => theme.main.fontFamily.light};
   font-size: 2.4rem;
   color: ${({ theme }) => theme.portfolio.fontColor.secondary};
 `;

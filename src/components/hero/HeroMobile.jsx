@@ -51,7 +51,7 @@ const HeaderContainer = styled.div`
 
 const Header = styled.p`
   font-size: 6rem;
-  font-family: ${({ theme }) => theme.main.fontFamily.header};
+  font-family: ${({ theme }) => theme.main.fontFamily.bold};
 `;
 
 const SubHeader = styled(Header)`

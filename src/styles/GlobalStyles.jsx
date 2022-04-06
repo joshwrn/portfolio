@@ -1,31 +1,30 @@
 import { createGlobalStyle } from 'styled-components';
 
-import cyrBold from '../assets/fonts/HelveticaNeueCyr-Bold.otf';
-import cyrMedium from '../assets/fonts/HelveticaNeueCyr-Medium.otf';
-import cyrRoman from '../assets/fonts/HelveticaNeueCyr-Roman.otf';
-
-import helveticaNeueLight from '../assets/fonts/HelveticaNeue-Light.ttf';
+import cyrBold from '../assets/fonts/HelveticaNeueCyr-Bold.woff';
+import cyrMedium from '../assets/fonts/HelveticaNeueCyr-Medium.woff';
+import cyrLight from '../assets/fonts/HelveticaNeueCyr-Light.woff';
+import cyrRoman from '../assets/fonts/HelveticaNeueCyr-Roman.woff';
 
 const GlobalStyles = createGlobalStyle`
 
 @font-face {
-  font-family: 'neueLight';
-  src: url(${helveticaNeueLight}) format('truetype');
+  font-family: 'cyrLight';
+  src: url(${cyrLight}) format('woff');
 }
 
 @font-face {
   font-family: 'cyrBold';
-  src: url(${cyrBold}) format('opentype');
+  src: url(${cyrBold}) format('woff');
 }
 
 @font-face {
   font-family: 'cyrMed';
-  src: url(${cyrMedium}) format('opentype');
+  src: url(${cyrMedium}) format('woff');
 }
 
 @font-face {
   font-family: 'cyrRoman';
-  src: url(${cyrRoman}) format('opentype');
+  src: url(${cyrRoman}) format('woff');
 }
 
 html {
@@ -69,8 +68,7 @@ h4,
 h5 {
   font-size: 2rem;
   color: ${({ theme }) => theme.main.fonts.primary};
-  font-family: ${({ theme }) =>
-    theme.main.fontFamily.primary}, helvetica, arial, sans-serif;
+  font-family: ${({ theme }) => theme.main.fontFamily.primary};
 }
 
 a {

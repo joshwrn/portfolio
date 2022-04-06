@@ -110,7 +110,7 @@ const Center = styled.div`
 const Header = styled.h1`
   font-size: 6.4rem;
   color: #fff;
-  font-family: 'cyrBold';
+  font-family: ${({ theme }) => theme.main.fontFamily.bold};
   text-transform: uppercase;
   @media only screen and (max-width: 1050px) {
     font-size: 2.4rem;
@@ -122,7 +122,7 @@ const HeaderContainer = styled.div``;
 const Email = styled.h2`
   font-size: 4rem;
   color: rgb(189, 189, 189);
-  font-family: 'neueLight';
+  font-family: ${({ theme }) => theme.main.fontFamily.light};
   text-transform: uppercase;
   @media only screen and (max-width: 1050px) {
     font-size: 2rem;
@@ -152,13 +152,13 @@ const Section = styled.div`
 const Span = styled.span`
   position: relative;
   font-size: 2.4rem;
-  font-family: 'cyrRoman';
+  font-family: ${({ theme }) => theme.main.fontFamily.primary};
 `;
 
 const StyledLink = styled.a`
   position: relative;
   font-size: 2.4rem;
-  font-family: 'cyrRoman';
+  font-family: ${({ theme }) => theme.main.fontFamily.primary};
   &:hover {
     ::after {
       transform: scaleX(1) translateY(26px);
@@ -180,7 +180,7 @@ const StyledLink = styled.a`
 `;
 
 const Bold = styled(Span)`
-  font-family: 'cyrBold';
+  font-family: ${({ theme }) => theme.main.fontFamily.bold};
 `;
 
 const Links = styled.div`

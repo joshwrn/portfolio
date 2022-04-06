@@ -11,7 +11,7 @@ import Header from '../reusable/Header';
 
 import styled from 'styled-components';
 
-const Portfolio = ({ portfolioRef, isMobile }) => {
+const Portfolio = ({ portfolioRef }) => {
   return (
     <Container>
       <Inner>
@@ -25,7 +25,6 @@ const Portfolio = ({ portfolioRef, isMobile }) => {
             src={InstagramThumbnail}
             codeLink="https://github.com/joshwrn/instagram-clone"
             demoLink="https://joshwrn.github.io/instagram-clone/#/"
-            isMobile={isMobile}
             tech="React.js, GraphQL, MongoDB, AWS"
             date="2021"
           />
@@ -36,7 +35,6 @@ const Portfolio = ({ portfolioRef, isMobile }) => {
             src={FashionThumbnail}
             demoLink="https://joshwrn.github.io/shopping-cart/"
             codeLink="https://github.com/joshwrn/shopping-cart"
-            isMobile={isMobile}
             tech="React.js, React Router, CSS"
             date="2021"
           />
@@ -47,7 +45,6 @@ const Portfolio = ({ portfolioRef, isMobile }) => {
             src={StreaksThumbnail}
             demoLink="https://joshwrn.github.io/streak-web-app/"
             codeLink="https://github.com/joshwrn/streak-web-app"
-            isMobile={isMobile}
             tech="React, TypeScript, Three.js"
             date="2022"
           />
@@ -134,7 +131,7 @@ const Button = styled.p`
   width: fit-content;
   color: ${({ theme }) => theme.main.fonts.primary};
   font-size: 3.6rem;
-  font-family: 'cyrMed';
+  font-family: ${({ theme }) => theme.main.fontFamily.med};
   cursor: pointer;
   transition: text-shadow 0.5s;
   &::after {

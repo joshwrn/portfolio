@@ -106,7 +106,7 @@ const NavCenter = styled(NavSection)`
 const NavText = styled.p`
   color: ${({ theme }) => theme.nav.fonts.primary};
   font-size: 17px;
-  font-family: 'cyrMed';
+  font-family: ${({ theme }) => theme.main.fontFamily.med};
 `;
 
 const NavTextLink = styled(NavText)`
