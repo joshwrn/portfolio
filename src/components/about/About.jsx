@@ -74,7 +74,7 @@ const Container = styled(motion.div)`
   padding: 100px 0 0 0;
   position: relative;
   @media only screen and (max-width: 1050px) {
-    padding: 0;
+    padding: 80px 0 0 0;
   }
 `;
 
@@ -105,13 +105,6 @@ const ImageContainer = styled.div`
   justify-content: center;
   position: relative;
   z-index: -5;
-`;
-
-const Text = styled.p`
-  font-family: ${({ theme }) => theme.main.fontFamily.primary};
-  font-size: 1.9rem;
-  line-height: 30px;
-  z-index: 1;
 `;
 
 const RightContainer = styled.div`

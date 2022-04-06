@@ -1,6 +1,6 @@
 import { Suspense, useRef } from 'react';
 
-import { Canvas, useThree, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { Float } from '@react-three/drei';
 
 import Camera from '../reusable/MovableCamera';
@@ -11,7 +11,6 @@ import styled from 'styled-components';
 const InnerContainer = ({ mouseX, mouseY }) => {
   const heartRef = useRef();
   const heartRefTwo = useRef();
-  const { viewport } = useThree();
 
   useFrame(() => {
     heartRef.current.position.y <= -250

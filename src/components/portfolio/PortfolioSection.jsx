@@ -4,7 +4,7 @@ import ImageLoader from '../reusable/ImageLoader';
 
 import { FiArrowUpRight } from 'react-icons/fi';
 
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 const PortfolioSection = ({
   header,

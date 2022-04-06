@@ -1,13 +1,7 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { useMotionValue, motion } from 'framer-motion';
 import useMeasure from 'react-use-measure';
-
-//+ icons
-import { AiOutlineInstagram } from 'react-icons/ai';
-import { FiTwitter } from 'react-icons/fi';
-import { ImCodepen } from 'react-icons/im';
-import { VscGithub } from 'react-icons/vsc';
 
 import FooterScene from '../../three/footer/FooterScene';
 
@@ -27,6 +21,7 @@ const Footer = ({ isMobile }) => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+
   return (
     <Container
       ref={mouseRef}

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 import styled from 'styled-components';
 
-const Nav = ({ top, portfolioRef, skillsRef, aboutRef }) => {
+const Nav = ({ top, portfolioRef, aboutRef }) => {
   const scrollToBottom = () => {
     window.scrollTo({
       top: document.body.scrollHeight,

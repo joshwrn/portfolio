@@ -18,6 +18,7 @@ function BloomContainer({ children }) {
     () => void scene && composer.current.setSize(size.width, size.height),
     [size]
   );
+
   useFrame(() => scene && composer.current.render(), 1);
   return (
     <>

@@ -1,30 +1,12 @@
 import { Suspense } from 'react';
 
 import { Canvas } from '@react-three/fiber';
-import { Text, Float } from '@react-three/drei';
+import { Float } from '@react-three/drei';
 
 import BalloonModel from './BalloonModel';
 import Camera from '../reusable/MovableCamera';
 
 import styled from 'styled-components';
-
-const HeroText = ({ text, position }) => {
-  return (
-    <Text
-      position={position}
-      letterSpacing={-0.01}
-      font="/fonts/HelveticaNeueCyr-Medium.otf"
-      fontSize={12}
-      color="rgb(192, 192, 192)"
-      material-toneMapped={false}
-      material-fog={false}
-      anchorX="left"
-      anchorY="middle"
-    >
-      {text}
-    </Text>
-  );
-};
 
 const HeroScene = ({ mouseX, mouseY, isMobile }) => {
   return (

@@ -3,7 +3,6 @@ import { Suspense } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 
 import { Text, Float } from '@react-three/drei';
-import { Loader } from '@react-three/drei';
 
 import BalloonModel from './BalloonModel';
 import Camera from '../reusable/MovableCamera';
