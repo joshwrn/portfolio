@@ -21,7 +21,7 @@ const Portfolio = ({ portfolioRef }) => {
           <PortfolioSection
             header="Instagram"
             sub="Instagram Clone"
-            desc="Fullstack clone of Instagram's features and a complete redesign of the UI. Originally built with firebase, it was rebuilt using React for the frontend, GraphQL for the backend, MongoDB for the database, and AWS S3 to store images."
+            desc="A Full Stack clone of Instagram's features and a complete redesign of the UI. Originally built with firebase, it was rebuilt using React for the frontend, GraphQL for the backend, MongoDB for the database, and AWS S3 to store images."
             src={InstagramThumbnail}
             codeLink="https://github.com/joshwrn/instagram-clone"
             demoLink="https://joshwrn.github.io/instagram-clone/#/"
@@ -71,10 +71,10 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 150px 0 0 0;
+  padding: 150px 40px 0 40px;
   @media only screen and (max-width: 1050px) {
     margin-top: 0vh;
-    padding: 0;
+    padding: 0 40px;
   }
 `;
 

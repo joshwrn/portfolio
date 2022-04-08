@@ -25,7 +25,7 @@ const About = ({ aboutRef, isMobile }) => {
         <SectionContainer>
           <RightContainer>
             <Description>
-              Hi, I'm josh, a passionate self-motivated web developer with 3
+              Hi, I'm Josh, a passionate self-motivated web developer with 3
               years of experience building websites. I'm proficient with React,
               Express.js, and MongoDB. I've used my creativity and
               problem-solving skills to design and implement websites for
@@ -73,10 +73,10 @@ const Container = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 100px 0 0 0;
+  padding: 100px 40px 0 40px;
   position: relative;
   @media only screen and (max-width: 1050px) {
-    padding: 80px 0 0 0;
+    padding: 80px 40px 0 40px;
   }
 `;
 

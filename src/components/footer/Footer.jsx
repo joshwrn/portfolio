@@ -30,11 +30,10 @@ const Footer = ({ isMobile }) => {
         mouseY.set((e.clientY - bounds.y - bounds.height / 2) * 10);
       }}
     >
-      {isMobile === 'false' && (
-        <SceneContainer>
-          <FooterScene mouseX={mouseX} mouseY={mouseY} />
-        </SceneContainer>
-      )}
+      <SceneContainer>
+        <FooterScene mouseX={mouseX} mouseY={mouseY} />
+      </SceneContainer>
+
       <Center>
         <HeaderContainer>
           <Header>Want to get in touch?</Header>
@@ -91,7 +90,7 @@ const Container = styled(motion.div)`
   max-height: 1080px;
   width: 100%;
   overflow: hidden;
-  padding: 100px 0;
+  padding: 100px 40px;
   @media only screen and (max-width: 1050px) {
     height: fit-content;
   }

@@ -114,6 +114,10 @@ const TopSection = styled.div`
   display: flex;
   width: 100%;
   gap: 60px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 `;
 
 // Header
@@ -214,6 +218,10 @@ const Description = styled(Info)`
 const LinksContainer = styled.div`
   display: flex;
   gap: 60px;
+  @media only screen and (max-width: 350px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 `;
 
 const ButtonText = styled.p`

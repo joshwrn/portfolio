@@ -116,11 +116,6 @@ const Container = styled.div`
   width: 100vw;
   height: 100vh;
   max-height: 1080px;
-  @media only screen and (max-width: 1050px) {
-    width: 100vw;
-    transform: translateY(0px);
-    height: 60vh;
-  }
 `;
 
 export default FooterScene;

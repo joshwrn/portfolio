@@ -47,10 +47,11 @@ const Hero = ({ setTop }) => {
 const HeaderContainer = styled.div`
   position: absolute;
   z-index: 2;
+  padding: 0 40px;
 `;
 
 const Header = styled.p`
-  font-size: 6rem;
+  font-size: 5.5rem;
   font-family: ${({ theme }) => theme.main.fontFamily.bold};
 `;
 
@@ -66,17 +67,15 @@ const NavRef = styled.div`
 `;
 
 const HeroContainer = styled(motion.div)`
-  min-height: 150vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   opacity: 1;
   background-color: 'black';
-  @media only screen and (max-width: 1050px) {
-    min-height: 0;
-    min-height: 20vh;
-  }
+
+  min-height: 0;
+  min-height: 20vh;
 `;
 
 const Gradient = styled.div`
