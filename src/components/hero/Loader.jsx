@@ -100,7 +100,7 @@ const styles = {
     justifyContent: 'center',
     transition: 'opacity 1s 1s ease',
     zIndex: 1000,
-    PointerEvents: 'none',
+    pointerEvents: 'none',
   },
   inner: {
     width: 100,

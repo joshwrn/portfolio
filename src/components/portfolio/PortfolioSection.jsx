@@ -31,7 +31,7 @@ const PortfolioSection = ({
                 src={src}
                 justifySelf="flex-end"
                 transition="opacity 0.7s, transform 0.75s"
-                borderRadius="13px"
+                borderRadius="5px"
               />
             </ImageLink>
 

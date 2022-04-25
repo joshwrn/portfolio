@@ -1,17 +1,28 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
 import { Canvas, useThree } from '@react-three/fiber';
 
 import { Text, Float, useProgress } from '@react-three/drei';
-
-import Loader from './Loader';
+import { motion } from 'framer-motion-3d';
+import { MotionConfig } from 'framer-motion';
 
 import BalloonModel from './BalloonModel';
 import Camera from '../reusable/MovableCamera';
 
 import styled from 'styled-components';
 
-const HeroText = ({ text, position }) => {
+const transition = {
+  type: 'spring',
+  duration: 5,
+  delay: 1.4,
+};
+
+const variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
+const HeroText = ({ text, position, isLoaded }) => {
   return (
     <Text
       position={position}
@@ -24,12 +35,30 @@ const HeroText = ({ text, position }) => {
       anchorY="middle"
     >
       {text}
+      <motion.meshStandardMaterial
+        variants={variants}
+        transition={transition}
+        animate={isLoaded ? 'visible' : 'hidden'}
+        initial={false}
+        attach="material"
+      />
     </Text>
   );
 };
 
 const InnerContainer = ({ mouseX, mouseY }) => {
   const { viewport } = useThree();
+  const { progress } = useProgress();
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (progress === 100) {
+      setTimeout(() => {
+        setIsLoaded(true);
+      }, 1500);
+    }
+  }, [progress]);
+
   return (
     <>
       <Camera
@@ -43,15 +72,31 @@ const InnerContainer = ({ mouseX, mouseY }) => {
         damping={15}
       />
       <ambientLight intensity={1.55} />
+
       <group position={[0, 35, 0]} scale={viewport.width / 10.5}>
-        <HeroText text="Josh Warren" position={[-37, 0, 20]} />
-        <HeroText text="Full Stack Web Developer." position={[0, -14, 20]} />
+        <group>
+          <HeroText
+            isLoaded={isLoaded}
+            text="Josh Warren"
+            position={[-37, 0, 20]}
+          />
+          <HeroText
+            isLoaded={isLoaded}
+            text="Full Stack Web Developer."
+            position={[0, -14, 20]}
+          />
+        </group>
         {/* left */}
         <Float speed={0.7} rotationIntensity={0.1} floatIntensity={10}>
           <BalloonModel
             scale={5.1}
             position={[-57, -10, -10]}
             rotation={[0, 0.2, -5.5]}
+            animate={isLoaded ? 'visible' : 'hidden'}
+            variants={{
+              hidden: { y: '-110vh', x: -20 },
+              visible: { y: -10, x: -57 },
+            }}
           />
         </Float>
         {/* top */}
@@ -60,6 +105,11 @@ const InnerContainer = ({ mouseX, mouseY }) => {
             scale={7}
             position={[5, 5, -5.5]}
             rotation={[0, 0.2, -0.1]}
+            animate={isLoaded ? 'visible' : 'hidden'}
+            variants={{
+              hidden: { y: '-110vh', x: 0 },
+              visible: { y: 5, x: 5 },
+            }}
           />
         </Float>
         {/* right */}
@@ -68,6 +118,11 @@ const InnerContainer = ({ mouseX, mouseY }) => {
             scale={5}
             position={[60, -25, -5]}
             rotation={[-0.1, 0.2, 5.9]}
+            animate={isLoaded ? 'visible' : 'hidden'}
+            variants={{
+              hidden: { y: '-110vh', x: 30 },
+              visible: { y: -25, x: 60 },
+            }}
           />
         </Float>
         {/* bottom */}
@@ -76,6 +131,11 @@ const InnerContainer = ({ mouseX, mouseY }) => {
             scale={3.8}
             position={[0, -48, 30]}
             rotation={[0, 0, 0.45]}
+            animate={isLoaded ? 'visible' : 'hidden'}
+            variants={{
+              hidden: { y: '-110vh', x: 0 },
+              visible: { y: -48, x: 0 },
+            }}
           />
         </Float>
         {/* background balloons */}
@@ -84,6 +144,11 @@ const InnerContainer = ({ mouseX, mouseY }) => {
             scale={3}
             position={[80, -75, -20]}
             rotation={[-0.1, 0.2, 5.3]}
+            animate={isLoaded ? 'visible' : 'hidden'}
+            variants={{
+              hidden: { y: '-110vh', x: 50 },
+              visible: { y: -75, x: 80 },
+            }}
           />
         </Float>
         <Float speed={0.5} rotationIntensity={0.1} floatIntensity={25}>
@@ -91,6 +156,11 @@ const InnerContainer = ({ mouseX, mouseY }) => {
             scale={3}
             position={[-80, -65, -20]}
             rotation={[-0.1, 0.2, 0.5]}
+            animate={isLoaded ? 'visible' : 'hidden'}
+            variants={{
+              hidden: { y: '-110vh', x: -50 },
+              visible: { y: -65, x: -80 },
+            }}
           />
         </Float>
       </group>
@@ -107,30 +177,6 @@ const HeroScene = ({ mouseX, mouseY }) => {
             <InnerContainer mouseX={mouseX} mouseY={mouseY} />
           </Canvas>
         </Suspense>
-        <Loader
-          containerStyles={{
-            backgroundColor: 'black',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '100vw',
-            height: '100vh',
-          }}
-          innerStyles={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '100vw',
-            height: '100vh',
-            backgroundColor: 'black',
-          }}
-          barStyles={{
-            width: '20vw',
-            maxWidth: '500px',
-            minWidth: '100px',
-          }}
-          dataStyles={{ display: 'none' }}
-        />
       </Container>
     </ShapesContainer>
   );

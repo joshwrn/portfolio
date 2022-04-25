@@ -3,8 +3,10 @@ import { useInView } from 'react-intersection-observer';
 
 import { useMotionValue, motion } from 'framer-motion';
 import useMeasure from 'react-use-measure';
+import { useProgress } from '@react-three/drei';
+import Loader from './Loader';
 
-import HeroScene from '../../three/hero/HeroSceneMobile';
+import HeroSceneMobile from '../../three/hero/HeroSceneMobile';
 
 import styled from 'styled-components';
 
@@ -16,6 +18,18 @@ const Hero = ({ setTop }) => {
   const [topRef, topView] = useInView({
     threshold: 0.1,
   });
+
+  const { progress } = useProgress();
+
+  useEffect(() => {
+    if (progress === 100) {
+      setTimeout(() => {
+        document.body.classList.remove('stop-scrolling');
+      }, 1500);
+    } else {
+      document.body.classList.add('stop-scrolling');
+    }
+  }, [progress]);
 
   useEffect(() => {
     if (topView) {
@@ -34,12 +48,36 @@ const Hero = ({ setTop }) => {
       }}
     >
       <NavRef ref={topRef} />
+      <Loader
+        containerStyles={{
+          backgroundColor: 'black',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100vw',
+          height: '100vh',
+        }}
+        innerStyles={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100vw',
+          height: '100vh',
+          backgroundColor: 'black',
+        }}
+        barStyles={{
+          width: '20vw',
+          maxWidth: '500px',
+          minWidth: '150px',
+        }}
+        dataStyles={{ display: 'none' }}
+      />
       <HeaderContainer>
         <Header>Josh Warren</Header>
         <SubHeader>Full Stack Web Developer</SubHeader>
       </HeaderContainer>
       <Gradient />
-      <HeroScene mouseX={mouseX} mouseY={mouseY} />
+      <HeroSceneMobile mouseX={mouseX} mouseY={mouseY} />
     </HeroContainer>
   );
 };

@@ -11,6 +11,8 @@ import Bg from '../../assets/images/Untitled-2.jpg';
 
 import styled from 'styled-components';
 
+import Loader from './Loader';
+
 const Hero = ({ setTop }) => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
   const mouseX = useMotionValue(0);
@@ -51,6 +53,31 @@ const Hero = ({ setTop }) => {
       <BackgroundImage progress={progress} src={Bg} />
       <Gradient />
       <HeroScene mouseX={mouseX} mouseY={mouseY} />
+
+      <Loader
+        containerStyles={{
+          backgroundColor: 'black',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100vw',
+          height: '100vh',
+        }}
+        innerStyles={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100vw',
+          height: '100vh',
+          backgroundColor: 'black',
+        }}
+        barStyles={{
+          width: '20vw',
+          maxWidth: '500px',
+          minWidth: '150px',
+        }}
+        dataStyles={{ display: 'none' }}
+      />
     </HeroContainer>
   );
 };
@@ -84,7 +111,7 @@ const BackgroundImage = styled.img`
   width: 100vw;
   height: 100%;
   opacity: ${({ progress }) => (progress === 100 ? 1 : 0)};
-  transition: opacity 1s 1s ease-in-out;
+  transition: opacity 1s 1.5s ease-in-out;
   object-fit: cover;
   object-position: top;
 `;
