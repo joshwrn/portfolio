@@ -7,6 +7,11 @@ import cyrRoman from '../assets/fonts/HelveticaNeueCyr-Roman.woff';
 
 const GlobalStyles = createGlobalStyle`
 
+.stop-scrolling {
+  height: 100vh;
+  overflow: hidden;
+}
+
 @font-face {
   font-family: 'cyrLight';
   src: url(${cyrLight}) format('woff');

@@ -1,8 +1,10 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 
 import { Canvas, useThree } from '@react-three/fiber';
 
-import { Text, Float } from '@react-three/drei';
+import { Text, Float, useProgress } from '@react-three/drei';
+
+import Loader from './Loader';
 
 import BalloonModel from './BalloonModel';
 import Camera from '../reusable/MovableCamera';
@@ -77,16 +79,20 @@ const InnerContainer = ({ mouseX, mouseY }) => {
           />
         </Float>
         {/* background balloons */}
-        <BalloonModel
-          scale={3}
-          position={[80, -75, -20]}
-          rotation={[-0.1, 0.2, 5.3]}
-        />
-        <BalloonModel
-          scale={3}
-          position={[-80, -65, -20]}
-          rotation={[-0.1, 0.2, 0.5]}
-        />
+        <Float speed={0.5} rotationIntensity={0.1} floatIntensity={25}>
+          <BalloonModel
+            scale={3}
+            position={[80, -75, -20]}
+            rotation={[-0.1, 0.2, 5.3]}
+          />
+        </Float>
+        <Float speed={0.5} rotationIntensity={0.1} floatIntensity={25}>
+          <BalloonModel
+            scale={3}
+            position={[-80, -65, -20]}
+            rotation={[-0.1, 0.2, 0.5]}
+          />
+        </Float>
       </group>
     </>
   );
@@ -101,6 +107,30 @@ const HeroScene = ({ mouseX, mouseY }) => {
             <InnerContainer mouseX={mouseX} mouseY={mouseY} />
           </Canvas>
         </Suspense>
+        <Loader
+          containerStyles={{
+            backgroundColor: 'black',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100vw',
+            height: '100vh',
+          }}
+          innerStyles={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'black',
+          }}
+          barStyles={{
+            width: '20vw',
+            maxWidth: '500px',
+            minWidth: '100px',
+          }}
+          dataStyles={{ display: 'none' }}
+        />
       </Container>
     </ShapesContainer>
   );

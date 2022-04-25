@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useProgress } from '@react-three/drei';
 
 import { useMotionValue, motion } from 'framer-motion';
 import useMeasure from 'react-use-measure';
@@ -14,6 +15,17 @@ const Hero = ({ setTop }) => {
   const [mouseRef, bounds] = useMeasure({ scroll: true });
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const { progress } = useProgress();
+
+  useEffect(() => {
+    if (progress === 100) {
+      setTimeout(() => {
+        document.body.classList.remove('stop-scrolling');
+      }, 1500);
+    } else {
+      document.body.classList.add('stop-scrolling');
+    }
+  }, [progress]);
 
   const [topRef, topView] = useInView({
     threshold: 0.1,
@@ -36,6 +48,7 @@ const Hero = ({ setTop }) => {
       }}
     >
       <NavRef ref={topRef} />
+      <BackgroundImage progress={progress} src={Bg} />
       <Gradient />
       <HeroScene mouseX={mouseX} mouseY={mouseY} />
     </HeroContainer>
@@ -57,15 +70,23 @@ const HeroContainer = styled(motion.div)`
   left: 0;
   align-items: center;
   justify-content: center;
-  opacity: 1;
   background-color: 'black';
-  background-image: url(${Bg});
-  background-position: top;
-  background-size: cover;
   width: 100vw;
   @media only screen and (max-width: 1050px) {
     min-height: 0;
   }
+`;
+
+const BackgroundImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  opacity: ${({ progress }) => (progress === 100 ? 1 : 0)};
+  transition: opacity 1s 1s ease-in-out;
+  object-fit: cover;
+  object-position: top;
 `;
 
 const Gradient = styled.div`

@@ -1,6 +1,5 @@
 import { Suspense, useState, useEffect, useRef } from 'react';
 import { Canvas, useThree, useFrame, extend } from '@react-three/fiber';
-import { Loader } from '@react-three/drei';
 import { LaptopScene } from './LaptopScene';
 import styled from 'styled-components';
 
@@ -45,10 +44,6 @@ const Laptop = ({ mouseX, mouseY }) => {
             </BloomContainer>
           </Suspense>
         </Canvas>
-        <Loader
-          containerStyles={{ backgroundColor: 'black' }}
-          dataStyles={{ display: 'none' }}
-        />
       </Container>
     </ShapesContainer>
   );

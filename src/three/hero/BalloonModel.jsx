@@ -13,24 +13,26 @@ const texture = loader.load([
   '/envMaps/corridor/pz.png',
 ]);
 
-function Material() {
-  return <meshPhongMaterial color="#292929" specular="#181818" shininess={0} />;
-}
-
-export default function Model({ hideString, ...props }) {
-  const group = useRef();
-  const { nodes, materials } = useGLTF('../../redBalloon/scene.gltf');
+export default function Model({ ...props }) {
+  const { nodes } = useGLTF('../../redBalloon/scene.gltf');
+  const ref = useRef();
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={ref} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group scale={[1, 1, 2]} position={[-0.41, -0.1, -14.26]}>
           <mesh geometry={nodes['Material_001-material'].geometry}>
-            <Material />
+            <meshPhongMaterial
+              color="#292929"
+              specular="#181818"
+              shininess={0}
+            />
           </mesh>
         </group>
         <group position={[-0.01, 0, 1.48]}>
           <mesh geometry={nodes['Material-material'].geometry}>
             <meshPhysicalMaterial
+              transparent
+              opacity={1}
               reflectivity={0.54}
               color="#242424"
               emissive="#1b1b1b"

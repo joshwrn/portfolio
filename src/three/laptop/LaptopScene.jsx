@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion/three';
+import { motion } from 'framer-motion-3d';
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useSmoothTransform } from '../reusable/use-smooth-transform';
