@@ -37,7 +37,7 @@ const Laptop = ({ mouseX, mouseY }) => {
   return (
     <ShapesContainer>
       <Container>
-        <Canvas dpr={[1, 2]} resize={{ scroll: false, offsetSize: true }}>
+        <Canvas gl={{ logarithmicDepthBuffer: true }} dpr={[1, 2]} resize={{ scroll: false, offsetSize: true }}>
           <Suspense fallback={null}>
             <BloomContainer>
               <LaptopScene mouseX={mouseX} mouseY={mouseY} />
