@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.0690e308.js",
+    "main.js": "/static/js/main.cc70c768.js",
     "static/media/Untitled-2.jpg": "/static/media/Untitled-2.2a6b089e4ddfdb1b2fdd.jpg",
     "static/media/streaks-thumb2.jpg": "/static/media/streaks-thumb2.5dbd30bb1c0a3656a876.jpg",
     "static/media/instagram-thumbnail.jpg": "/static/media/instagram-thumbnail.3ef79e7e7c958eb867ae.jpg",
@@ -10,9 +10,9 @@
     "static/media/HelveticaNeueCyr-Medium.woff": "/static/media/HelveticaNeueCyr-Medium.38778f81253085655aa2.woff",
     "static/media/HelveticaNeueCyr-Bold.woff": "/static/media/HelveticaNeueCyr-Bold.9400dbd219665365aa72.woff",
     "index.html": "/index.html",
-    "main.0690e308.js.map": "/static/js/main.0690e308.js.map"
+    "main.cc70c768.js.map": "/static/js/main.cc70c768.js.map"
   },
   "entrypoints": [
-    "static/js/main.0690e308.js"
+    "static/js/main.cc70c768.js"
   ]
 }
