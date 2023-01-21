@@ -50,7 +50,7 @@ const Hero = ({ setTop }) => {
       }}
     >
       <NavRef ref={topRef} />
-      <BackgroundImage progress={progress} src={Bg} />
+      <BackgroundImage src={Bg} />
       <Gradient />
       <HeroScene mouseX={mouseX} mouseY={mouseY} />
 
@@ -110,8 +110,6 @@ const BackgroundImage = styled.img`
   left: 0;
   width: 100vw;
   height: 100%;
-  opacity: ${({ progress }) => (progress === 100 ? 1 : 0)};
-  transition: opacity 1s 1.5s ease-in-out;
   object-fit: cover;
   object-position: top;
 `;

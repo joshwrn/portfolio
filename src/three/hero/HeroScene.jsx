@@ -11,18 +11,7 @@ import Camera from '../reusable/MovableCamera';
 
 import styled from 'styled-components';
 
-const transition = {
-  type: 'spring',
-  duration: 5,
-  delay: 1.4,
-};
-
-const variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
-};
-
-const HeroText = ({ text, position, isLoaded }) => {
+const HeroText = ({ text, position }) => {
   return (
     <Text
       position={position}
@@ -35,30 +24,13 @@ const HeroText = ({ text, position, isLoaded }) => {
       anchorY="middle"
     >
       {text}
-      <motion.meshStandardMaterial
-        variants={variants}
-        transition={transition}
-        animate={isLoaded ? 'visible' : 'hidden'}
-        initial={false}
-        attach="material"
-      />
+      <motion.meshStandardMaterial />
     </Text>
   );
 };
 
 const InnerContainer = ({ mouseX, mouseY }) => {
   const { viewport } = useThree();
-  const { progress } = useProgress();
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    if (progress === 100) {
-      setTimeout(() => {
-        setIsLoaded(true);
-      }, 1500);
-    }
-  }, [progress]);
-
   return (
     <>
       <Camera
@@ -76,12 +48,10 @@ const InnerContainer = ({ mouseX, mouseY }) => {
       <group position={[0, 35, 0]} scale={viewport.width / 10.5}>
         <group>
           <HeroText
-            isLoaded={isLoaded}
             text="Josh Warren"
             position={[-37, 0, 20]}
           />
           <HeroText
-            isLoaded={isLoaded}
             text="Full Stack Web Developer."
             position={[0, -14, 20]}
           />
@@ -92,11 +62,7 @@ const InnerContainer = ({ mouseX, mouseY }) => {
             scale={5.1}
             position={[-57, -10, -10]}
             rotation={[0, 0.2, -5.5]}
-            animate={isLoaded ? 'visible' : 'hidden'}
-            variants={{
-              hidden: { y: '-110vh', x: -20 },
-              visible: { y: -10, x: -57 },
-            }}
+            animate='visible' 
           />
         </Float>
         {/* top */}
@@ -105,11 +71,7 @@ const InnerContainer = ({ mouseX, mouseY }) => {
             scale={7}
             position={[5, 5, -5.5]}
             rotation={[0, 0.2, -0.1]}
-            animate={isLoaded ? 'visible' : 'hidden'}
-            variants={{
-              hidden: { y: '-110vh', x: 0 },
-              visible: { y: 5, x: 5 },
-            }}
+            animate='visible' 
           />
         </Float>
         {/* right */}
@@ -117,12 +79,7 @@ const InnerContainer = ({ mouseX, mouseY }) => {
           <BalloonModel
             scale={5}
             position={[60, -25, -5]}
-            rotation={[-0.1, 0.2, 5.9]}
-            animate={isLoaded ? 'visible' : 'hidden'}
-            variants={{
-              hidden: { y: '-110vh', x: 30 },
-              visible: { y: -25, x: 60 },
-            }}
+            rotation={[-0.1, 0.2, 5.9]}   
           />
         </Float>
         {/* bottom */}
@@ -131,11 +88,6 @@ const InnerContainer = ({ mouseX, mouseY }) => {
             scale={3.8}
             position={[0, -48, 30]}
             rotation={[0, 0, 0.45]}
-            animate={isLoaded ? 'visible' : 'hidden'}
-            variants={{
-              hidden: { y: '-110vh', x: 0 },
-              visible: { y: -48, x: 0 },
-            }}
           />
         </Float>
         {/* background balloons */}
@@ -144,11 +96,6 @@ const InnerContainer = ({ mouseX, mouseY }) => {
             scale={3}
             position={[80, -75, -20]}
             rotation={[-0.1, 0.2, 5.3]}
-            animate={isLoaded ? 'visible' : 'hidden'}
-            variants={{
-              hidden: { y: '-110vh', x: 50 },
-              visible: { y: -75, x: 80 },
-            }}
           />
         </Float>
         <Float speed={0.5} rotationIntensity={0.1} floatIntensity={25}>
@@ -156,11 +103,6 @@ const InnerContainer = ({ mouseX, mouseY }) => {
             scale={3}
             position={[-80, -65, -20]}
             rotation={[-0.1, 0.2, 0.5]}
-            animate={isLoaded ? 'visible' : 'hidden'}
-            variants={{
-              hidden: { y: '-110vh', x: -50 },
-              visible: { y: -65, x: -80 },
-            }}
           />
         </Float>
       </group>
