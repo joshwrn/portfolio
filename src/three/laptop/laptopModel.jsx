@@ -1,16 +1,18 @@
-import React, { useRef } from 'react';
-import { useGLTF } from '@react-three/drei';
+import React, { useRef } from 'react'
+import { useGLTF } from '@react-three/drei'
 
-import { useFrame } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber'
 
 export default function Model({ ...props }) {
-  const group = useRef();
-  const screen = useRef();
-  const { nodes, materials } = useGLTF('../../laptop/scene.gltf');
+  const group = useRef()
+  const screen = useRef()
+  const { nodes, materials } = useGLTF(
+    'https://joshwrn.github.io/portfolio/laptop/scene.gltf'
+  )
 
   useFrame(({ clock }) => {
-    group.current.position.y = Math.sin(clock.getElapsedTime() * 1) * 0.45 - 5;
-  });
+    group.current.position.y = Math.sin(clock.getElapsedTime() * 1) * 0.45 - 5
+  })
 
   return (
     <group
@@ -47,7 +49,7 @@ export default function Model({ ...props }) {
         </group>
       </group>
     </group>
-  );
+  )
 }
 
-useGLTF.preload('../../laptop/scene.gltf');
+useGLTF.preload('https://joshwrn.github.io/portfolio/laptop/scene.gltf')

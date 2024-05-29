@@ -1,30 +1,32 @@
-import React, { useRef } from 'react';
-import { useGLTF } from '@react-three/drei';
-import * as THREE from 'three';
-import { CubeTextureLoader } from 'three';
+import React, { useRef } from 'react'
+import { useGLTF } from '@react-three/drei'
+import * as THREE from 'three'
+import { CubeTextureLoader } from 'three'
 
-import { motion } from 'framer-motion-3d';
-import { MotionConfig } from 'framer-motion';
+import { motion } from 'framer-motion-3d'
+import { MotionConfig } from 'framer-motion'
 
-const loader = new CubeTextureLoader();
+const loader = new CubeTextureLoader()
 const texture = loader.load([
-  '/envMaps/corridor/nx.png',
-  '/envMaps/corridor/ny.png',
-  '/envMaps/corridor/nz.png',
-  '/envMaps/corridor/px.png',
-  '/envMaps/corridor/py.png',
-  '/envMaps/corridor/pz.png',
-]);
+  'https://joshwrn.github.io/portfolio/envMaps/corridor/nx.png',
+  'https://joshwrn.github.io/portfolio/envMaps/corridor/ny.png',
+  'https://joshwrn.github.io/portfolio/envMaps/corridor/nz.png',
+  'https://joshwrn.github.io/portfolio/envMaps/corridor/px.png',
+  'https://joshwrn.github.io/portfolio/envMaps/corridor/py.png',
+  'https://joshwrn.github.io/portfolio/envMaps/corridor/pz.png',
+])
 
 const transition = {
   type: 'spring',
   duration: 7,
   bounce: 0.4,
-};
+}
 
 export default function Model({ animate, variants, ...props }) {
-  const { nodes } = useGLTF('../../redBalloon/scene.gltf');
-  const ref = useRef();
+  const { nodes } = useGLTF(
+    'https://joshwrn.github.io/portfolio/redBalloon/scene.gltf'
+  )
+  const ref = useRef()
   return (
     <MotionConfig transition={transition}>
       <motion.group
@@ -64,7 +66,7 @@ export default function Model({ animate, variants, ...props }) {
         </group>
       </motion.group>
     </MotionConfig>
-  );
+  )
 }
 
-useGLTF.preload('../../redBalloon/scene.gltf');
+useGLTF.preload('https://joshwrn.github.io/portfolio/redBalloon/scene.gltf')
